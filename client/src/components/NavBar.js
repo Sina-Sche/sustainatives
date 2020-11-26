@@ -15,11 +15,9 @@ const Footer = styled.footer`
 
 const IconButton = styled.button`
   background: none;
-  color: var(--icon-inactive-color);
   border: none;
 `;
 const Img = styled.img`
-  color: red;
   height: 30px;
 `;
 
