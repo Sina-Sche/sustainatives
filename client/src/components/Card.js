@@ -2,6 +2,7 @@ import styled from "styled-components/macro";
 import PropTypes from "prop-types";
 import BambookImg from "../assets/images/bambook.jpg";
 import CoffeeImg from "../assets/images/coffeecapsules.jpg";
+import FavIcon from "../assets/icons/favorite.svg";
 import { TextContainer } from "../components/TextContainer";
 
 const Container = styled.div`
@@ -24,7 +25,14 @@ const ImgContainer = styled.div`
 const Img = styled.img`
   border-radius: 20%;
   width: 280px;
-  align-self: center;
+`;
+
+const Icon = styled.img`
+  height: 40px;
+  width: 50px;
+  position: absolute;
+  right: 5%;
+  top: 5%;
 `;
 
 export const Card = ({ title, primary }) => {
@@ -34,6 +42,7 @@ export const Card = ({ title, primary }) => {
       <h2>Our Pick of the Day</h2>
       <ImgContainer>
         <Img src={image} alt="Bambook" />
+        <Icon src={FavIcon} alt="Favorites" />
         <TextContainer title={title} />
       </ImgContainer>
     </Container>
