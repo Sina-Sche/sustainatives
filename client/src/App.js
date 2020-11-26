@@ -1,6 +1,7 @@
 import React from "react";
 import logo from "./logo.svg";
 import GlobalStyle from "./GlobalStyle";
+import { NavBar } from "./components/NavBar";
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
         <h1>SustainAtives</h1>
         <img src={logo} className="App-logo" alt="logo" />
       </header>
+      <NavBar />
     </div>
   );
 }

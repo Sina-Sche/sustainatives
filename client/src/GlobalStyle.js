@@ -1,5 +1,5 @@
 import { createGlobalStyle } from "styled-components/macro";
-import LaurenPremier from "./fonts/LaurenPremier.woff2";
+import LaurenPremier from "./assets/fonts/LaurenPremier.woff2";
 
 const GlobalStyle = createGlobalStyle`
 *,
