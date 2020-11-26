@@ -31,18 +31,13 @@ body
   color: var(--info-text-color)
 
 }
-/* button, textarea{
-  font-family: 'Montserrat', sans-serif;
-} */
 
 h1 {
     font-family: 'LaurenPremier';
     font-size: 1,7rem;
     color: var(--secondary-color);
 }
-h3{
-  margin: 5px
-}
+
 `;
 
 export default GlobalStyle;
