@@ -7,4 +7,7 @@ export default {
 
 const Template = (args) => <Card {...args} />;
 
-export const Empty = Template.bind({});
+export const TextCard = Template.bind({});
+TextCard.args = {
+  title: "Bambook",
+};

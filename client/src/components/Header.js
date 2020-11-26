@@ -1,6 +1,6 @@
-import styled from "styled-components/macro";
 import PropTypes from "prop-types";
 import MenuIcon from "../assets/icons/menu.svg";
+import styled from "styled-components/macro";
 
 const HeaderContainer = styled.div`
   height: 62px;

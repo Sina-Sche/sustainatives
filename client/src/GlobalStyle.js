@@ -36,12 +36,26 @@ body
   color: var(--info-text-color)
 
 }
+main{
+  margin: 0;
+  padding: 0;
+}
 
-h1 {
+h1, h2, h3 {
     font-family: 'LaurenPremier';
     font-size: 1,7rem;
     color: var(--secondary-color);
+    text-align: center;
 }
+h2{
+    font-size: 1,5rem;
+    color: var(--primary-color);
+}
+h3{
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+}
+
 
 `;
 
