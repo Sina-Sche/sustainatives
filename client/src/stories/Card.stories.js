@@ -7,7 +7,14 @@ export default {
 
 const Template = (args) => <Card {...args} />;
 
-export const TextCard = Template.bind({});
-TextCard.args = {
+export const BambookCard = Template.bind({});
+BambookCard.args = {
+  primary: true,
   title: "Bambook",
+};
+
+export const CoffeeCard = Template.bind({});
+CoffeeCard.args = {
+  primary: false,
+  title: "Coffee Capsules",
 };

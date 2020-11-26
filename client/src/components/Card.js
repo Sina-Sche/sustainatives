@@ -1,6 +1,7 @@
 import styled from "styled-components/macro";
 import PropTypes from "prop-types";
 import BambookImg from "../assets/images/bambook.jpg";
+import CoffeeImg from "../assets/images/coffeecapsules.jpg";
 import { TextContainer } from "../components/TextContainer";
 
 const Container = styled.div`
@@ -26,12 +27,13 @@ const Img = styled.img`
   align-self: center;
 `;
 
-export const Card = ({ title }) => {
+export const Card = ({ title, primary }) => {
+  let image = primary ? BambookImg : CoffeeImg;
   return (
     <Container>
       <h2>Our Pick of the Day</h2>
       <ImgContainer>
-        <Img src={BambookImg} alt="Bambook" />
+        <Img src={image} alt="Bambook" />
         <TextContainer title={title} />
       </ImgContainer>
     </Container>
@@ -40,4 +42,5 @@ export const Card = ({ title }) => {
 
 Card.propTypes = {
   title: PropTypes.string,
+  primary: PropTypes.bool,
 };
