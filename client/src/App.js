@@ -1,5 +1,4 @@
 import React from "react";
-import logo from "./logo.svg";
 import GlobalStyle from "./GlobalStyle";
 
 function App() {
@@ -7,8 +6,8 @@ function App() {
     <div className="App">
       <GlobalStyle />
       <header className="App-header">
-        {/* <h1>SustainAtives</h1>
-        <img src={logo} className="App-logo" alt="logo" /> */}
+        <h1>SustainAtives</h1>
+        <a href="/.storybook">To Storybook</a>
       </header>
     </div>
   );

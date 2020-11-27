@@ -6,6 +6,8 @@ const GlobalStyle = createGlobalStyle`
   *::after,
   *::before {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
   }
 @font-face {
     font-family: LaurenPremier;
@@ -21,24 +23,14 @@ const GlobalStyle = createGlobalStyle`
     --info-text-color:#565959;
     --font-size: 16px;
 }
-html{
-  margin: 0;
-  padding: 0;
-}
+
 body
- {
-  margin: 0;
-  padding:0;
-  font-size: 16px;
+ { font-size: 16px;
   font-family: "Trebuchet", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: var(--info-text-color)
 
-}
-main{
-  margin: 0;
-  padding: 0;
 }
 
 h1, h2, h3 {

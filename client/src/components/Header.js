@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import MenuIcon from "../assets/icons/menu.svg";
 import styled from "styled-components/macro";
 
-const HeaderContainer = styled.div`
+const HeaderContainer = styled.header`
   height: 62px;
   width: 100vw;
   padding: 0;

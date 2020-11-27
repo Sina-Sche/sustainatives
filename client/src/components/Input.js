@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import SearchIcon from "../assets/icons/search.svg";
 import styled from "styled-components/macro";
 
-const InputContainer = styled.div`
+const InputContainer = styled.form`
   width: 80%;
   margin: 10px;
   border: 1px solid #027368;
@@ -19,6 +19,7 @@ const Img = styled.img`
 const InputField = styled.input`
   border: none;
   height: 40px;
+  width: 90%;
   margin-left: 50px;
 `;
 

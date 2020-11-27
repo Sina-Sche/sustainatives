@@ -6,7 +6,7 @@ import HeartIcon from "../assets/icons/heart-inactive.svg";
 
 import styled from "styled-components/macro";
 
-const Footer = styled.footer`
+const Footer = styled.nav`
   height: 62px;
   background: var(--primary-color);
   display: flex;
