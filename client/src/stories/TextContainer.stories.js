@@ -6,7 +6,10 @@ export default {
 };
 const Template = (args) => <TextContainer {...args} />;
 
-export const TextEmpty = () => <TextContainer />;
+export const TextExample = Template.bind({});
+TextExample.args = {
+  title: "Lorem Ipsum",
+};
 
 export const TextField = Template.bind({});
 TextField.args = {
