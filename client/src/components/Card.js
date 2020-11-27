@@ -6,7 +6,7 @@ import FavIcon from "../assets/icons/favorite.svg";
 import { TextContainer } from "../components/TextContainer";
 
 const Container = styled.div`
-  width: 100vw;
+  width: 100%;
   background-image: linear-gradient(120deg, #4d868c, #027368);
   display: flex;
   flex-direction: column;
