@@ -6,7 +6,7 @@ export default {
 };
 const Template = (args) => <ProductCard {...args} />;
 
-export const ProductOneCard = Template.bind({});
-ProductCard.args = {
+export const ProductCardA = Template.bind({});
+ProductCardA.args = {
   title: "Hairbrush",
 };

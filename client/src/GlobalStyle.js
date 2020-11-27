@@ -47,9 +47,6 @@ h3{
     font-size: 1.5rem;
     color: var(--secondary-color);
 }
-
-
-
 `;
 
 export default GlobalStyle;
