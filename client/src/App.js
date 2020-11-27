@@ -7,7 +7,7 @@ function App() {
       <GlobalStyle />
       <header className="App-header">
         <h1>SustainAtives</h1>
-        <a href="/.storybook">To Storybook</a>
+        <a href="/storybook">To Storybook</a>
       </header>
     </div>
   );
