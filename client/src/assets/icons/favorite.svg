@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="60" height="55" viewBox="0 0 60 55">
+  <g id="Gruppe_146" data-name="Gruppe 146" transform="translate(0 0)">
+    <g id="Gruppe_90" data-name="Gruppe 90" transform="translate(0 0)">
+      <g id="Gruppe_86" data-name="Gruppe 86" transform="translate(0 0)">
+        <g id="Gruppe_87" data-name="Gruppe 87" transform="translate(0 0)">
+          <path id="Pfad_86" data-name="Pfad 86" d="M27.5,0h5a27.5,27.5,0,0,1,0,55h-5a27.5,27.5,0,0,1,0-55Z" transform="translate(0 0)" fill="#00766a"/>
+        </g>
+      </g>
+      <g id="Gruppe_61" data-name="Gruppe 61" transform="translate(16.672 17.078)" style="isolation: isolate">
+        <path id="Icon_awesome-heart" data-name="Icon awesome-heart" d="M22.584,3.744a6.681,6.681,0,0,0-9.116.664l-.962.992-.962-.992a6.68,6.68,0,0,0-9.116-.664A7.015,7.015,0,0,0,1.944,13.9L11.4,23.661a1.532,1.532,0,0,0,2.213,0L23.063,13.9a7.01,7.01,0,0,0-.479-10.156Z" transform="translate(0.001 -2.248)" fill="#fff"/>
+      </g>
+    </g>
+  </g>
+</svg>

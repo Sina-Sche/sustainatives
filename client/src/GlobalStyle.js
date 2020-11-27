@@ -1,11 +1,13 @@
 import { createGlobalStyle } from "styled-components/macro";
-import LaurenPremier from "./fonts/LaurenPremier.woff2";
+import LaurenPremier from "./assets/fonts/LaurenPremier.woff2";
 
 const GlobalStyle = createGlobalStyle`
 *,
   *::after,
   *::before {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
   }
 @font-face {
     font-family: LaurenPremier;
@@ -21,10 +23,9 @@ const GlobalStyle = createGlobalStyle`
     --info-text-color:#565959;
     --font-size: 16px;
 }
+
 body
- {
-  margin: 0;
-  font-size: 16px;
+ { font-size: 16px;
   font-family: "Trebuchet", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -32,11 +33,22 @@ body
 
 }
 
-h1 {
+h1, h2, h3 {
     font-family: 'LaurenPremier';
     font-size: 1,7rem;
     color: var(--secondary-color);
+    text-align: center;
 }
+h2{
+    font-size: 1,5rem;
+    color: var(--primary-color);
+}
+h3{
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+}
+
+
 
 `;
 

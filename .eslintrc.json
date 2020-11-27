@@ -9,6 +9,8 @@
     "ecmaVersion": 12
   },
   "rules": {
+    "react/react-in-jsx-scope": "off",
+    "import/no-anonymous-default-export": "off",
     "no-unused-vars": [
       "warn",
       { "vars": "all", "args": "all", "ignoreRestSiblings": true }
