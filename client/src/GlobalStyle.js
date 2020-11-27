@@ -38,6 +38,8 @@ h1, h2, h3 {
     font-size: 1,7rem;
     color: var(--secondary-color);
     text-align: center;
+    padding: 5px;
+ 
 }
 h2{
     font-size: 1,5rem;

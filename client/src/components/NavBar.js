@@ -6,11 +6,14 @@ import HeartIcon from "../assets/icons/heart-inactive.svg";
 
 import styled from "styled-components/macro";
 
-const Footer = styled.nav`
+const Footer = styled.footer`
   height: 62px;
+  width: 100%;
   background: var(--primary-color);
   display: flex;
   justify-content: space-around;
+  position: fixed;
+  bottom: 0;
 `;
 
 const IconButton = styled.button`
