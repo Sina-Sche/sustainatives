@@ -3,16 +3,13 @@ import PropTypes from "prop-types";
 
 const Container = styled.div`
   display: flex;
+  position: absolute;
+  align-self: flex-end;
   justify-content: center;
-  align-items: center;
+  width: 80%;
+  margin: 10px;
   border-radius: 50px;
   background: rgba(255, 255, 255, 0.9);
-  width: 220px;
-  height: 40px;
-  position: absolute;
-  justify-content: center;
-  bottom: 10%;
-  left: 15%;
   border: 2px solid var(--secondary-color);
 `;
 

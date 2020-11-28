@@ -7,7 +7,7 @@ export const HomePage = () => {
   return (
     <>
       <Header title={"SustainAtives"} />
-      <Card title={"Bambook"} />
+      <Card title={"Bambook Notebook"} />
       <ProductList />
       <NavBar />
     </>
