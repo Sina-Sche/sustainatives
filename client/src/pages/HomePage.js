@@ -1,5 +1,5 @@
 import { Header } from "../components/Header";
-import { Card } from "../components/Card";
+import { Card } from "../components/LargeCard";
 import { ProductList } from "../components/ProductList";
 import { NavBar } from "../components/NavBar";
 
