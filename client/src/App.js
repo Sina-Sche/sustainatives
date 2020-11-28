@@ -1,15 +1,17 @@
-import React from "react";
 import GlobalStyle from "./GlobalStyle";
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import { HomePage } from "./pages/HomePage";
 
 function App() {
   return (
-    <div className="App">
+    <Router>
       <GlobalStyle />
-      <header className="App-header">
-        <h1>SustainAtives</h1>
-        <a href="/storybook">To Storybook</a>
-      </header>
-    </div>
+      <Switch>
+        <Route exact path="/">
+          <HomePage />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 

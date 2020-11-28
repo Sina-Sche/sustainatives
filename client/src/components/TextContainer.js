@@ -10,8 +10,9 @@ const Container = styled.div`
   width: 220px;
   height: 40px;
   position: absolute;
+  justify-content: center;
   bottom: 10%;
-  left: 10%;
+  left: 15%;
   border: 2px solid var(--secondary-color);
 `;
 

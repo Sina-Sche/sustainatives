@@ -15,6 +15,7 @@ const Container = styled.div`
 
 const ImgContainer = styled.div`
   display: flex;
+  width: 93%;
   align-self: center;
   padding-bottom: 20px;
   border-radius: 20%;
@@ -23,13 +24,13 @@ const ImgContainer = styled.div`
 `;
 
 const Img = styled.img`
-  border-radius: 20%;
-  width: 280px;
+  border-radius: 15%;
+  width: 100%;
 `;
 
 const Icon = styled.img`
-  height: 40px;
-  width: 50px;
+  height: 50px;
+  width: 60px;
   position: absolute;
   right: 5%;
   top: 5%;
