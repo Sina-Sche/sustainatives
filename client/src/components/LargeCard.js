@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import BambookImg from "../assets/images/bambook.jpg";
 import CoffeeImg from "../assets/images/coffeecapsules.jpg";
 import FavIcon from "../assets/icons/favorite.svg";
-import { TextContainer } from "../components/TextContainer";
+import { TextContainer } from "./TextContainer";
 
 const Container = styled.div`
   width: 100%;
@@ -39,7 +39,7 @@ const Icon = styled.img`
   top: 5%;
 `;
 
-export const Card = ({ title, primary }) => {
+export const LargeCard = ({ title, primary }) => {
   let image = primary ? BambookImg : CoffeeImg;
   return (
     <Container>
@@ -53,11 +53,11 @@ export const Card = ({ title, primary }) => {
   );
 };
 
-Card.propTypes = {
+LargeCard.propTypes = {
   title: PropTypes.string,
   primary: PropTypes.bool,
 };
 
-Card.defaultProps = {
+LargeCard.defaultProps = {
   primary: true,
 };
