@@ -24,13 +24,12 @@ const GlobalStyle = createGlobalStyle`
     --font-size: 16px;
 }
 
-body
- { font-size: 16px;
+body { 
+  font-size: 1rem;
   font-family: "Trebuchet", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: var(--info-text-color)
-
 }
 
 h1, h2, h3 {
@@ -48,6 +47,13 @@ h2{
 h3{
     font-size: 1.5rem;
     color: var(--secondary-color);
+}
+
+h4{
+  font-size: 1rem;
+  font-family: 'LaurenPremier';
+  color: var(--info-text-color);
+  padding: 3px;
 }
 `;
 
