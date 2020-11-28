@@ -5,6 +5,8 @@ const ListContainer = styled.ul`
   display: grid;
   grid-template-columns: 1fr 1fr;
   list-style: none;
+  padding-bottom: 70px;
+  padding-top: 15px;
 `;
 
 export const ProductList = () => {

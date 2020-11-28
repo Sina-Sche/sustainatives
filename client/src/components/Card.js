@@ -11,6 +11,9 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  > :last-child {
+    justify-content: center;
+  }
 `;
 
 const ImgContainer = styled.div`
@@ -53,4 +56,8 @@ export const Card = ({ title, primary }) => {
 Card.propTypes = {
   title: PropTypes.string,
   primary: PropTypes.bool,
+};
+
+Card.defaultProps = {
+  primary: true,
 };

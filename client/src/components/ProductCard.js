@@ -13,10 +13,10 @@ const TextContainerSmall = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background: rgba(255, 255, 255, 0.9);
+  align-self: center;
   position: absolute;
-  top: 40%;
-  left: 18%;
+  width: 80%;
+  background: rgba(255, 255, 255, 0.9);
   border: 1px solid var(--secondary-color);
   border-radius: 50px;
 `;
