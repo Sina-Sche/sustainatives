@@ -1,9 +1,8 @@
-import React from "react";
-import HomeIcon from "../assets/icons/home-inactive.svg";
-import SearchIcon from "../assets/icons/search-inactive.svg";
-import AddIcon from "../assets/icons/plus-inactive.svg";
-import HeartIcon from "../assets/icons/heart-inactive.svg";
-
+import { Link, useLocation } from "react-router-dom";
+import { ReactComponent as Home } from "../assets/icons/home.svg";
+import { ReactComponent as Search } from "../assets/icons/search-inactive.svg";
+import { ReactComponent as Add } from "../assets/icons/plus-inactive.svg";
+import { ReactComponent as Heart } from "../assets/icons/heart-inactive.svg";
 import styled from "styled-components/macro";
 
 const Footer = styled.nav`
@@ -16,29 +15,49 @@ const Footer = styled.nav`
   bottom: 0;
 `;
 
-const IconButton = styled.button`
-  background: none;
-  border: none;
+const HomeIcon = styled(Home)`
+  height: 40px;
+  width: 40px;
+  fill: ${(props) =>
+    props.active ? `var(--icon-active-color)` : `var(--icon-inactive-color)`};
 `;
-const Img = styled.img`
-  height: 30px;
+const SearchIcon = styled(Search)`
+  height: 40px;
+  width: 40px;
+  fill: ${(props) =>
+    props.active ? `var(--icon-active-color)` : `var(--icon-inactive-color)`};
+`;
+const AddIcon = styled(Add)`
+  height: 40px;
+  width: 40px;
+  fill: ${(props) =>
+    props.active ? `var(--icon-active-color)` : `var(--icon-inactive-color)`};
+`;
+const HeartIcon = styled(Heart)`
+  height: 40px;
+  width: 40px;
+  fill: ${(props) =>
+    props.active ? `var(--icon-active-color)` : `var(--icon-inactive-color)`};
 `;
 
 export const NavBar = () => {
+  const location = useLocation();
+  console.log(location.pathname);
+
   return (
     <Footer>
-      <IconButton>
-        <Img src={HomeIcon} alt="Home" />
-      </IconButton>
-      <IconButton>
-        <Img src={SearchIcon} alt="Search" />
-      </IconButton>
-      <IconButton>
-        <Img src={AddIcon} alt="Search" />
-      </IconButton>
-      <IconButton>
-        <Img src={HeartIcon} alt="Search" />
-      </IconButton>
+      <Link to={"/"}>
+        <HomeIcon active={location.pathname === "/"} />
+      </Link>
+      <Link to={"/search"}>
+        <SearchIcon active={location.pathname === "/search"} />
+      </Link>
+      <Link to={"/add"}>
+        <AddIcon active={location.pathname === "/add"} />
+      </Link>
+      <Link to={"/favorites"}>
+        <HeartIcon active={location.pathname === "/favorites"} />
+      </Link>
     </Footer>
   );
 };
