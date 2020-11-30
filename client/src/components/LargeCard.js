@@ -47,7 +47,6 @@ export const LargeCard = ({ title }) => {
   const handleClick = () => {
     setIsFavorite(!isFavorite);
   };
-  console.log(isFavorite);
   return (
     <Container>
       <h2>Our Pick of the Day</h2>
