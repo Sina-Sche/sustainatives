@@ -1,4 +1,4 @@
-import { ProductCard } from "../components/ProductCard";
+import ProductCard from "../components/ProductCard";
 import styled from "styled-components/macro";
 
 const ListContainer = styled.ul`
@@ -9,7 +9,7 @@ const ListContainer = styled.ul`
   padding-top: 15px;
 `;
 
-export const ProductList = () => {
+const ProductList = () => {
   return (
     <ListContainer>
       <li>
@@ -33,3 +33,5 @@ export const ProductList = () => {
     </ListContainer>
   );
 };
+
+export default ProductList;

@@ -1,7 +1,7 @@
-import { Header } from "../components/Header";
-import { Input } from "../components/Input";
-import { CategoryList } from "../components/CategoryList";
-import { NavBar } from "../components/NavBar";
+import Header from "../components/Header";
+import Input from "../components/Input";
+import CategoryList from "../components/CategoryList";
+import NavBar from "../components/NavBar";
 export const SearchPage = () => {
   return (
     <>

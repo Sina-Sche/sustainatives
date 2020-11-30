@@ -16,23 +16,25 @@ const HeaderContainer = styled.header`
 const MenuButton = styled.button`
   background: none;
   border: none;
-`;
-const Img = styled.img`
-  height: 30px;
-  padding-right: 20px;
+  img {
+    height: 30px;
+    padding-right: 20px;
+  }
 `;
 
-export const Header = ({ title }) => {
+const Header = ({ title }) => {
   return (
     <HeaderContainer>
       <MenuButton>
-        <Img src={MenuIcon} alt="Menu" />
+        <img src={MenuIcon} alt="Menu" />
       </MenuButton>
       <h1>{title}</h1>
-      <Img src={LeafIcon} alt="Leaf" />
+      <img src={LeafIcon} alt="Leaf" />
     </HeaderContainer>
   );
 };
+
+export default Header;
 
 Header.propTypes = {
   title: PropTypes.string.isRequired,

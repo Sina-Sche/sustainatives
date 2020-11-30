@@ -1,4 +1,4 @@
-import styled from "styled-components/macro";
+import styled, { css } from "styled-components/macro";
 import PropTypes from "prop-types";
 import { ReactComponent as Bamboo } from "../assets/icons/bamboo.svg";
 import { ReactComponent as Travel } from "../assets/icons/travel.svg";
@@ -17,7 +17,14 @@ const ListContainer = styled.ul`
   grid-template-rows: 1fr 1fr;
 `;
 
-const BambooIcon = styled(Bamboo)`
+const Icon = css`
+  height: 60px;
+  width: 60px;
+  fill: ${(props) =>
+    props.active ? "var(--icon-active-color)" : "var(--icon-inactive-color)"};
+`;
+
+const BambooIcon = styled(Icon)`
   height: 60px;
   width: 60px;
   fill: ${(props) =>
@@ -66,7 +73,7 @@ const ReuseIcon = styled(Reuse)`
     props.active ? "var(--icon-active-color)" : "var(--icon-inactive-color)"};
 `;
 
-export const CategoryList = ({ active }) => {
+const CategoryList = ({ active }) => {
   return (
     <ListContainer>
       <li>
@@ -104,6 +111,8 @@ export const CategoryList = ({ active }) => {
     </ListContainer>
   );
 };
+
+export default CategoryList;
 CategoryList.propTypes = {
   title: PropTypes.string,
   active: PropTypes.bool,

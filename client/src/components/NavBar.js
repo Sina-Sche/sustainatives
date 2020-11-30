@@ -44,7 +44,7 @@ const HeartIcon = styled(Heart)`
     props.active ? `var(--icon-active-color)` : `var(--icon-inactive-color)`};
 `;
 
-export const NavBar = () => {
+const NavBar = () => {
   const location = useLocation();
 
   return (
@@ -64,3 +64,5 @@ export const NavBar = () => {
     </Footer>
   );
 };
+
+export default NavBar;

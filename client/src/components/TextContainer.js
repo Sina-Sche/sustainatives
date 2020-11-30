@@ -12,14 +12,15 @@ const Container = styled.div`
   background: rgba(255, 255, 255, 0.9);
   border: 2px solid var(--secondary-color);
 `;
-
-export const TextContainer = ({ title }) => {
+const TextContainer = ({ title }) => {
   return (
     <Container>
       <h3>{title}</h3>
     </Container>
   );
 };
+
+export default TextContainer;
 
 TextContainer.propTypes = {
   title: PropTypes.string,

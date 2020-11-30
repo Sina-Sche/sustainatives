@@ -23,7 +23,7 @@ const InputField = styled.input`
   margin-left: 50px;
 `;
 
-export const Input = ({ placeholder }) => {
+const Input = ({ placeholder }) => {
   return (
     <InputContainer>
       <InputField placeholder={placeholder} />
@@ -31,6 +31,7 @@ export const Input = ({ placeholder }) => {
     </InputContainer>
   );
 };
+export default Input;
 
 Input.propTypes = {
   placeholder: PropTypes.string,

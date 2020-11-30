@@ -27,7 +27,7 @@ const Img = styled.img`
   border-radius: 20%;
   height: auto;
 `;
-export const ProductCard = ({ title }) => {
+const ProductCard = ({ title }) => {
   return (
     <Container>
       <Img src={HairbrushImg} alt="Hairbrush" />
@@ -37,6 +37,7 @@ export const ProductCard = ({ title }) => {
     </Container>
   );
 };
+export default ProductCard;
 
 ProductCard.propTypes = {
   title: PropTypes.string,
