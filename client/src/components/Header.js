@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import MenuIcon from "../assets/icons/menu.svg";
 import styled from "styled-components/macro";
-import SearchIcon from "../assets/icons/search.svg";
+import LeafIcon from "../assets/icons/leaf.svg";
 
 const HeaderContainer = styled.header`
   height: 62px;
@@ -16,14 +16,10 @@ const HeaderContainer = styled.header`
 const MenuButton = styled.button`
   background: none;
   border: none;
-  justify-content: flex-start;
 `;
 const Img = styled.img`
   height: 30px;
   padding-right: 20px;
-`;
-const Heading = styled.h1`
-  justify-content: center;
 `;
 
 export const Header = ({ title }) => {
@@ -32,10 +28,8 @@ export const Header = ({ title }) => {
       <MenuButton>
         <Img src={MenuIcon} alt="Menu" />
       </MenuButton>
-      <Heading>{title}</Heading>
-      <MenuButton>
-        <Img src={SearchIcon} alt="Menu" />
-      </MenuButton>
+      <h1>{title}</h1>
+      <Img src={LeafIcon} alt="Leaf" />
     </HeaderContainer>
   );
 };
