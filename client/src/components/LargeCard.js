@@ -1,9 +1,10 @@
 import styled from "styled-components/macro";
 import PropTypes from "prop-types";
 import BambookImg from "../assets/images/bambook.jpg";
-import CoffeeImg from "../assets/images/coffeecapsules.jpg";
-import FavIcon from "../assets/icons/favorite.svg";
+import { ReactComponent as FavIcon } from "../assets/icons/favorite.svg";
+import { ReactComponent as FavIconCheck } from "../assets/icons/favorite-added.svg";
 import { TextContainer } from "./TextContainer";
+import { useState } from "react";
 
 const Container = styled.div`
   width: 100%;
@@ -31,7 +32,9 @@ const Img = styled.img`
   width: 100%;
 `;
 
-const Icon = styled.img`
+const Icon = styled.button`
+  border: none;
+  background: none;
   height: 50px;
   width: 60px;
   position: absolute;
@@ -39,14 +42,19 @@ const Icon = styled.img`
   top: 5%;
 `;
 
-export const LargeCard = ({ title, primary }) => {
-  let image = primary ? BambookImg : CoffeeImg;
+export const LargeCard = ({ title }) => {
+  const [isFavorite, setIsFavorite] = useState(false);
+  const handleClick = () => {
+    setIsFavorite(!isFavorite);
+  };
   return (
     <Container>
       <h2>Our Pick of the Day</h2>
       <ImgContainer>
-        <Img src={image} alt="Bambook" />
-        <Icon src={FavIcon} alt="Favorites" />
+        <Img src={BambookImg} alt="Bambook" />
+        <Icon onClick={handleClick}>
+          {isFavorite ? <FavIconCheck /> : <FavIcon />}
+        </Icon>
         <TextContainer title={title} />
       </ImgContainer>
     </Container>
@@ -55,9 +63,4 @@ export const LargeCard = ({ title, primary }) => {
 
 LargeCard.propTypes = {
   title: PropTypes.string,
-  primary: PropTypes.bool,
-};
-
-LargeCard.defaultProps = {
-  primary: true,
 };
