@@ -29,10 +29,11 @@ body {
   font-family: "Trebuchet", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: var(--info-text-color)
+  color: var(--info-text-color);
+  margin-bottom: 62px;
 }
 
-  hr {
+hr {
     height: 1px;
     border: 0;
     justify-self: center;
@@ -60,8 +61,12 @@ h3{
 h4{
   font-size: 1rem;
   font-family: 'LaurenPremier';
-  color: var(--info-text-color);
+  color: var(--secondary-color);
   padding: 3px;
+}
+
+p{
+  font-size: 0.8rem;
 }
 `;
 
