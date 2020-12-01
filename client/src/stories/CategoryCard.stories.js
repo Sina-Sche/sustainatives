@@ -1,14 +1,11 @@
-import { CategoryCard } from "../components/CategoryCard";
-
+import CategoryList from "../components/CategoryCard";
+import { ReactComponent as Bamboo } from "../assets/icons/bamboo.svg";
+import { ReactComponent as Travel } from "../assets/icons/travel.svg";
 export default {
   title: "Components/Cards",
-  component: CategoryCard,
+  component: "CategoryList",
 };
 
-const Template = (args) => <CategoryCard {...args} />;
+const Template = (args) => <CategoryList {...args} />;
 
-export const CategoryOne = Template.bind({});
-CategoryOne.args = {
-  title: "Plant a tree",
-  active: true,
-};
+export const CategoryListA = Template.bind({});
