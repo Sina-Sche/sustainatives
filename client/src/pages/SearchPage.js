@@ -6,9 +6,9 @@ export const SearchPage = () => {
   return (
     <>
       <Header title={"Browse"} />
-      <Input />
+      <Input placeholder={"Search for a product..."} />
       <CategoryOverview />
-      <h3>Search Results</h3>
+      <h3>Search Results for ...</h3>
       <NavBar />
     </>
   );
