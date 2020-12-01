@@ -1,9 +1,9 @@
 import styled from "styled-components/macro";
 import { ReactComponent as Bamboo } from "../assets/icons/bamboo.svg";
 import { ReactComponent as Travel } from "../assets/icons/travel.svg";
-import { ReactComponent as Bath } from "../assets/icons/bathroom.svg";
-import { ReactComponent as Gift } from "../assets/icons/gift.svg";
-import { ReactComponent as Household } from "../assets/icons/household.svg";
+import { ReactComponent as Bathroom } from "../assets/icons/bathroom.svg";
+import { ReactComponent as Gifts } from "../assets/icons/gift.svg";
+import { ReactComponent as House } from "../assets/icons/household.svg";
 import { ReactComponent as Ocean } from "../assets/icons/ocean.svg";
 import { ReactComponent as Reuse } from "../assets/icons/reuse.svg";
 import { ReactComponent as Tree } from "../assets/icons/tree.svg";
@@ -14,6 +14,8 @@ const ListContainer = styled.ul`
   gap: 40px;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
+  margin: 0px 15px 20px;
+  justify-content: center;
 `;
 
 const createCategoryIcon = (Icon) => styled(Icon)`
@@ -26,9 +28,9 @@ const createCategoryIcon = (Icon) => styled(Icon)`
 const icons = {
   Bamboo: createCategoryIcon(Bamboo),
   Travel: createCategoryIcon(Travel),
-  Bath: createCategoryIcon(Bath),
-  Gift: createCategoryIcon(Gift),
-  Household: createCategoryIcon(Household),
+  Bathroom: createCategoryIcon(Bathroom),
+  Gifts: createCategoryIcon(Gifts),
+  House: createCategoryIcon(House),
   Ocean: createCategoryIcon(Ocean),
   Reuse: createCategoryIcon(Reuse),
   Tree: createCategoryIcon(Tree),
