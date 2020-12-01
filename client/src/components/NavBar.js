@@ -13,6 +13,7 @@ const Footer = styled.nav`
   justify-content: space-around;
   position: fixed;
   bottom: 0;
+  border-top: 1px solid var(--icon-active-color);
 `;
 
 const HomeIcon = styled(Home)`

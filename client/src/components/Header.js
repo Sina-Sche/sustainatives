@@ -11,6 +11,7 @@ const HeaderContainer = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-around;
+  border-bottom: 1px solid var(--icon-active-color);
   img {
     height: 40px;
   }
@@ -30,7 +31,6 @@ const Header = ({ title }) => {
         <h1>{title}</h1>
         <img src={LeafIcon} alt="Leaf" />
       </HeaderContainer>
-      <hr />
     </>
   );
 };
