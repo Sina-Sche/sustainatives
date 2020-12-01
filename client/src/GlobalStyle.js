@@ -55,6 +55,10 @@ h4{
   color: var(--info-text-color);
   padding: 3px;
 }
+
+p{
+  letter-spacing: 1;
+}
 `;
 
 export default GlobalStyle;
