@@ -1,19 +1,25 @@
 import PropTypes from "prop-types";
-import SearchIcon from "../assets/icons/search.svg";
+import { ReactComponent as Search } from "../assets/icons/search.svg";
 import styled from "styled-components/macro";
 
 const InputContainer = styled.form`
-  width: 80%;
-  margin: 10px;
+  width: 90vw;
+  margin: 30px auto;
   border: 1px solid #027368;
   border-radius: 50px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  button {
+    border: none;
+    background: none;
+  }
 `;
-const Img = styled.img`
+
+const SearchIcon = styled(Search)`
   height: 30px;
-  margin: 20px;
+  width: 30px;
+  fill: var(--icon-active-color);
+  margin: 10px;
 `;
 
 const InputField = styled.input`
@@ -27,7 +33,9 @@ const Input = ({ placeholder }) => {
   return (
     <InputContainer>
       <InputField placeholder={placeholder} />
-      <Img src={SearchIcon} alt="Search" />
+      <button>
+        <SearchIcon />
+      </button>
     </InputContainer>
   );
 };

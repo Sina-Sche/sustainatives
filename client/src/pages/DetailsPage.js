@@ -14,17 +14,19 @@ const DetailsContainer = styled.div`
   flex-direction: column;
   padding-top: 10px;
   > :last-child {
-    height: auto;
     background-image: linear-gradient(45deg, #4d868c, #027368);
     display: flex;
     flex-direction: column;
     padding: 10px;
     border-top-right-radius: 50px;
     border-bottom-left-radius: 50px;
+    text-align: left;
   }
   h3 {
+    margin-top: 0;
+    padding-top: 0;
     text-align: left;
-    color: white;
+    color: var(--primary-color);
   }
   p {
     color: white;
@@ -72,6 +74,7 @@ export const DetailsPage = ({ onClick, isFavorite }) => {
       <DetailsContainer>
         <Image onClick={onClick} isFavorite={isFavorite} />
         <div>
+          <h5>BAMBOOK</h5>
           <h3>Bambook Notebook</h3>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel

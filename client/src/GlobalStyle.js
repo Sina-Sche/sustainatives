@@ -17,7 +17,7 @@ const GlobalStyle = createGlobalStyle`
 }
 :root {
     --primary-color: white;
-    --secondary-color: #11413D;
+    --secondary-color: #027368;
     --icon-inactive-color: #565959;
     --icon-active-color: #027368;
     --info-text-color:#565959;
@@ -29,8 +29,17 @@ body {
   font-family: "Trebuchet", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: var(--info-text-color)
+  color: var(--info-text-color);
+  margin-bottom: 62px;
 }
+
+hr {
+    height: 1px;
+    border: 0;
+    justify-self: center;
+    background:  #4d868c;
+    background-image: linear-gradient(120deg, #4d868c, #027368);
+  }
 
 h1, h2, h3 {
     font-family: 'LaurenPremier';
@@ -52,12 +61,21 @@ h3{
 h4{
   font-size: 1rem;
   font-family: 'LaurenPremier';
-  color: var(--info-text-color);
+  color: var(--secondary-color);
   padding: 3px;
+}
+
+h5{
+   font-size: 1rem;
+  font-family: 'LaurenPremier';
+  color: var(--primary-color);
+  padding: 3px;
+
 }
 
 p{
   letter-spacing: 1;
+  font-size: 1rem;
 }
 `;
 
