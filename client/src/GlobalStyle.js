@@ -74,6 +74,12 @@ p{
   font-size: 0.8rem;
 }
 
+button{
+  background: none;
+  border: none;
+
+}
+
 `;
 
 export default GlobalStyle;

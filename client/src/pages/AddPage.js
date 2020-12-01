@@ -3,16 +3,26 @@ import NavBar from "../components/NavBar";
 import Input from "../components/Input";
 import CategoryOverview from "../components/CategoryOverview";
 import styled from "styled-components";
+import { ReactComponent as Add } from "../assets/icons/plus.svg";
 
 const Container = styled.div`
   display: flex;
-  height: 15vh;
-  background: white;
-  border: 1px solid var(--icon-active-color);
-  margin: 20px;
-  border-radius: 25px;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  div {
+    display: flex;
+    height: 15vh;
+    width: 90vw;
+    background: white;
+    border: 1px solid var(--icon-active-color);
+    margin: 20px;
+    border-radius: 25px;
+    align-items: center;
+    justify-content: center;
+  }
+  form {
+    margin: 15px;
+  }
 `;
 
 const Subheader = styled.h5`
@@ -20,25 +30,38 @@ const Subheader = styled.h5`
   text-align: center;
 `;
 
+const AddIcon = styled(Add)`
+  height: 50px;
+  width: 50px;
+  border: 1px solid var(--icon-active-color);
+  border-radius: 50px;
+  padding: 5px;
+  fill: var(--icon-active-color);
+  margin: auto;
+`;
+
 export const AddPage = () => {
   return (
-    <>
+    <Container>
       <Header title={"Add a SustainAtive"} />
       <Input placeholder={"Enter Product Name"} />
       <Input placeholder={"Enter Product URL"} />
-      <Container>
+      <div>
         <h5>Upload a product photo here</h5>
         <p>📷</p>
-      </Container>
-      <Container>
-        <h5>Add a short description for your Product</h5>
+      </div>
+      <div>
+        <h5>Add a description for your Product</h5>
         <p>🧾</p>
-      </Container>
+      </div>
       <Subheader>
         Choose the relevant categories for your product by clicking on them:
       </Subheader>
       <CategoryOverview />
+      <button>
+        <AddIcon />
+      </button>
       <NavBar />
-    </>
+    </Container>
   );
 };
