@@ -1,9 +1,9 @@
 import styled from "styled-components/macro";
 import PropTypes from "prop-types";
 import BambookImg from "../assets/images/bambook.jpg";
+import TextContainer from "./TextContainer";
 import { ReactComponent as FavIcon } from "../assets/icons/favorite.svg";
 import { ReactComponent as FavIconCheck } from "../assets/icons/favorite-added.svg";
-import { TextContainer } from "./TextContainer";
 import { useState } from "react";
 
 const Container = styled.div`
@@ -42,7 +42,7 @@ const Icon = styled.button`
   top: 5%;
 `;
 
-export const LargeCard = ({ title }) => {
+const LargeCard = ({ title }) => {
   const [isFavorite, setIsFavorite] = useState(false);
   const handleClick = () => {
     setIsFavorite(!isFavorite);
@@ -60,6 +60,8 @@ export const LargeCard = ({ title }) => {
     </Container>
   );
 };
+
+export default LargeCard;
 
 LargeCard.propTypes = {
   title: PropTypes.string,

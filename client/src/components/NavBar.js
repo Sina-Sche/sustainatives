@@ -1,8 +1,8 @@
 import { Link, useLocation } from "react-router-dom";
 import { ReactComponent as Home } from "../assets/icons/home.svg";
-import { ReactComponent as Search } from "../assets/icons/search-inactive.svg";
-import { ReactComponent as Add } from "../assets/icons/plus-inactive.svg";
-import { ReactComponent as Heart } from "../assets/icons/heart-inactive.svg";
+import { ReactComponent as Search } from "../assets/icons/search.svg";
+import { ReactComponent as Add } from "../assets/icons/plus.svg";
+import { ReactComponent as Heart } from "../assets/icons/heart.svg";
 import styled from "styled-components/macro";
 
 const Footer = styled.nav`
@@ -18,31 +18,34 @@ const Footer = styled.nav`
 const HomeIcon = styled(Home)`
   height: 40px;
   width: 40px;
+  margin: 5px;
   fill: ${(props) =>
     props.active ? `var(--icon-active-color)` : `var(--icon-inactive-color)`};
 `;
 const SearchIcon = styled(Search)`
   height: 40px;
   width: 40px;
+  margin: 5px;
   fill: ${(props) =>
     props.active ? `var(--icon-active-color)` : `var(--icon-inactive-color)`};
 `;
 const AddIcon = styled(Add)`
   height: 40px;
   width: 40px;
+  margin: 5px;
   fill: ${(props) =>
     props.active ? `var(--icon-active-color)` : `var(--icon-inactive-color)`};
 `;
 const HeartIcon = styled(Heart)`
   height: 40px;
   width: 40px;
+  margin: 5px;
   fill: ${(props) =>
     props.active ? `var(--icon-active-color)` : `var(--icon-inactive-color)`};
 `;
 
-export const NavBar = () => {
+const NavBar = () => {
   const location = useLocation();
-  console.log(location.pathname);
 
   return (
     <Footer>
@@ -61,3 +64,5 @@ export const NavBar = () => {
     </Footer>
   );
 };
+
+export default NavBar;

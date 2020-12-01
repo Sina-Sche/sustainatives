@@ -1,5 +1,4 @@
-import { LargeCard } from "../components/LargeCard";
-
+import LargeCard from "../components/LargeCard";
 export default {
   title: "Components/Cards",
   component: LargeCard,
