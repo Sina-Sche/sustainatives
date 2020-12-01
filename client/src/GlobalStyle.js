@@ -17,7 +17,7 @@ const GlobalStyle = createGlobalStyle`
 }
 :root {
     --primary-color: white;
-    --secondary-color: #11413D;
+    --secondary-color: #027368;
     --icon-inactive-color: #565959;
     --icon-active-color: #027368;
     --info-text-color:#565959;
@@ -31,6 +31,14 @@ body {
   -moz-osx-font-smoothing: grayscale;
   color: var(--info-text-color)
 }
+
+  hr {
+    height: 1px;
+    border: 0;
+    justify-self: center;
+    background:  #4d868c;
+    background-image: linear-gradient(120deg, #4d868c, #027368);
+  }
 
 h1, h2, h3 {
     font-family: 'LaurenPremier';

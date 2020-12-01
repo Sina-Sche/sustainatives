@@ -10,27 +10,28 @@ const HeaderContainer = styled.header`
   margin: 0;
   display: flex;
   align-items: center;
-  box-shadow: 1px 1px 1px #565959;
   justify-content: space-around;
+  img {
+    height: 40px;
+  }
 `;
 const MenuButton = styled.button`
   background: none;
   border: none;
-  img {
-    height: 30px;
-    padding-right: 20px;
-  }
 `;
 
 const Header = ({ title }) => {
   return (
-    <HeaderContainer>
-      <MenuButton>
-        <img src={MenuIcon} alt="Menu" />
-      </MenuButton>
-      <h1>{title}</h1>
-      <img src={LeafIcon} alt="Leaf" />
-    </HeaderContainer>
+    <>
+      <HeaderContainer>
+        <MenuButton>
+          <img src={MenuIcon} alt="Menu" />
+        </MenuButton>
+        <h1>{title}</h1>
+        <img src={LeafIcon} alt="Leaf" />
+      </HeaderContainer>
+      <hr />
+    </>
   );
 };
 
