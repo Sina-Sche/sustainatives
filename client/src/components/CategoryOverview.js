@@ -16,6 +16,11 @@ const ListContainer = styled.ul`
   grid-template-rows: 1fr 1fr;
   margin: 0px 15px 20px;
   justify-content: center;
+  li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const createCategoryIcon = (Icon) => styled(Icon)`
@@ -38,7 +43,7 @@ const icons = {
 export default function CategoryList() {
   const activeCategories = ["Travel"];
   const CategoryList = Object.entries(icons).map(([categoryName, Icon]) => (
-    <li key={categoryName}>
+    <li key={categoryName} active={Icon.active ? true : false}>
       <Icon active={activeCategories.includes(categoryName)} />
       <p>{categoryName}</p>
     </li>
