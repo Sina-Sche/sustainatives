@@ -65,8 +65,20 @@ h4{
   padding: 3px;
 }
 
+h5{
+   font-size: 1rem;
+  font-family: 'LaurenPremier';
+  color: var(--primary-color);
+  padding: 3px;
+
+}
+a{
+  text-decoration: none;
+}
+
 p{
-  font-size: 0.8rem;
+  letter-spacing: 1;
+  font-size: 1rem;
 }
 `;
 
