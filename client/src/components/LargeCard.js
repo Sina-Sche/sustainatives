@@ -1,7 +1,7 @@
 import styled from "styled-components/macro";
 import PropTypes from "prop-types";
+import { TextContainer } from "./TextContainer";
 import Image from "./Image";
-import TextContainer from "./TextContainer";
 
 const Container = styled.div`
   width: 100%;
@@ -12,6 +12,9 @@ const Container = styled.div`
   padding-bottom: 20px;
   > :last-child {
     margin-bottom: 30px;
+  }
+  h2 {
+    color: var(--primary-color);
   }
 `;
 

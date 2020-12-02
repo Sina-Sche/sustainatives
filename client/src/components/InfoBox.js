@@ -9,7 +9,7 @@ const InfoContainer = styled.div`
   margin: 1rem;
   box-shadow: 0px 2px 2px -2px var(--icon-inactive-color);
 `;
-const SearchResult = () => {
+const InfoBox = () => {
   return (
     <InfoContainer>
       <SmallImage imgSrc={Bambook} alt={"Bambook"} />
@@ -18,4 +18,4 @@ const SearchResult = () => {
   );
 };
 
-export default SearchResult;
+export default InfoBox;
