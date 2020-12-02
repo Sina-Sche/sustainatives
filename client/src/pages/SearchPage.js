@@ -2,7 +2,7 @@ import Header from "../components/Header";
 import Input from "../components/Input";
 import CategoryOverview from "../components/CategoryOverview";
 import NavBar from "../components/NavBar";
-import SearchResult from "../components/SearchResult";
+import InfoBox from "../components/InfoBox";
 
 export const SearchPage = () => {
   return (
@@ -11,9 +11,9 @@ export const SearchPage = () => {
       <Input placeholder={"Search for a product..."} />
       <CategoryOverview />
       <h3>Search Results for Notebook</h3>
-      <SearchResult />
-      <SearchResult />
-      <SearchResult />
+      <InfoBox />
+      <InfoBox />
+      <InfoBox />
       <NavBar />
     </>
   );

@@ -1,7 +1,7 @@
 import styled from "styled-components/macro";
 import PropTypes from "prop-types";
 import BambookImg from "../assets/images/bambook.jpg";
-import TextContainer from "./TextContainer";
+import { TextContainer } from "./TextContainer";
 import { ReactComponent as FavIcon } from "../assets/icons/favorite.svg";
 import { ReactComponent as FavIconCheck } from "../assets/icons/favorite-added.svg";
 import { useState } from "react";
@@ -14,6 +14,9 @@ const Container = styled.div`
   justify-content: center;
   > :last-child {
     justify-content: center;
+  }
+  h2 {
+    color: var(--primary-color);
   }
 `;
 

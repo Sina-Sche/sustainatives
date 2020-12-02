@@ -51,7 +51,7 @@ h1, h2, h3 {
 }
 h2{
     font-size: 1,5rem;
-    color: var(--primary-color);
+    
 }
 h3{
     font-size: 1.5rem;
