@@ -5,7 +5,14 @@ import { SearchPage } from "./pages/SearchPage";
 import { FavoritePage } from "./pages/FavoritePage";
 import { AddPage } from "./pages/AddPage";
 import { DetailsPage } from "./pages/DetailsPage";
-import { useState } from "react";
+import React, { useState } from "react";
+import { I18nProvider } from "./contexts/i18n";
+import LocalSelect from "./components/LocalSelect";
+
+const getLocal = () => {
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get("lang");
+};
 
 function App() {
   const [isFavorite, setIsFavorite] = useState(false);
@@ -13,26 +20,31 @@ function App() {
     setIsFavorite(!isFavorite);
   };
   return (
-    <Router>
-      <GlobalStyle />
-      <Switch>
-        <Route exact path="/">
-          <HomePage onClick={handleClick} isFavorite={isFavorite} />
-        </Route>
-        <Route path="/search">
-          <SearchPage />
-        </Route>
-        <Route path="/add">
-          <AddPage />
-        </Route>
-        <Route path="/favorites">
-          <FavoritePage />
-        </Route>
-        <Route path="/details">
-          <DetailsPage onClick={handleClick} isFavorite={isFavorite} />
-        </Route>
-      </Switch>
-    </Router>
+    <>
+      <I18nProvider lang={getLocal()}>
+        <Router>
+          <GlobalStyle />
+          <LocalSelect />
+          <Switch>
+            <Route exact path="/">
+              <HomePage onClick={handleClick} isFavorite={isFavorite} />
+            </Route>
+            <Route path="/search">
+              <SearchPage />
+            </Route>
+            <Route path="/add">
+              <AddPage />
+            </Route>
+            <Route path="/favorites">
+              <FavoritePage />
+            </Route>
+            <Route path="/details">
+              <DetailsPage onClick={handleClick} isFavorite={isFavorite} />
+            </Route>
+          </Switch>
+        </Router>
+      </I18nProvider>
+    </>
   );
 }
 
