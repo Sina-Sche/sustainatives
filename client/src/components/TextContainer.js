@@ -2,10 +2,9 @@ import styled from "styled-components/macro";
 import PropTypes from "prop-types";
 
 const Container = styled.div`
-  display: flex;
   position: absolute;
-  align-self: flex-end;
   justify-content: center;
+  align-self: center;
   width: 80%;
   margin: 10px;
   border-radius: 50px;

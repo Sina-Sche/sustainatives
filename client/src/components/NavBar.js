@@ -10,6 +10,7 @@ const Footer = styled.nav`
   width: 100%;
   background: var(--primary-color);
   display: flex;
+  align-items: center;
   justify-content: space-around;
   position: fixed;
   bottom: 0;
