@@ -30,7 +30,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: var(--info-text-color);
-  margin-bottom: 62px;
+  margin-bottom: 70px;
 }
 
 hr {
@@ -64,6 +64,11 @@ h4{
   color: var(--secondary-color);
   padding: 3px;
 }
+h5{
+  font-size: 1rem;
+  font-family: 'Trebuchet MS', sans-serif;
+  color: var(--secondary-color);
+}
 
 h5{
    font-size: 1rem;
@@ -80,6 +85,13 @@ p{
   letter-spacing: 1;
   font-size: 1rem;
 }
+
+button{
+  background: none;
+  border: none;
+
+}
+
 `;
 
 export default GlobalStyle;
