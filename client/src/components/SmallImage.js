@@ -9,12 +9,16 @@ const Container = styled.div`
 const Img = styled.img`
   height: 125px;
   width: 125px;
+  margin: 5px;
+  padding: 15px;
+  border: 1px solid var(--icon-active-color);
+  border-radius: 20px;
 `;
 
-const SmallImage = ({ imgSrc, alt, onClick, isFavorite }) => {
+const SmallImage = ({ src, alt, onClick, isFavorite }) => {
   return (
     <Container>
-      <Img src={imgSrc} alt={alt} />
+      <Img src={src} alt={alt} />
       <FavoriteIcon onClick={onClick} size={"small"} isFavorite={isFavorite} />
     </Container>
   );
@@ -23,7 +27,7 @@ const SmallImage = ({ imgSrc, alt, onClick, isFavorite }) => {
 export default SmallImage;
 
 SmallImage.propTypes = {
-  imgSrc: PropTypes.string,
+  src: PropTypes.string,
   alt: PropTypes.string,
   onClick: PropTypes.func,
   isFavorite: PropTypes.bool,

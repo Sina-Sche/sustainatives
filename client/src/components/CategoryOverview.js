@@ -41,7 +41,7 @@ const icons = {
   Tree: createCategoryIcon(Tree),
 };
 export default function CategoryList() {
-  const activeCategories = ["Travel"];
+  const activeCategories = [];
   const CategoryList = Object.entries(icons).map(([categoryName, Icon]) => (
     <li key={categoryName} active={Icon.active ? true : false}>
       <Icon active={activeCategories.includes(categoryName)} />
