@@ -2,7 +2,7 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:3006",
+  "proxy": "http://localhost:7000",
   "dependencies": {
     "@babel/core": "^7.12.7",
     "@storybook/addon-actions": "^6.1.2",
@@ -28,7 +28,7 @@
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 3600 -s public",
     "build-storybook": "build-storybook -s public",
-    "api": "json-server --watch db.json --port 5000"
+    "api": "json-server --watch db.json --port 4001"
   },
   "browserslist": {
     "production": [
