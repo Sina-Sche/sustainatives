@@ -3,7 +3,7 @@ import { ReactComponent as Home } from "../assets/icons/home.svg";
 import { ReactComponent as Search } from "../assets/icons/search.svg";
 import { ReactComponent as Add } from "../assets/icons/plus.svg";
 import { ReactComponent as Heart } from "../assets/icons/heart.svg";
-import styled from "styled-components/macro";
+import styled, { css } from "styled-components/macro";
 
 const Footer = styled.nav`
   height: 62px;
@@ -14,36 +14,28 @@ const Footer = styled.nav`
   justify-content: space-around;
   position: fixed;
   bottom: 0;
+  z-index: 1;
   border-top: 1px solid var(--icon-active-color);
+`;
+const Icon = css`
+  height: 40px;
+  width: 40px;
+  margin: 5px;
+  fill: ${(props) =>
+    props.active ? `var(--icon-active-color)` : `var(--icon-inactive-color)`};
 `;
 
 const HomeIcon = styled(Home)`
-  height: 40px;
-  width: 40px;
-  margin: 5px;
-  fill: ${(props) =>
-    props.active ? `var(--icon-active-color)` : `var(--icon-inactive-color)`};
+  ${Icon}
 `;
 const SearchIcon = styled(Search)`
-  height: 40px;
-  width: 40px;
-  margin: 5px;
-  fill: ${(props) =>
-    props.active ? `var(--icon-active-color)` : `var(--icon-inactive-color)`};
+  ${Icon}
 `;
 const AddIcon = styled(Add)`
-  height: 40px;
-  width: 40px;
-  margin: 5px;
-  fill: ${(props) =>
-    props.active ? `var(--icon-active-color)` : `var(--icon-inactive-color)`};
+  ${Icon}
 `;
 const HeartIcon = styled(Heart)`
-  height: 40px;
-  width: 40px;
-  margin: 5px;
-  fill: ${(props) =>
-    props.active ? `var(--icon-active-color)` : `var(--icon-inactive-color)`};
+  ${Icon}
 `;
 
 const NavBar = () => {

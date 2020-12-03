@@ -8,6 +8,7 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    
   }
 @font-face {
     font-family: LaurenPremier;
@@ -22,6 +23,8 @@ const GlobalStyle = createGlobalStyle`
     --icon-active-color: #027368;
     --info-text-color:#565959;
     --font-size: 16px;
+    --gradient: linear-gradient(120deg, #4d868c, #027368);
+     
 }
 
 body { 
@@ -30,50 +33,39 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: var(--info-text-color);
-  margin-bottom: 70px;
+  margin-top: 62px;
+  margin-bottom: 62px;
+
 }
 
-hr {
-    height: 1px;
-    border: 0;
-    justify-self: center;
-    background:  #4d868c;
-    background-image: linear-gradient(120deg, #4d868c, #027368);
-  }
-
-h1, h2, h3 {
+h1, h2, h3, h5 {
     font-family: 'LaurenPremier';
-    font-size: 1,7rem;
+    font-size: 1.7rem;
     color: var(--secondary-color);
     text-align: center;
-    padding: 5px;
- 
+    padding: 5px; 
 }
 h2{
-    font-size: 1,5rem;
+    font-size: 1.5rem;
     
 }
 h3{
     font-size: 1.5rem;
-    color: var(--secondary-color);
 }
 
 h4{
   font-size: 1rem;
-  font-family: 'LaurenPremier';
-  color: var(--secondary-color);
   padding: 3px;
 }
 h5{
   font-size: 1rem;
   font-family: 'Trebuchet MS', sans-serif;
-  color: var(--secondary-color);
 }
 
 h5{
-   font-size: 1rem;
+  font-size: 1rem;
   font-family: 'LaurenPremier';
-  color: var(--primary-color);
+  color: var(--secondary-color);
   padding: 3px;
 
 }

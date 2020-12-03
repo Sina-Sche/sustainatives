@@ -5,19 +5,14 @@ import { SearchPage } from "./pages/SearchPage";
 import { FavoritePage } from "./pages/FavoritePage";
 import { AddPage } from "./pages/AddPage";
 import { DetailsPage } from "./pages/DetailsPage";
-import { useState } from "react";
 
 function App() {
-  const [isFavorite, setIsFavorite] = useState(false);
-  const handleClick = () => {
-    setIsFavorite(!isFavorite);
-  };
   return (
     <Router>
       <GlobalStyle />
       <Switch>
         <Route exact path="/">
-          <HomePage onClick={handleClick} isFavorite={isFavorite} />
+          <HomePage />
         </Route>
         <Route path="/search">
           <SearchPage />
@@ -29,7 +24,7 @@ function App() {
           <FavoritePage />
         </Route>
         <Route path="/details">
-          <DetailsPage onClick={handleClick} isFavorite={isFavorite} />
+          <DetailsPage />
         </Route>
       </Switch>
     </Router>

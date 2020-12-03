@@ -1,21 +1,15 @@
 import Header from "../components/Header";
-import LargeCard from "../components/LargeCard";
+import ProductPreview from "../components/ProductPreview";
 import ProductList from "../components/ProductList";
 import NavBar from "../components/NavBar";
+import Bambook from "../assets/images/bambook.jpg";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
 
-export const HomePage = ({ onClick, isFavorite }) => {
+export const HomePage = () => {
   return (
     <>
       <Header title={"SustainAtives"} />
-      <Link to={"/details"}>
-        <LargeCard
-          title={"Bambook Notebook"}
-          onClick={onClick}
-          isFavorite={isFavorite}
-        />
-      </Link>
+      <ProductPreview primary={true} src={Bambook} title={"Bambook Notebook"} />
       <ProductList />
       <NavBar />
     </>
