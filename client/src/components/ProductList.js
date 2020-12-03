@@ -8,6 +8,7 @@ const ListContainer = styled.ul`
   display: grid;
   grid-template-columns: 1fr 1fr;
   list-style: none;
+  gap: 10px;
   padding-top: 15px;
 `;
 
@@ -17,7 +18,6 @@ const ProductList = () => {
     async function fetchData() {
       const products = await getProducts();
       setProducts(products);
-      console.log(products);
     }
     fetchData();
   }, []);

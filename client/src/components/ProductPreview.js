@@ -9,15 +9,15 @@ const Container = styled.div`
   justify-content: ${(props) => (props.primary ? "flex-end" : "center")};
   position: relative;
   width: 100%;
+  margin: ${(props) => (props.primary ? "0" : "5px")};
   background-image: ${(props) => (props.primary ? "var(--gradient)" : "red")};
+
   > :last-child {
-    margin-bottom: ${(props) => (props.primary ? "30px" : "0")};
+    margin-bottom: ${(props) => (props.primary ? "15px" : "0")};
   }
   img {
     height: auto;
-    width: 100%;
-    border-radius: 50px;
-    padding: 10px;
+    width: ${(props) => (props.primary ? "100%" : "80%")};
   }
   h2 {
     color: var(--primary-color);
