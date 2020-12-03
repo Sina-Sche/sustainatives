@@ -6,7 +6,9 @@ import styled from "styled-components";
 const InfoContainer = styled.div`
   width: 100%;
   display: flex;
-  margin: 1rem;
+  align-items: center;
+  justify-content: center;
+  padding-left: 10px;
   box-shadow: 0px 2px 2px -2px var(--icon-inactive-color);
 `;
 const InfoBox = () => {

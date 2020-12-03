@@ -8,7 +8,7 @@ export const SearchPage = () => {
   return (
     <>
       <Header title={"Browse"} />
-      <Input placeholder={"Search for a product..."} />
+      <Input placeholder={"Search for a product..."} type={"search"} />
       <CategoryOverview />
       <h3>Search Results for Notebook</h3>
       <InfoBox />

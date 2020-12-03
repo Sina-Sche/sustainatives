@@ -1,8 +1,6 @@
 import styled from "styled-components";
 import PropTypes from "prop-types";
-import { ReactComponent as FavIcon } from "../assets/icons/favorite.svg";
-import { ReactComponent as FavIconCheck } from "../assets/icons/favorite-added.svg";
-import { useState } from "react";
+import FavoriteIcon from "./FavoriteIcon";
 
 const Container = styled.div`
   display: inline-block;
@@ -12,27 +10,12 @@ const Img = styled.img`
   height: 125px;
   width: 125px;
 `;
-const Icon = styled.button`
-  border: none;
-  position: absolute;
-  background: none;
-  height: 25px;
-  width: 25px;
-  right: 5%;
-  top: 5%;
-`;
 
-const SmallImage = ({ imgSrc, alt }) => {
-  const [isFavorite, setIsFavorite] = useState(false);
-  const handleClick = () => {
-    setIsFavorite(!isFavorite);
-  };
+const SmallImage = ({ imgSrc, alt, onClick, isFavorite }) => {
   return (
     <Container>
       <Img src={imgSrc} alt={alt} />
-      <Icon onClick={handleClick}>
-        {isFavorite ? <FavIconCheck /> : <FavIcon />}
-      </Icon>
+      <FavoriteIcon onClick={onClick} size={"small"} isFavorite={isFavorite} />
     </Container>
   );
 };
@@ -42,4 +25,6 @@ export default SmallImage;
 SmallImage.propTypes = {
   imgSrc: PropTypes.string,
   alt: PropTypes.string,
+  onClick: PropTypes.func,
+  isFavorite: PropTypes.bool,
 };

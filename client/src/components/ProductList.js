@@ -1,5 +1,6 @@
-import ProductCard from "../components/ProductCard";
 import styled from "styled-components/macro";
+import ProductPreview from "./ProductPreview";
+import Hairbrush from "../assets/images/hairbrush.jpg";
 
 const ListContainer = styled.ul`
   display: grid;
@@ -12,22 +13,22 @@ const ProductList = () => {
   return (
     <ListContainer>
       <li>
-        <ProductCard title={"Hairbrush"} />
+        <ProductPreview src={Hairbrush} title={"Hairbrush"} size={"small"} />
       </li>
       <li>
-        <ProductCard title={"Hairbrush"} />
+        <ProductPreview src={Hairbrush} title={"Hairbrush"} size={"small"} />
       </li>
       <li>
-        <ProductCard title={"Hairbrush"} />
+        <ProductPreview src={Hairbrush} title={"Hairbrush"} size={"small"} />
       </li>
       <li>
-        <ProductCard title={"Hairbrush"} />
+        <ProductPreview src={Hairbrush} title={"Hairbrush"} size={"small"} />
       </li>
       <li>
-        <ProductCard title={"Hairbrush"} />
+        <ProductPreview src={Hairbrush} title={"Hairbrush"} size={"small"} />
       </li>
       <li>
-        <ProductCard title={"Hairbrush"} />
+        <ProductPreview src={Hairbrush} title={"Hairbrush"} size={"small"} />
       </li>
     </ListContainer>
   );
