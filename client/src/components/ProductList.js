@@ -1,6 +1,8 @@
 import styled from "styled-components/macro";
 import ProductPreview from "./ProductPreview";
-import Hairbrush from "../assets/images/hairbrush.jpg";
+import { useState } from "react";
+import { useEffect } from "react";
+import { getProducts } from "../utils/api";
 
 const ListContainer = styled.ul`
   display: grid;
@@ -10,26 +12,29 @@ const ListContainer = styled.ul`
 `;
 
 const ProductList = () => {
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+    async function fetchData() {
+      const products = await getProducts();
+      setProducts(products);
+      console.log(products);
+    }
+    fetchData();
+  }, []);
   return (
     <ListContainer>
-      <li>
-        <ProductPreview src={Hairbrush} title={"Hairbrush"} size={"small"} />
-      </li>
-      <li>
-        <ProductPreview src={Hairbrush} title={"Hairbrush"} size={"small"} />
-      </li>
-      <li>
-        <ProductPreview src={Hairbrush} title={"Hairbrush"} size={"small"} />
-      </li>
-      <li>
-        <ProductPreview src={Hairbrush} title={"Hairbrush"} size={"small"} />
-      </li>
-      <li>
-        <ProductPreview src={Hairbrush} title={"Hairbrush"} size={"small"} />
-      </li>
-      <li>
-        <ProductPreview src={Hairbrush} title={"Hairbrush"} size={"small"} />
-      </li>
+      {products &&
+        products.map((product) => {
+          return (
+            <li key={product.id}>
+              <ProductPreview
+                src={product.image}
+                title={product.shorthand}
+                size={"small"}
+              />
+            </li>
+          );
+        })}
     </ListContainer>
   );
 };

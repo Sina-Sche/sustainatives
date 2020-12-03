@@ -9,7 +9,7 @@ const Container = styled.div`
   justify-content: ${(props) => (props.primary ? "flex-end" : "center")};
   position: relative;
   width: 100%;
-  background-image: ${(props) => (props.primary ? "var(--gradient)" : "none")};
+  background-image: ${(props) => (props.primary ? "var(--gradient)" : "red")};
   > :last-child {
     margin-bottom: ${(props) => (props.primary ? "30px" : "0")};
   }
@@ -24,19 +24,23 @@ const Container = styled.div`
   }
 `;
 
-const LargeCard = ({ title, primary, src, alt, size }) => {
+const ProductPreview = ({ title, primary, src, alt, size }) => {
   return (
     <Container primary={primary}>
       {primary ? <h2>Our Pick of the Day</h2> : <></>}
       <Image src={src} alt={alt} size={size} />
-      <TextContainer title={title} primary={true} />
+      {size === "small" ? (
+        <></>
+      ) : (
+        <TextContainer title={title} primary={true} />
+      )}
     </Container>
   );
 };
 
-export default LargeCard;
+export default ProductPreview;
 
-LargeCard.propTypes = {
+ProductPreview.propTypes = {
   title: PropTypes.string,
   primary: PropTypes.bool,
   src: PropTypes.string,
