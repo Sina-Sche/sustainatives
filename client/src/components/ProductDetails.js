@@ -10,6 +10,7 @@ import ProductText from "./ProductText";
 
 const DetailsContainer = styled.div`
   width: 100%;
+  max-width: 800px;
   display: flex;
   flex-direction: column;
   padding-top: 10px;
@@ -38,6 +39,7 @@ const ProductDetailsContainer = styled.div`
   padding: 10px;
   border-top-right-radius: 50px;
   border-bottom-left-radius: 50px;
+  max-width: 800px;
 `;
 
 const Button = styled.button`
