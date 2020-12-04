@@ -11,10 +11,9 @@ import { ReactComponent as Tree } from "../assets/icons/tree.svg";
 const ListContainer = styled.ul`
   list-style: none;
   display: grid;
-  gap: 40px;
+  gap: 20px;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  margin: 0px 15px 20px;
   justify-content: center;
   li {
     display: flex;
@@ -28,25 +27,35 @@ const createCategoryIcon = (Icon) => styled(Icon)`
   height: 50px;
   fill: ${(props) =>
     props.active ? "var(--icon-active-color)" : "var(--icon-inactive-color)"};
+  + p {
+    text-align: center;
+    font-size: 1rem;
+    margin: 2px;
+    color: ${(props) =>
+      props.active ? "var(--icon-active-color)" : "var(--icon-inactive-color)"};
+    font-weight: ${(props) => (props.active ? "bold" : "none")};
+  }
 `;
 
 const icons = {
-  Bamboo: createCategoryIcon(Bamboo),
-  Travel: createCategoryIcon(Travel),
-  Bathroom: createCategoryIcon(Bathroom),
-  Gifts: createCategoryIcon(Gifts),
-  House: createCategoryIcon(House),
-  Ocean: createCategoryIcon(Ocean),
-  Reuse: createCategoryIcon(Reuse),
-  Tree: createCategoryIcon(Tree),
+  bamboo: { icon: createCategoryIcon(Bamboo), label: "Bamboo" },
+  travel: { icon: createCategoryIcon(Travel), label: "To go" },
+  bathroom: { icon: createCategoryIcon(Bathroom), label: "Bathroom" },
+  gifts: { icon: createCategoryIcon(Gifts), label: "Gifts" },
+  house: { icon: createCategoryIcon(House), label: "Household" },
+  ocean: { icon: createCategoryIcon(Ocean), label: "Save our oceans" },
+  reuse: { icon: createCategoryIcon(Reuse), label: "Reusable" },
+  tree: { icon: createCategoryIcon(Tree), label: "Plant a tree" },
 };
 export default function CategoryList() {
-  const activeCategories = [];
-  const CategoryList = Object.entries(icons).map(([categoryName, Icon]) => (
-    <li key={categoryName} active={Icon.active ? true : false}>
-      <Icon active={activeCategories.includes(categoryName)} />
-      <p>{categoryName}</p>
-    </li>
-  ));
+  const activeCategories = ["bamboo", "reuse", "ocean"];
+  const CategoryList = Object.entries(icons).map(
+    ([categoryName, { icon: Icon, label }]) => (
+      <li key={categoryName}>
+        <Icon active={activeCategories.includes(categoryName)} />
+        <p>{label}</p>
+      </li>
+    )
+  );
   return <ListContainer>{CategoryList}</ListContainer>;
 }
