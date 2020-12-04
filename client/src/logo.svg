@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="262.891" height="117.551" viewBox="0 0 262.891 117.551">
   <g transform="translate(-111.5 -115.087)">
-    <path id="Icon_awesome-leaf" data-name="Icon awesome-leaf" d="M95.2,1.676c-.769-2.294-3.387-2.207-4.627.094-5.728,10.514-15.232,17.478-25.63,18.2l-13.12.906c-17.384,1.2-32.517,18.39-33.783,38.377-.084,1.32-.033,2.574,0,3.848,11.01-9.34,26.578-17.7,48-19.178a2.435,2.435,0,0,1,2.433,2.836,3.349,3.349,0,0,1-2.815,3.2C24.429,52.8,5.1,83.066.542,94.25-.735,97.4.321,100.817,2.915,101.9c2.608,1.1,5.753-.6,7.062-3.735a59.4,59.4,0,0,1,12.875-17.9c4.789,7.911,14.391,15.113,27.762,12.576C76.5,88.911,96.3,61.111,98.363,28.6A72.953,72.953,0,0,0,95.2,1.676Z" transform="translate(189.662 131.074) rotate(-9)" fill="#4d868c" stroke="#fff" stroke-width="1"/>
-    <text id="Sustain" transform="translate(112.5 136.663)" fill="#fbfbfb" stroke="#fff" stroke-width="1" font-size="30" font-family="InkFree, Ink Free"><tspan x="0" y="27">Sustain</tspan></text>
-    <text id="Atives" transform="translate(289.391 181.614)" fill="#fff" stroke="#fff" stroke-width="1" font-size="30" font-family="InkFree, Ink Free"><tspan x="0" y="27">Atives</tspan></text>
+    <path d="M95.2,1.676c-.769-2.294-3.387-2.207-4.627.094-5.728,10.514-15.232,17.478-25.63,18.2l-13.12.906c-17.384,1.2-32.517,18.39-33.783,38.377-.084,1.32-.033,2.574,0,3.848,11.01-9.34,26.578-17.7,48-19.178a2.435,2.435,0,0,1,2.433,2.836,3.349,3.349,0,0,1-2.815,3.2C24.429,52.8,5.1,83.066.542,94.25-.735,97.4.321,100.817,2.915,101.9c2.608,1.1,5.753-.6,7.062-3.735a59.4,59.4,0,0,1,12.875-17.9c4.789,7.911,14.391,15.113,27.762,12.576C76.5,88.911,96.3,61.111,98.363,28.6A72.953,72.953,0,0,0,95.2,1.676Z" transform="translate(189.662 131.074) rotate(-9)" fill="#4d868c" stroke="#fff" stroke-width="1"/>
+    <text transform="translate(112.5 136.663)" fill="#fbfbfb" stroke="#fff" stroke-width="1" font-size="30" font-family="InkFree, Ink Free"><tspan x="0" y="27">Sustain</tspan></text>
+    <text transform="translate(289.391 181.614)" fill="#fff" stroke="#fff" stroke-width="1" font-size="30" font-family="InkFree, Ink Free"><tspan x="0" y="27">Atives</tspan></text>
   </g>
 </svg>
