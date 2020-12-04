@@ -1,5 +1,5 @@
 import styled from "styled-components/macro";
-import ProductPreview from "./ProductPreview";
+import Image from "./Image";
 import { useState, useEffect } from "react";
 import { getProducts } from "../utils/api";
 
@@ -26,7 +26,7 @@ const ProductList = () => {
         products.map((product) => {
           return (
             <li key={product.id}>
-              <ProductPreview src={product.image} size={"small"} />
+              <Image src={product.image} size={"small"} />
             </li>
           );
         })}

@@ -27,8 +27,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "storybook": "start-storybook -p 3600 -s public",
-    "api": "json-server --watch db.json --port 4001"
+    "storybook": "start-storybook -p 3600 -s public"
   },
   "browserslist": {
     "production": [
