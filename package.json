@@ -12,8 +12,7 @@
     "start": "node server.js",
     "server": "nodemon server.js",
     "client": "cd client && npm start",
-    "build": "cd client && npm run build && npm run build-storybook",
-    "storybook": "cd client && npm run storybook"
+    "api": "json-server --watch db.json --port 7000"
   },
   "repository": {
     "type": "git",
@@ -45,6 +44,7 @@
   },
   "dependencies": {
     "express": "^4.17.1",
+    "json-server": "^0.16.3",
     "react-router-dom": "^5.2.0"
   }
 }

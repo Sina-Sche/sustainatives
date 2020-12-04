@@ -1,4 +1,5 @@
 import styled from "styled-components/macro";
+import PropTypes from "prop-types";
 
 const InfoContainer = styled.div`
   display: flex;
@@ -15,17 +16,20 @@ const InfoContainer = styled.div`
   }
 `;
 
-const ProductText = () => {
+const ProductText = ({ title, price, description }) => {
   return (
     <InfoContainer>
-      <h3>Bambook Notebook</h3>
-      <p>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis alias ad
-        tenetur nemo pariatur.
-      </p>
-      <h5>12€</h5>
+      <h3>{title}</h3>
+      <p>{description}</p>
+      <h5>{price}</h5>
     </InfoContainer>
   );
 };
 
 export default ProductText;
+
+ProductText.propTypes = {
+  title: PropTypes.string,
+  price: PropTypes.string,
+  description: PropTypes.string,
+};

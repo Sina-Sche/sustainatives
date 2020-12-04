@@ -4,6 +4,7 @@ import Input from "../components/Input";
 import CategoryOverview from "../components/CategoryOverview";
 import styled from "styled-components";
 import { ReactComponent as Add } from "../assets/icons/plus.svg";
+import CategoryList from "../components/CategoryOverview";
 
 const Container = styled.div`
   display: flex;
@@ -57,7 +58,7 @@ export const AddPage = () => {
       <Subheader>
         Choose the relevant categories for your product by clicking on them:
       </Subheader>
-      <CategoryOverview />
+      <CategoryList />
       <button>
         <AddIcon />
       </button>

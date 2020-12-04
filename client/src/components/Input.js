@@ -35,10 +35,10 @@ const InputField = styled.input`
   margin-left: 30px;
 `;
 
-const Input = ({ placeholder, type }) => {
+const Input = ({ placeholder, type, onSubmit, onChange }) => {
   return (
-    <InputContainer>
-      <InputField placeholder={placeholder} type={type} />
+    <InputContainer onSubmit={onSubmit}>
+      <InputField placeholder={placeholder} type={type} onChange={onChange} />
       {type === "search" ? (
         <button>
           <SearchIcon />
@@ -54,4 +54,6 @@ export default Input;
 Input.propTypes = {
   placeholder: PropTypes.string,
   type: PropTypes.string,
+  onSubmit: PropTypes.func,
+  onChange: PropTypes.func,
 };

@@ -1,0 +1,137 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "title": "bracelet",
+      "shorthand": "4Ocean Bracelet",
+      "category": [
+        "gift",
+        "jewelery",
+        "Ocean",
+        "climate change",
+        "plastic waste"
+      ],
+      "description": "An absolute must-have for anyone loving the ocean. For every bracelet sold 4Ocean collects one pound of trash out of the ocean and its shores",
+      "company_name": "4Ocean",
+      "url": "https://www.4ocean.com/collections/bracelets/products/the-4ocean-bracelet",
+      "image": "https://cdn.shopify.com/s/files/1/0996/1022/products/4ob__21372_440x.png?v=1595514300",
+      "price": "13€"
+    },
+    {
+      "id": 2,
+      "title": "notebook",
+      "shorthand": "Bambook Notebook",
+      "category": [
+        "gift",
+        "useful",
+        "Climate Change",
+        "paper waste",
+        "plant a tree",
+        "bamboo"
+      ],
+      "description": "Make this your last notebook and stop paper waste! You can scan your notes onto your phone and erase them from the notebook when not needed anymore.",
+      "company_name": "Bambook",
+      "url": "https://www.bambook.org/en/product/bambook-classic-notebook/",
+      "image": "https://470833-1477561-raikfcquaxqncofqfm.stackpathdns.com/wp-content/uploads/2019/12/Alle-bambooks-Family-1.jpg",
+      "price": "20€"
+    },
+    {
+      "id": 3,
+      "title": "backpack",
+      "shorthand": "Gotbag Backpack",
+      "category": [
+        "useful",
+        "onthego",
+        "Ocean",
+        "Climate Change",
+        "Plastic Waste"
+      ],
+      "description": "World's first rolltop backpack made out of plastic from the sea. For all adventurers out there, perfect for your next trip, or just everyday's journey",
+      "company_name": "GotBag",
+      "url": "https://got-bag.com/products/rolltop-backpack",
+      "image": "https://cdn.shopify.com/s/files/1/0062/5190/5079/products/rolltop_black_front_2048px_32a13695-119a-46ea-b272-67cb93f225de_540x.png?v=1603666872",
+      "price": "149€"
+    },
+    {
+      "id": 4,
+      "title": "waterbottle",
+      "shorthand": "Waterbottle",
+      "category": [
+        "accessory",
+        "useful",
+        "onthego",
+        "Ocean",
+        "Climate Change",
+        "Plastic Waste"
+      ],
+      "description": "The waterdrop® Edition Bottle made from high-quality borosilicate glass (20oz or 0.6 liter) helps you drink more water on the go and reduces your carbon footprint. Available in our 6 empowerment designs.",
+      "company_name": "Waterdrop",
+      "url": "https://www.waterdrop.com/collections/all/products/edition-glass-bottle?variant=32959007391778",
+      "image": "https://cdn.shopify.com/s/files/1/0274/4988/4706/products/waterdrop-edition-bottle-new-boost_6013f82d-3431-458f-a850-5c4896296391_2000x.png?v=1604918780",
+      "price": "30€"
+    },
+    {
+      "id": 5,
+      "title": "waterbottle",
+      "shorthand": "Waterbottle",
+      "category": [
+        "accessory",
+        "useful",
+        "onthego",
+        "bamboo",
+        "climate change",
+        "plastic waste"
+      ],
+      "description": "The WAKEcup reusable bottle is made from sustainably sourced organic bamboo - a durable, lightweight and stylish material. We've included a leak-proof lid and a double walled interior to keep your water cold for up to 8 hours. Prefer hot drinks? The double-walled interior keeps coffee, tea or soup hot for 2 hours and, as an added bonus, comes with an infuser for loose leaf tea.",
+      "company_name": "WakeCup",
+      "url": "https://globalwakecup.com/products/wakecup-bamboo-water-bottle?variant=15196117499977",
+      "image": "https://cdn.shopify.com/s/files/1/0059/5738/6313/products/IMG_9526_new_CREDIT_brittsworld_590x.jpg?v=1569160719",
+      "price": "20€"
+    },
+    {
+      "id": 6,
+      "title": "coffee cup",
+      "shorthand": "Coffee Cup",
+      "category": [
+        "onthego",
+        "useful",
+        "bamboo",
+        "Climate Change",
+        "Plastic Waste"
+      ],
+      "description": "Perfect for the office, camping or hiking, this compact reusable travel mug is crafted from sustainably sourced organic bamboo with a secure lid and insulated interior to keep your coffee hot. The handle adds a touch of style to a classic zero-waste coffee cup, plus the convenience of grabbing a hot drink on the go, without any pesky spills.",
+      "company_name": "WakeCup",
+      "url": "https://globalwakecup.com/collections/shop/products/wakecup-travel-coffee-mugs-with-lids",
+      "image": "https://cdn.shopify.com/s/files/1/0059/5738/6313/products/IMG_0981_590x.jpg?v=1604500855",
+      "price": "20€"
+    },
+    {
+      "id": 7,
+      "title": "phonecase",
+      "shorthand": "Phone Case",
+      "category": [
+        "accessory",
+        "useful",
+        "Ocean",
+        "Climate Change",
+        "Plastic Waste"
+      ],
+      "description": "A durable, stylish, and functional iPhone case made from actual ocean plastic that our captains and crews recovered! To give your iPhone maximum protection, we opted for a two-layer shell case. The hard outer shell is made from rHDPE 4ocean Plastic™ while the soft, impact-absorbent inner shell is made from bio-compostable PBAT rubber.",
+      "company_name": "4Ocean",
+      "url": "https://www.4ocean.com/collections/accessories/products/4ocean-signature-iphone-case",
+      "image": "https://cdn.shopify.com/s/files/1/0996/1022/products/4ocean-iphone-cell-phone-case_440x.png?v=1605213646",
+      "price": "40€"
+    },
+    {
+      "id": 8,
+      "title": "shopping bag",
+      "shorthand": "Shopping Bag",
+      "category": ["accessory", "useful", "Plastic Waste", "Climate Change"],
+      "description": "A waterdrop® to go, please! The Edition Bag helps everything reach its destination safely - because this bag has it all. The fruity design, illustrated by the Spanish design studio Nature Press, is also a real eye-catcher. Say goodbye to disposable bags and use our tote bag made of sustainable and stylish materials. ",
+      "company_name": "Waterdrop",
+      "url": "https://www.waterdrop.com/collections/all/products/edition-bag?variant=32959108055074",
+      "image": "https://cdn.shopify.com/s/files/1/0274/4988/4706/products/waterdrop-bags-glow_c02d298e-2e9f-424e-a9ed-496f99163e66_1024x.png?v=1604921437",
+      "price": "15€"
+    }
+  ]
+}
