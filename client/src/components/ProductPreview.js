@@ -29,11 +29,7 @@ const ProductPreview = ({ title, primary, src, alt, size }) => {
     <Container primary={primary}>
       {primary ? <h2>Our Pick of the Day</h2> : <></>}
       <Image src={src} alt={alt} size={size} />
-      {size === "small" ? (
-        <></>
-      ) : (
-        <TextContainer title={title} primary={true} />
-      )}
+      {primary ? <TextContainer title={title} primary={true} /> : <></>}
     </Container>
   );
 };
