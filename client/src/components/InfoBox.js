@@ -1,7 +1,7 @@
 import ProductText from "./ProductText";
-import SmallImage from "./SmallImage";
 import styled from "styled-components/macro";
 import PropTypes from "prop-types";
+import Image from "../components/Image";
 
 const InfoContainer = styled.div`
   width: 100%;
@@ -14,7 +14,7 @@ const InfoContainer = styled.div`
 const InfoBox = ({ src, title, price, description }) => {
   return (
     <InfoContainer>
-      <SmallImage src={src} alt={"Bambook"} />
+      <Image src={src} alt={"Bambook"} size={"small"} />
       <ProductText title={title} price={price} description={description} />
     </InfoContainer>
   );

@@ -6,30 +6,29 @@ import Image from "../components/Image";
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: ${(props) => (props.primary ? "flex-end" : "center")};
+  justify-content: flex-end;
   position: relative;
   width: 100%;
-  margin: ${(props) => (props.primary ? "0" : "5px")};
-  background-image: ${(props) => (props.primary ? "var(--gradient)" : "red")};
+  background-image: var(--gradient);
 
   > :last-child {
-    margin-bottom: ${(props) => (props.primary ? "15px" : "0")};
+    margin-bottom: 15px;
   }
   img {
     height: auto;
-    width: ${(props) => (props.primary ? "100%" : "80%")};
+    width: 100%;
   }
   h2 {
     color: var(--primary-color);
   }
 `;
 
-const ProductPreview = ({ title, primary, src, alt, size }) => {
+const ProductPreview = ({ title, src, alt, size }) => {
   return (
-    <Container primary={primary}>
-      {primary ? <h2>Our Pick of the Day</h2> : <></>}
+    <Container>
+      <h2>Our Pick of the Day</h2>
       <Image src={src} alt={alt} size={size} />
-      {primary ? <TextContainer title={title} primary={true} /> : <></>}
+      <TextContainer title={title} />
     </Container>
   );
 };

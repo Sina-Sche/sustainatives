@@ -5,11 +5,11 @@ import { ReactComponent as FavIconCheck } from "../assets/icons/favorite-added.s
 import { ReactComponent as FavIcon } from "../assets/icons/favorite.svg";
 
 const Button = styled.button`
-  height: ${(props) => (props.size === "small" ? "25px" : "50px")};
-  width: ${(props) => (props.size === "small" ? "25px" : "50px")};
+  height: ${(props) => (props.size === "small" ? "30px" : "50px")};
+  width: ${(props) => (props.size === "small" ? "30px" : "50px")};
   position: absolute;
-  right: ${(props) => (props.size === "small" ? "12%" : "5%")};
-  top: ${(props) => (props.size === "small" ? "12%" : "5%")};
+  right: ${(props) => (props.size === "small" ? "10%" : "5%")};
+  top: ${(props) => (props.size === "small" ? "10%" : "5%")};
 `;
 const FavoriteIcon = ({ size }) => {
   const [isFavorite, setIsFavorite] = useState(false);
