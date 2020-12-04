@@ -12,7 +12,7 @@
     "start": "node server.js",
     "server": "nodemon server.js",
     "client": "cd client && npm start",
-    "api": "json-server --watch db.json --port 7000"
+    "build": "cd client && npm run build"
   },
   "repository": {
     "type": "git",
