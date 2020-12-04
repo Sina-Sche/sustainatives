@@ -51,7 +51,7 @@ export default function CategoryList() {
   const activeCategories = ["bamboo", "reuse", "ocean"];
   const CategoryList = Object.entries(icons).map(
     ([categoryName, { icon: Icon, label }]) => (
-      <li key={categoryName} active={Icon.active ? true : false}>
+      <li key={categoryName}>
         <Icon active={activeCategories.includes(categoryName)} />
         <p>{label}</p>
       </li>
