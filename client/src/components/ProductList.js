@@ -1,7 +1,6 @@
 import styled from "styled-components/macro";
 import ProductPreview from "./ProductPreview";
-import { useState } from "react";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { getProducts } from "../utils/api";
 
 const ListContainer = styled.ul`
