@@ -26,11 +26,7 @@ const ProductList = () => {
         products.map((product) => {
           return (
             <li key={product.id}>
-              <ProductPreview
-                src={product.image}
-                title={product.shorthand}
-                size={"small"}
-              />
+              <ProductPreview src={product.image} size={"small"} />
             </li>
           );
         })}
