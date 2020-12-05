@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "proxy": "http://localhost:3600",
+  "homepage": "http://localhost:3000/",
   "dependencies": {
     "@babel/core": "^7.12.7",
     "@storybook/addon-actions": "^6.1.2",
