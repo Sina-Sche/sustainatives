@@ -10,10 +10,10 @@ import useAsync from "../hooks/useAsync";
 
 export const SearchPage = () => {
   const [inputValue, setInputValue] = useState("");
-  const { data, doFetch } = useAsync(() => getProductsByTitle(inputValue));
+  const { data, fetchData } = useAsync(() => getProductsByTitle(inputValue));
 
   useEffect(() => {
-    doFetch();
+    fetchData();
   }, [inputValue]);
 
   return (

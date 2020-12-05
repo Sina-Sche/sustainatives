@@ -3,11 +3,11 @@ import { useState } from "react";
 const useAsync = (action) => {
   const [data, setData] = useState();
 
-  const doFetch = async () => {
+  const fetchData = async () => {
     const newData = await action();
     setData(newData);
   };
-  return { data, doFetch };
+  return { data, fetchData };
 };
 
 export default useAsync;

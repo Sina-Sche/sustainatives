@@ -1,7 +1,8 @@
 import styled from "styled-components/macro";
 import Image from "./Image";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { getProducts } from "../utils/api";
+import useAsync from "../hooks/useAsync";
 
 const ListContainer = styled.ul`
   display: grid;
@@ -20,18 +21,16 @@ const ListContainer = styled.ul`
 `;
 
 const ProductList = () => {
-  const [products, setProducts] = useState([]);
+  const { data, fetchData } = useAsync(() => getProducts());
+
   useEffect(() => {
-    async function fetchData() {
-      const products = await getProducts();
-      setProducts(products);
-    }
     fetchData();
   }, []);
+
   return (
     <ListContainer>
-      {products &&
-        products.map((product) => {
+      {data &&
+        data.map((product) => {
           return (
             <li key={product.id}>
               <Image src={product.image} size={"small"} />
