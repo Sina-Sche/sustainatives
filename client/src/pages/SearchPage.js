@@ -9,20 +9,30 @@ import { Link } from "react-router-dom";
 
 export const SearchPage = () => {
   const [products, setProducts] = useState([]);
-  const title = "waterbottle";
+  const [inputValue, setInputValue] = useState("");
+
   useEffect(() => {
     const doFetch = async () => {
-      const products = await getProductsByTitle(title);
+      const products = await getProductsByTitle(inputValue);
       setProducts(products);
       console.log(products);
     };
     doFetch();
-  }, []);
+  }, [inputValue]);
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(inputValue);
+  };
+
+  const handleChange = (e) => {
+    e.preventDefault();
+    setInputValue(e.target.value);
+  };
   return (
     <>
       <Header title={"Browse"} />
-      <Input />
+      <Input type={"search"} onSubmit={handleSubmit} onChange={handleChange} />
       <CategoryOverview />
       <Link to={"/details"}>
         {products &&
