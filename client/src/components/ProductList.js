@@ -7,8 +7,16 @@ const ListContainer = styled.ul`
   display: grid;
   grid-template-columns: 1fr 1fr;
   list-style: none;
-  gap: 10px;
+  row-gap: 10px;
   padding-top: 15px;
+  align-items: center;
+  align-content: center;
+  justify-items: center;
+  margin: 5px;
+  li {
+    min-width: 175px;
+    min-height: 175px;
+  }
 `;
 
 const ProductList = () => {

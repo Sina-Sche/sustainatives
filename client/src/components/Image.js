@@ -8,7 +8,8 @@ const ImgContainer = styled.div`
   align-self: center;
   border-radius: 20px;
   position: relative;
-  margin-bottom: 5px;
+  margin: auto;
+  justify-self: center;
   img {
     border-radius: 15%;
     width: 100%;

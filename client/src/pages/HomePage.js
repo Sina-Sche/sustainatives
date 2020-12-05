@@ -9,7 +9,7 @@ export const HomePage = () => {
   return (
     <>
       <Header title={"SustainAtives"} />
-      <ProductPreview primary={true} src={Bambook} title={"Bambook Notebook"} />
+      <ProductPreview src={Bambook} title={"Bambook Notebook"} />
       <ProductList />
       <NavBar />
     </>
