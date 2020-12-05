@@ -6,37 +6,25 @@ import InfoBox from "../components/InfoBox";
 import { getProductsByTitle } from "../utils/api";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import useAsync from "../hooks/useAsync";
 
 export const SearchPage = () => {
-  const [products, setProducts] = useState([]);
   const [inputValue, setInputValue] = useState("");
+  const { data, doFetch } = useAsync(() => getProductsByTitle(inputValue));
 
   useEffect(() => {
-    const doFetch = async () => {
-      const products = await getProductsByTitle(inputValue);
-      setProducts(products);
-      console.log(products);
-    };
     doFetch();
   }, [inputValue]);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(inputValue);
-  };
-
-  const handleChange = (e) => {
-    e.preventDefault();
-    setInputValue(e.target.value);
-  };
   return (
     <>
       <Header title={"Browse"} />
-      <Input type={"search"} onSubmit={handleSubmit} onChange={handleChange} />
+      <Input type={"search"} onChange={(e) => setInputValue(e.target.value)} />
       <CategoryOverview />
+      {inputValue && <h2>Your search results for {inputValue}</h2>}
       <Link to={"/details"}>
-        {products &&
-          products.map((product) => {
+        {data &&
+          data.map((product) => {
             return (
               <InfoBox
                 key={product.id}
