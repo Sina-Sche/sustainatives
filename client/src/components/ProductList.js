@@ -21,7 +21,7 @@ const ListContainer = styled.ul`
 `;
 
 const ProductList = () => {
-  const { data, fetchData } = useAsync(() => getProducts());
+  const { data, loading, error, fetchData } = useAsync(() => getProducts());
 
   useEffect(() => {
     fetchData();
@@ -29,6 +29,8 @@ const ProductList = () => {
 
   return (
     <ListContainer>
+      {loading && <div>Loading...</div>}
+      {error && <div>{error.message}</div>}
       {data &&
         data.map((product) => {
           return (

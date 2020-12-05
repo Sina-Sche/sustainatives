@@ -10,7 +10,9 @@ import useAsync from "../hooks/useAsync";
 
 export const SearchPage = () => {
   const [inputValue, setInputValue] = useState("");
-  const { data, fetchData } = useAsync(() => getProductsByTitle(inputValue));
+  const { data, error, loading, fetchData } = useAsync(() =>
+    getProductsByTitle(inputValue)
+  );
 
   useEffect(() => {
     fetchData();
@@ -22,6 +24,8 @@ export const SearchPage = () => {
       <Input type={"search"} onChange={(e) => setInputValue(e.target.value)} />
       <CategoryOverview />
       {inputValue && <h2>Your search results for {inputValue}</h2>}
+      {loading && <div>Loading...</div>}
+      {error && <div>{error.message}</div>}
       <Link to={"/details"}>
         {data &&
           data.map((product) => {
