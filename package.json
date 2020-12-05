@@ -12,7 +12,8 @@
     "start": "node server.js",
     "server": "nodemon server.js",
     "client": "cd client && npm start",
-    "build": "cd client && npm run build && npm run build-storybook"
+    "build": "cd client && npm run build && npm run build-storybook",
+    "storybook": "cd client && npm run storybook"
   },
   "repository": {
     "type": "git",
