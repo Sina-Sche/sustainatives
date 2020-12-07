@@ -35,7 +35,12 @@ const ProductList = () => {
         data.map((product) => {
           return (
             <li key={product.id}>
-              <Image src={product.image} size={"small"} />
+              <Image
+                src={product.image}
+                alt={product.title}
+                id={product.id}
+                size={"small"}
+              />
             </li>
           );
         })}

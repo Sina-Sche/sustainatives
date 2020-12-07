@@ -3,7 +3,6 @@ import { ReactComponent as Bamboo } from "../assets/icons/bamboo.svg";
 import { ReactComponent as Travel } from "../assets/icons/travel.svg";
 import { ReactComponent as Reuse } from "../assets/icons/reuse.svg";
 import { ReactComponent as Tree } from "../assets/icons/tree.svg";
-import Bambook from "../assets/images/bambook.jpg";
 import Image from "../components/Image";
 import PropTypes from "prop-types";
 import ProductText from "./ProductText";
@@ -74,19 +73,30 @@ const ReuseIcon = styled(Reuse)`
 const TreeIcon = styled(Tree)`
   ${categoryStyle}
 `;
-const ProductDetails = ({ onClick, isFavorite }) => {
+const ProductDetails = ({
+  src,
+  alt,
+  title,
+  price,
+  description,
+  onClick,
+  isFavorite,
+  url,
+}) => {
   return (
     <DetailsContainer>
-      <Image src={Bambook} onClick={onClick} isFavorite={isFavorite} />
+      <Image src={src} alt={alt} onClick={onClick} isFavorite={isFavorite} />
       <ProductDetailsContainer>
-        <ProductText />
+        <ProductText title={title} price={price} description={description} />
         <div>
           <BambooIcon />
           <TravelIcon />
           <ReuseIcon />
           <TreeIcon />
         </div>
-        <Button>Visit Website</Button>
+        <a href={url}>
+          <Button>Visit Website</Button>
+        </a>
       </ProductDetailsContainer>
     </DetailsContainer>
   );
@@ -98,4 +108,9 @@ ProductDetails.propTypes = {
   onClick: PropTypes.func,
   isFavorite: PropTypes.bool,
   title: PropTypes.string,
+  src: PropTypes.string,
+  alt: PropTypes.string,
+  price: PropTypes.string,
+  description: PropTypes.string,
+  url: PropTypes.string,
 };
