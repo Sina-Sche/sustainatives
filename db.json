@@ -132,17 +132,6 @@
       "url": "https://www.waterdrop.com/collections/all/products/edition-bag?variant=32959108055074",
       "image": "https://cdn.shopify.com/s/files/1/0274/4988/4706/products/waterdrop-bags-glow_c02d298e-2e9f-424e-a9ed-496f99163e66_1024x.png?v=1604921437",
       "price": "15€"
-    },
-    {
-      "title": "secondBracelet",
-      "category": ["gift", "jewelery"],
-      "description": "An absolute must-have for anyone loving the ocean. For every bracelet sold 4Ocean collects one pound of trash out of the ocean and its shores",
-      "supports": ["Ocean", "climate change", "plastic waste"],
-      "company name": "4Ocean",
-      "url": "https://www.4ocean.com/collections/bracelets/products/the-4ocean-bracelet",
-      "image": "https://cdn.shopify.com/s/files/1/0996/1022/products/4ob__21372_440x.png?v=1595514300",
-      "price": "13€",
-      "id": 9
     }
   ]
 }
