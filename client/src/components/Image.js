@@ -19,6 +19,8 @@ const SmallImg = styled.img`
   position: relative;
   padding: 10px;
   border: 1px solid var(--icon-active-color);
+  max-width: 500px;
+  object-fit: contain;
 `;
 const Image = ({ src, alt, id, size }) => {
   return (

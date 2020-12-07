@@ -8,7 +8,7 @@ export const Container = styled.div`
   align-self: center;
   position: absolute;
   width: 80%;
-  max-width: 780px;
+  max-width: 700px;
   background: rgba(255, 255, 255, 0.9);
   border: ${(props) =>
     props.primary
