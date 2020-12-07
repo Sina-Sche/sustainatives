@@ -23,7 +23,7 @@ function App() {
         <Route path="/favorites">
           <FavoritePage />
         </Route>
-        <Route path="/details">
+        <Route path="/details/:id">
           <DetailsPage />
         </Route>
       </Switch>
