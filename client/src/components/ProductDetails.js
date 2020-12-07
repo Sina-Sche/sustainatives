@@ -90,30 +90,29 @@ const ReuseIcon = styled(Reuse)`
 const TreeIcon = styled(Tree)`
   ${categoryStyle}
 `;
-const ProductDetails = ({
-  src,
-  alt,
-  title,
-  price,
-  description,
-  onClick,
-  isFavorite,
-  url,
-  header,
-}) => {
+const ProductDetails = ({ data, onClick, isFavorite }) => {
   return (
     <DetailsContainer>
-      <Image src={src} alt={alt} onClick={onClick} isFavorite={isFavorite} />
+      <Image
+        src={data?.image}
+        alt={data?.title}
+        onClick={onClick}
+        isFavorite={isFavorite}
+      />
       <ProductDetailsContainer>
-        <h6>{header}</h6>
-        <ProductText title={title} price={price} description={description} />
+        <h6>{data?.company_name}</h6>
+        <ProductText
+          title={data?.display_title}
+          price={data?.price}
+          description={data?.description}
+        />
         <div>
           <BambooIcon />
           <TravelIcon />
           <ReuseIcon />
           <TreeIcon />
         </div>
-        <a href={url}>
+        <a href={data?.url}>
           <Button>Visit Website</Button>
         </a>
       </ProductDetailsContainer>
@@ -125,13 +124,6 @@ export default ProductDetails;
 
 ProductDetails.propTypes = {
   onClick: PropTypes.func,
+  data: PropTypes.object,
   isFavorite: PropTypes.bool,
-  title: PropTypes.string,
-  src: PropTypes.string,
-  alt: PropTypes.string,
-  price: PropTypes.string,
-  description: PropTypes.string,
-  url: PropTypes.string,
-  header: PropTypes.string,
-  category: PropTypes.array,
 };
