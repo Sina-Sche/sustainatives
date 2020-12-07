@@ -13,6 +13,12 @@ const DetailsContainer = styled.div`
   display: flex;
   flex-direction: column;
   padding-top: 10px;
+  align-items: center;
+  div {
+    margin-top: 0;
+    padding-top: 0;
+    min-width: 350px;
+  }
   h3 {
     margin-top: 0;
     padding-top: 0;
@@ -25,9 +31,23 @@ const DetailsContainer = styled.div`
   }
   p {
     color: var(--primary-color);
+    height: auto;
+    display: flex;
+    overflow: visible;
   }
   img {
     border: 1px solid var(--icon-active-color);
+  }
+  h6 {
+    color: var(--primary-color);
+    text-align: left;
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 0;
+  }
+  a {
+    align-self: flex-end;
+    width: 40%;
   }
 `;
 
@@ -35,7 +55,6 @@ const ProductDetailsContainer = styled.div`
   background-image: var(--gradient);
   display: flex;
   flex-direction: column;
-  padding: 10px;
   border-top-right-radius: 50px;
   border-bottom-left-radius: 50px;
   max-width: 800px;
@@ -43,8 +62,6 @@ const ProductDetailsContainer = styled.div`
 
 const Button = styled.button`
   background-color: var(--primary-color);
-  align-self: flex-end;
-  width: 40%;
   border-radius: 50px;
   color: var(--secondary-color);
   font-weight: bold;
@@ -82,17 +99,20 @@ const ProductDetails = ({
   onClick,
   isFavorite,
   url,
+  header,
+  category,
 }) => {
   return (
     <DetailsContainer>
       <Image src={src} alt={alt} onClick={onClick} isFavorite={isFavorite} />
       <ProductDetailsContainer>
+        <h6>{header}</h6>
         <ProductText title={title} price={price} description={description} />
         <div>
-          <BambooIcon />
-          <TravelIcon />
-          <ReuseIcon />
-          <TreeIcon />
+          {category &&
+            category.map((icon) => {
+              return <div key={title}>{icon}</div>;
+            })}
         </div>
         <a href={url}>
           <Button>Visit Website</Button>
@@ -113,4 +133,6 @@ ProductDetails.propTypes = {
   price: PropTypes.string,
   description: PropTypes.string,
   url: PropTypes.string,
+  header: PropTypes.string,
+  category: PropTypes.array,
 };

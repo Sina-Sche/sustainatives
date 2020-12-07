@@ -1,11 +1,11 @@
 import Header from "../components/Header";
 import NavBar from "../components/NavBar";
-import PropTypes from "prop-types";
 import ProductDetails from "../components/ProductDetails";
+import PropTypes from "prop-types";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
-import useAsync from "../hooks/useAsync";
 import { getProductById } from "../utils/api";
+import useAsync from "../hooks/useAsync";
 
 export const DetailsPage = () => {
   const { id } = useParams();
@@ -20,13 +20,17 @@ export const DetailsPage = () => {
   return (
     <>
       <Header title={"Discover"} />
+      {loading && <div>Loading...</div>}
+      {error && <div>{error.message}</div>}
       <ProductDetails
         src={data?.image}
         alt={data?.title}
-        title={data?.display_name}
+        header={data?.company_name}
+        title={data?.display_title}
         price={data?.price}
         description={data?.description}
         url={data?.url}
+        category={data?.category}
       />
       <NavBar />
     </>

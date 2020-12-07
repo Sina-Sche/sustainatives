@@ -38,7 +38,7 @@ body {
 
 }
 
-h1, h2, h3, h5 {
+h1, h2, h3, h5, h6{
     font-family: 'LaurenPremier';
     font-size: 1.7rem;
     color: var(--secondary-color);
@@ -67,6 +67,9 @@ h5{
   font-family: 'LaurenPremier';
   color: var(--secondary-color);
   padding: 3px;
+}
+h6 {
+  font-size: 1rem;
 
 }
 a{

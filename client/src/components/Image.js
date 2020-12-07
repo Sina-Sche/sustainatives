@@ -26,9 +26,9 @@ const Image = ({ src, alt, size, id }) => {
     <ImgContainer>
       <Link to={`/details/${id}`}>
         {size === "small" ? (
-          <Img src={src} alt={alt} />
+          <Img src={src} alt={alt} id={id} />
         ) : (
-          <img src={src} alt={alt} />
+          <img src={src} alt={alt} id={id} />
         )}
       </Link>
       <FavoriteIcon size={size} />
