@@ -10,15 +10,16 @@ const app = express();
 app.use(middleware);
 app.use("/api", router);
 
-app.use(express.static(path.join(__dirname, "client/public")));
+app.use(express.static("public"));
 
+app.use(express.static(path.join(__dirname, "client/build")));
 app.use(
   "/storybook",
   express.static(path.join(__dirname, "client/storybook-static"))
 );
 
 app.get("*", (request, response) => {
-  response.sendFile(path.join(__dirname, "client/build", "index.html"));
+  response.sendFile(path.join(__dirname, "client/public", "index.html"));
 });
 
 app.listen(port, () => {
