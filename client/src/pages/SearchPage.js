@@ -43,6 +43,7 @@ export const SearchPage = () => {
                 key={product.id}
                 size={"small"}
                 src={product.image}
+                alt={product.title}
                 title={product.display_title}
                 description={product.description}
                 price={product.price}
