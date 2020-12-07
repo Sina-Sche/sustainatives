@@ -100,7 +100,6 @@ const ProductDetails = ({
   isFavorite,
   url,
   header,
-  category,
 }) => {
   return (
     <DetailsContainer>
@@ -109,10 +108,10 @@ const ProductDetails = ({
         <h6>{header}</h6>
         <ProductText title={title} price={price} description={description} />
         <div>
-          {category &&
-            category.map((icon) => {
-              return <div key={title}>{icon}</div>;
-            })}
+          <BambooIcon />
+          <TravelIcon />
+          <ReuseIcon />
+          <TreeIcon />
         </div>
         <a href={url}>
           <Button>Visit Website</Button>
