@@ -21,10 +21,10 @@ const Img = styled.img`
   border: 1px solid var(--icon-active-color);
   border-radius: 20px;
 `;
-const Image = ({ src, alt, size }) => {
+const Image = ({ src, alt, size, id }) => {
   return (
     <ImgContainer>
-      <Link to={"/details"}>
+      <Link to={`/details/${id}`}>
         {size === "small" ? (
           <Img src={src} alt={alt} />
         ) : (
@@ -41,4 +41,5 @@ Image.propTypes = {
   src: PropTypes.string,
   alt: PropTypes.string,
   size: PropTypes.oneOf(["small", "large"]),
+  id: PropTypes.number,
 };
