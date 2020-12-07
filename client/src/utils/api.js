@@ -5,7 +5,7 @@ export async function getProducts() {
 }
 
 export async function getProductsByTitle(title) {
-  const result = await fetch(`/api/products?title=${title}`);
+  const result = await fetch(`/api/products?title_like=${title}`);
   const products = result.json();
   return products;
 }

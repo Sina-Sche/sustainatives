@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 import useAsync from "../hooks/useAsync";
 
 export const SearchPage = () => {
+  const [title, setTitle] = useState("");
   const [inputValue, setInputValue] = useState("");
   const { data, error, loading, fetchData } = useAsync(() =>
     getProductsByTitle(inputValue)
@@ -18,23 +19,31 @@ export const SearchPage = () => {
     fetchData();
   }, [inputValue]);
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+  const handleChange = (e) => {
+    e.preventDefault();
+    setInputValue(e.target.value);
+  };
+
   return (
     <>
       <Header title={"Browse"} />
-      <Input type={"search"} onChange={(e) => setInputValue(e.target.value)} />
+      <Input type={"search"} onChange={handleChange} onSubmit={handleSubmit} />
       <CategoryOverview />
       {inputValue && <h2>Your search results for {inputValue}</h2>}
       {loading && <div>Loading...</div>}
       {error && <div>{error.message}</div>}
       <Link to={"/details"}>
-        {data &&
+        {inputValue &&
           data.map((product) => {
             return (
               <InfoBox
                 key={product.id}
                 size={"small"}
                 src={product.image}
-                title={product.title}
+                title={product.display_title}
                 description={product.description}
                 price={product.price}
               />
