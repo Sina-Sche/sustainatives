@@ -48,7 +48,7 @@ const icons = {
   tree: { icon: createCategoryIcon(Tree), label: "Plant a tree" },
 };
 export default function CategoryList() {
-  const activeCategories = ["bamboo", "reuse", "ocean"];
+  const activeCategories = [""];
   const CategoryList = Object.entries(icons).map(
     ([categoryName, { icon: Icon, label }]) => (
       <li key={categoryName}>

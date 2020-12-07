@@ -3,7 +3,7 @@
     {
       "id": 1,
       "title": "bracelet",
-      "shorthand": "4Ocean Bracelet",
+      "display_title": "4Ocean Bracelet",
       "category": [
         "gift",
         "jewelery",
@@ -20,7 +20,7 @@
     {
       "id": 2,
       "title": "notebook",
-      "shorthand": "Bambook Notebook",
+      "display_title": "Bambook Notebook",
       "category": [
         "gift",
         "useful",
@@ -38,7 +38,7 @@
     {
       "id": 3,
       "title": "backpack",
-      "shorthand": "Gotbag Backpack",
+      "display_title": "Gotbag Backpack",
       "category": [
         "useful",
         "onthego",
@@ -55,7 +55,7 @@
     {
       "id": 4,
       "title": "waterbottle",
-      "shorthand": "Waterbottle",
+      "display_title": "Waterbottle",
       "category": [
         "accessory",
         "useful",
@@ -73,7 +73,7 @@
     {
       "id": 5,
       "title": "waterbottle",
-      "shorthand": "Waterbottle",
+      "display_title": "Waterbottle",
       "category": [
         "accessory",
         "useful",
@@ -91,7 +91,7 @@
     {
       "id": 6,
       "title": "coffee cup",
-      "shorthand": "Coffee Cup",
+      "display_title": "Coffee Cup",
       "category": [
         "onthego",
         "useful",
@@ -108,7 +108,7 @@
     {
       "id": 7,
       "title": "phonecase",
-      "shorthand": "Phone Case",
+      "display_title": "Phone Case",
       "category": [
         "accessory",
         "useful",
@@ -125,13 +125,24 @@
     {
       "id": 8,
       "title": "shopping bag",
-      "shorthand": "Shopping Bag",
+      "display_title": "Shopping Bag",
       "category": ["accessory", "useful", "Plastic Waste", "Climate Change"],
       "description": "A waterdrop® to go, please! The Edition Bag helps everything reach its destination safely - because this bag has it all. The fruity design, illustrated by the Spanish design studio Nature Press, is also a real eye-catcher. Say goodbye to disposable bags and use our tote bag made of sustainable and stylish materials. ",
       "company_name": "Waterdrop",
       "url": "https://www.waterdrop.com/collections/all/products/edition-bag?variant=32959108055074",
       "image": "https://cdn.shopify.com/s/files/1/0274/4988/4706/products/waterdrop-bags-glow_c02d298e-2e9f-424e-a9ed-496f99163e66_1024x.png?v=1604921437",
       "price": "15€"
+    },
+    {
+      "title": "secondBracelet",
+      "category": ["gift", "jewelery"],
+      "description": "An absolute must-have for anyone loving the ocean. For every bracelet sold 4Ocean collects one pound of trash out of the ocean and its shores",
+      "supports": ["Ocean", "climate change", "plastic waste"],
+      "company name": "4Ocean",
+      "url": "https://www.4ocean.com/collections/bracelets/products/the-4ocean-bracelet",
+      "image": "https://cdn.shopify.com/s/files/1/0996/1022/products/4ob__21372_440x.png?v=1595514300",
+      "price": "13€",
+      "id": 9
     }
   ]
 }

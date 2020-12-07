@@ -15,10 +15,10 @@ const InfoContainer = styled.div`
     width: 150px;
   }
 `;
-const InfoBox = ({ src, title, price, description, size }) => {
+const InfoBox = ({ src, alt, title, price, description, size }) => {
   return (
     <InfoContainer>
-      <Image src={src} alt={"Bambook"} size={size} />
+      <Image src={src} alt={alt} size={size} />
       <ProductText title={title} price={price} description={description} />
     </InfoContainer>
   );
@@ -28,6 +28,7 @@ export default InfoBox;
 
 InfoBox.propTypes = {
   src: PropTypes.string,
+  alt: PropTypes.string,
   title: PropTypes.string,
   price: PropTypes.number,
   description: PropTypes.string,
