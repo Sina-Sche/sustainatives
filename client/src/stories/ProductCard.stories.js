@@ -1,11 +1,11 @@
-import ProductCard from "../components/ProductCard";
+import ProductPreview from "../components/ProductPreview";
 
 export default {
   title: "Components/Cards",
-  component: ProductCard,
+  component: ProductPreview,
   parameters: { layout: "centered" },
 };
-const Template = (args) => <ProductCard {...args} />;
+const Template = (args) => <ProductPreview {...args} />;
 
 export const ProductCardA = Template.bind({});
 ProductCardA.args = {

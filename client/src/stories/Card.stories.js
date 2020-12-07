@@ -1,20 +1,18 @@
-import LargeCard from "../components/LargeCard";
+import Image from "../components/Image";
 
 export default {
   title: "Components/Cards",
-  component: LargeCard,
+  component: Image,
 };
 
-const Template = (args) => <LargeCard {...args} />;
+const Template = (args) => <Image {...args} />;
 
 export const BambookCard = Template.bind({});
 BambookCard.args = {
-  primary: true,
   title: "Bambook",
 };
 
 export const CoffeeCard = Template.bind({});
 CoffeeCard.args = {
-  primary: false,
   title: "Coffee Capsules",
 };

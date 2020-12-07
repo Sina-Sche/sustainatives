@@ -28,7 +28,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "storybook": "start-storybook -p 3600 -s public"
+    "storybook": "start-storybook -p 1234 -s public",
+    "build-storybook": "build-storybook -s public"
   },
   "browserslist": {
     "production": [

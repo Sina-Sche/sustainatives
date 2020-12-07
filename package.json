@@ -12,6 +12,7 @@
     "start": "node server.js",
     "server": "nodemon server.js",
     "client": "cd client && npm start",
+    "storybook": "cd client && npm run storybook",
     "build": "cd client && npm run build && npm run build-storybook"
   },
   "repository": {
