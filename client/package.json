@@ -2,7 +2,6 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:3600",
   "homepage": "http://localhost:3000/",
   "dependencies": {
     "@babel/core": "^7.12.7",
@@ -46,5 +45,6 @@
   "devDependencies": {
     "eslint": "^7.13.0",
     "eslint-plugin-react": "^7.21.5"
-  }
+  },
+  "proxy": "http://localhost:3600"
 }
