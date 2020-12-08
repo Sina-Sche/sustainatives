@@ -22,7 +22,8 @@ export const DetailsPage = () => {
       <Header title={"Discover"} />
       {loading && <div>Loading...</div>}
       {error && <div>{error.message}</div>}
-      <ProductDetails data={data} />
+      {data && <ProductDetails data={data} />}
+
       <NavBar />
     </>
   );

@@ -1,11 +1,8 @@
-import styled, { css } from "styled-components/macro";
-import { ReactComponent as Bamboo } from "../assets/icons/bamboo.svg";
-import { ReactComponent as Travel } from "../assets/icons/travel.svg";
-import { ReactComponent as Reuse } from "../assets/icons/reuse.svg";
-import { ReactComponent as Tree } from "../assets/icons/tree.svg";
+import styled from "styled-components/macro";
 import Image from "../components/Image";
 import PropTypes from "prop-types";
 import ProductText from "./ProductText";
+import icons from "./CategoryIcons";
 
 const DetailsContainer = styled.div`
   width: 100%;
@@ -71,48 +68,39 @@ const Button = styled.button`
   font-size: 0.9rem;
 `;
 
-const categoryStyle = css`
-  margin: 15px;
-  width: 50px;
-  height: 50px;
-  fill: white;
+const IconContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  text-align: center;
+  margin: 10px;
+  svg {
+    fill: var(--primary-color);
+  }
 `;
 
-const BambooIcon = styled(Bamboo)`
-  ${categoryStyle}
-`;
-const TravelIcon = styled(Travel)`
-  ${categoryStyle}
-`;
-const ReuseIcon = styled(Reuse)`
-  ${categoryStyle}
-`;
-const TreeIcon = styled(Tree)`
-  ${categoryStyle}
-`;
 const ProductDetails = ({ data, onClick, isFavorite }) => {
+  const productCategories = data.categories.map((category) => icons[category]);
+  const productCategoryIcons = Object.entries(
+    productCategories
+  ).map(([categoryName, { icon: Icon }]) => <Icon key={categoryName} />);
   return (
     <DetailsContainer>
       <Image
-        src={data?.image}
-        alt={data?.title}
+        src={data.image}
+        alt={data.title}
         onClick={onClick}
         isFavorite={isFavorite}
       />
       <ProductDetailsContainer>
-        <h6>{data?.company_name}</h6>
+        <h6>{data.company_name}</h6>
         <ProductText
-          title={data?.display_title}
-          price={data?.price}
-          description={data?.description}
+          title={data.display_title}
+          price={data.price}
+          description={data.description}
         />
-        <div>
-          <BambooIcon />
-          <TravelIcon />
-          <ReuseIcon />
-          <TreeIcon />
-        </div>
-        <a href={data?.url}>
+        <IconContainer>{productCategoryIcons}</IconContainer>
+        <a href={data.url}>
           <Button>Visit Website</Button>
         </a>
       </ProductDetailsContainer>
