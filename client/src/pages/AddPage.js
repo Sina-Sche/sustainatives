@@ -2,7 +2,7 @@ import Header from "../components/Header";
 import styled from "styled-components/macro";
 import NavBar from "../components/NavBar";
 import Input from "../components/Input";
-import CategoryList from "../components/CategoryOverview";
+import CategoryList from "../components/CategoryList";
 import { ReactComponent as Add } from "../assets/icons/plus.svg";
 
 const Container = styled.div`
