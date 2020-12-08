@@ -7,31 +7,32 @@ const ImgContainer = styled.div`
   max-width: 93%;
   align-self: center;
   border-radius: 20px;
-  position: relative;
   margin: auto;
+  position: relative;
   justify-self: center;
   img {
     border-radius: 15%;
     width: 100%;
   }
 `;
-const Img = styled.img`
+const SmallImg = styled.img`
   position: relative;
   padding: 10px;
   border: 1px solid var(--icon-active-color);
-  border-radius: 20px;
+  max-width: 500px;
+  object-fit: contain;
 `;
-const Image = ({ src, alt, size }) => {
+const Image = ({ src, alt, id, size }) => {
   return (
     <ImgContainer>
-      <Link to={"/details"}>
+      <Link to={`/details/${id}`}>
         {size === "small" ? (
-          <Img src={src} alt={alt} />
+          <SmallImg src={src} alt={alt} id={id} />
         ) : (
-          <img src={src} alt={alt} />
+          <img src={src} alt={alt} id={id} />
         )}
       </Link>
-      <FavoriteIcon size={size} />
+      <FavoriteIcon />
     </ImgContainer>
   );
 };
@@ -41,4 +42,5 @@ Image.propTypes = {
   src: PropTypes.string,
   alt: PropTypes.string,
   size: PropTypes.oneOf(["small", "large"]),
+  id: PropTypes.number,
 };

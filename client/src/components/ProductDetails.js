@@ -3,7 +3,6 @@ import { ReactComponent as Bamboo } from "../assets/icons/bamboo.svg";
 import { ReactComponent as Travel } from "../assets/icons/travel.svg";
 import { ReactComponent as Reuse } from "../assets/icons/reuse.svg";
 import { ReactComponent as Tree } from "../assets/icons/tree.svg";
-import Bambook from "../assets/images/bambook.jpg";
 import Image from "../components/Image";
 import PropTypes from "prop-types";
 import ProductText from "./ProductText";
@@ -14,6 +13,12 @@ const DetailsContainer = styled.div`
   display: flex;
   flex-direction: column;
   padding-top: 10px;
+  align-items: center;
+  div {
+    margin-top: 0;
+    padding-top: 0;
+    min-width: 350px;
+  }
   h3 {
     margin-top: 0;
     padding-top: 0;
@@ -26,9 +31,23 @@ const DetailsContainer = styled.div`
   }
   p {
     color: var(--primary-color);
+    height: auto;
+    display: flex;
+    overflow: visible;
   }
   img {
     border: 1px solid var(--icon-active-color);
+  }
+  h6 {
+    color: var(--primary-color);
+    text-align: left;
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 0;
+  }
+  a {
+    align-self: flex-end;
+    width: 40%;
   }
 `;
 
@@ -36,7 +55,6 @@ const ProductDetailsContainer = styled.div`
   background-image: var(--gradient);
   display: flex;
   flex-direction: column;
-  padding: 10px;
   border-top-right-radius: 50px;
   border-bottom-left-radius: 50px;
   max-width: 800px;
@@ -44,8 +62,6 @@ const ProductDetailsContainer = styled.div`
 
 const Button = styled.button`
   background-color: var(--primary-color);
-  align-self: flex-end;
-  width: 40%;
   border-radius: 50px;
   color: var(--secondary-color);
   font-weight: bold;
@@ -74,19 +90,31 @@ const ReuseIcon = styled(Reuse)`
 const TreeIcon = styled(Tree)`
   ${categoryStyle}
 `;
-const ProductDetails = ({ onClick, isFavorite }) => {
+const ProductDetails = ({ data, onClick, isFavorite }) => {
   return (
     <DetailsContainer>
-      <Image src={Bambook} onClick={onClick} isFavorite={isFavorite} />
+      <Image
+        src={data?.image}
+        alt={data?.title}
+        onClick={onClick}
+        isFavorite={isFavorite}
+      />
       <ProductDetailsContainer>
-        <ProductText />
+        <h6>{data?.company_name}</h6>
+        <ProductText
+          title={data?.display_title}
+          price={data?.price}
+          description={data?.description}
+        />
         <div>
           <BambooIcon />
           <TravelIcon />
           <ReuseIcon />
           <TreeIcon />
         </div>
-        <Button>Visit Website</Button>
+        <a href={data?.url}>
+          <Button>Visit Website</Button>
+        </a>
       </ProductDetailsContainer>
     </DetailsContainer>
   );
@@ -96,6 +124,6 @@ export default ProductDetails;
 
 ProductDetails.propTypes = {
   onClick: PropTypes.func,
+  data: PropTypes.object,
   isFavorite: PropTypes.bool,
-  title: PropTypes.string,
 };

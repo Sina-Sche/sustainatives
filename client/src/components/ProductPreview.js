@@ -27,7 +27,7 @@ const ProductPreview = ({ title, src, alt, size }) => {
   return (
     <Container>
       <h2>Our Pick of the Day</h2>
-      <Image src={src} alt={alt} size={size} />
+      <Image src={src} alt={alt} size={size} id={2} />
       <TextContainer title={title} />
     </Container>
   );
@@ -41,4 +41,5 @@ ProductPreview.propTypes = {
   src: PropTypes.string,
   alt: PropTypes.string,
   size: PropTypes.oneOf(["small", "large"]),
+  id: PropTypes.number,
 };

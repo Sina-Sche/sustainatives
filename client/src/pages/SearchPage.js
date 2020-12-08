@@ -35,22 +35,26 @@ export const SearchPage = () => {
       {inputValue && <h2>Your search results for {inputValue}</h2>}
       {loading && <div>Loading...</div>}
       {error && <div>{error.message}</div>}
-      <Link to={"/details"}>
-        {inputValue &&
-          data.map((product) => {
-            return (
-              <InfoBox
-                key={product.id}
-                size={"small"}
-                src={product.image}
-                alt={product.title}
-                title={product.display_title}
-                description={product.description}
-                price={product.price}
-              />
-            );
-          })}
-      </Link>
+
+      {inputValue &&
+        data.map((product) => {
+          return (
+            <>
+              <Link to={`/details/${product.id}`}>
+                <InfoBox
+                  key={product.id}
+                  id={product.id}
+                  size={"small"}
+                  src={product.image}
+                  alt={product.title}
+                  title={product.display_title}
+                  description={product.description}
+                  price={product.price}
+                />
+              </Link>
+            </>
+          );
+        })}
 
       <NavBar />
     </>
