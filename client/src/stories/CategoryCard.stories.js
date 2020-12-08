@@ -1,9 +1,9 @@
-import CategoryOverview from "../components/CategoryOverview";
+import CategoryList from "../components/CategoryList";
 export default {
   title: "Components/Cards",
   component: "CategoryList",
 };
 
-const Template = (args) => <CategoryOverview {...args} />;
+const Template = (args) => <CategoryList {...args} />;
 
 export const CategoryListA = Template.bind({});
