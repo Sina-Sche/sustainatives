@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 import Image from "../components/Image";
 
 const InfoContainer = styled.div`
-  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;

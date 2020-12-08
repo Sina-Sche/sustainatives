@@ -5,7 +5,7 @@ import styled, { css } from "styled-components/macro";
 
 const InputContainer = styled.form`
   width: 90vw;
-  margin: 80px auto 20px;
+  margin: 20px auto 20px;
   border: 1px solid var(--icon-active-color);
   border-radius: 50px;
   display: flex;
