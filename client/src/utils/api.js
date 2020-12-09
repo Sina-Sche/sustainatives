@@ -4,6 +4,13 @@ export async function getProducts() {
   return products;
 }
 
+export async function getRandomProduct() {
+  const id = Math.floor(Math.random() * 8 + 1);
+  const result = await fetch(`/api/products/${id}`);
+  const randomProduct = result.json();
+  return randomProduct;
+}
+
 export async function getProductsByTitle(title) {
   const result = await fetch(`/api/products?title_like=${title}`);
   const products = result.json();

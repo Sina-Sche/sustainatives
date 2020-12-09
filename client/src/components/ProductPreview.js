@@ -2,6 +2,7 @@ import styled from "styled-components/macro";
 import PropTypes from "prop-types";
 import TextContainer from "./TextContainer";
 import Image from "../components/Image";
+import useFavorites from "../hooks/useFavorites";
 
 const Container = styled.div`
   display: flex;
@@ -17,17 +18,25 @@ const Container = styled.div`
   img {
     height: auto;
     width: 100%;
+    background: var(--primary-color);
   }
   h2 {
     color: var(--primary-color);
   }
 `;
 
-const ProductPreview = ({ title, src, alt, size }) => {
+const ProductPreview = ({ title, src, alt, size, id, onClick, isFavorite }) => {
   return (
     <Container>
-      <h2>Our Pick of the Day</h2>
-      <Image src={src} alt={alt} size={size} id={2} />
+      <h2>Our Current Favorite</h2>
+      <Image
+        src={src}
+        alt={alt}
+        size={size}
+        onClick={onClick}
+        isFavorite={isFavorite}
+        id={id}
+      />
       <TextContainer title={title} />
     </Container>
   );
@@ -37,9 +46,10 @@ export default ProductPreview;
 
 ProductPreview.propTypes = {
   title: PropTypes.string,
-  primary: PropTypes.bool,
   src: PropTypes.string,
   alt: PropTypes.string,
-  size: PropTypes.oneOf(["small", "large"]),
   id: PropTypes.number,
+  size: PropTypes.oneOf(["small", "large"]),
+  onClick: PropTypes.func,
+  isFavorite: PropTypes.bool,
 };
