@@ -1,23 +1,18 @@
 import PropTypes from "prop-types";
 import styled from "styled-components/macro";
-import { useState } from "react";
 import { ReactComponent as FavIconCheck } from "../assets/icons/favorite-added.svg";
 import { ReactComponent as FavIcon } from "../assets/icons/favorite.svg";
 
 const Button = styled.button`
   height: auto;
-  width: 15%;
+  width: 20%;
   position: absolute;
-  right: 10%;
-  top: 10%;
+  right: 7%;
+  top: 7%;
 `;
-const FavoriteIcon = () => {
-  const [isFavorite, setIsFavorite] = useState(false);
-  const handleClick = () => {
-    setIsFavorite(!isFavorite);
-  };
+const FavoriteIcon = ({ onClick, isFavorite }) => {
   return (
-    <Button onClick={handleClick}>
+    <Button onClick={onClick}>
       {isFavorite ? <FavIconCheck /> : <FavIcon />}
     </Button>
   );

@@ -22,7 +22,7 @@ const SmallImg = styled.img`
   max-width: 500px;
   object-fit: contain;
 `;
-const Image = ({ src, alt, id, size }) => {
+const Image = ({ src, alt, id, size, onClick, isFavorite }) => {
   return (
     <ImgContainer>
       <Link to={`/details/${id}`}>
@@ -32,7 +32,7 @@ const Image = ({ src, alt, id, size }) => {
           <img src={src} alt={alt} id={id} />
         )}
       </Link>
-      <FavoriteIcon />
+      <FavoriteIcon onClick={onClick} isFavorite={isFavorite} />
     </ImgContainer>
   );
 };
@@ -43,4 +43,6 @@ Image.propTypes = {
   alt: PropTypes.string,
   size: PropTypes.oneOf(["small", "large"]),
   id: PropTypes.number,
+  onClick: PropTypes.func,
+  isFavorite: PropTypes.bool,
 };

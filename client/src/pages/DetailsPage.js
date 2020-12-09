@@ -19,7 +19,7 @@ export const DetailsPage = () => {
   }, [id]);
 
   const handleClick = () => {
-    toggleFavorite(id);
+    toggleFavorite(data.id);
   };
 
   return (
@@ -32,7 +32,7 @@ export const DetailsPage = () => {
           data={data}
           id={data.id}
           onClick={handleClick}
-          isFavorite={favorites.includes(id)}
+          isFavorite={favorites.includes(data.id)}
         />
       )}
 

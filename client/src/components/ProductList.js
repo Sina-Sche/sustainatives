@@ -3,6 +3,8 @@ import Image from "./Image";
 import { useEffect } from "react";
 import { getProducts } from "../utils/api";
 import useAsync from "../hooks/useAsync";
+import PropTypes from "prop-types";
+import useFavorites from "../hooks/useFavorites";
 
 const ListContainer = styled.ul`
   display: grid;
@@ -22,6 +24,7 @@ const ListContainer = styled.ul`
 
 const ProductList = () => {
   const { data, loading, error, fetchData } = useAsync(() => getProducts());
+  const { toggleFavorite, favorites } = useFavorites("favorites", []);
 
   useEffect(() => {
     fetchData();
@@ -40,6 +43,8 @@ const ProductList = () => {
                 alt={product.title}
                 id={product.id}
                 size={"small"}
+                onClick={() => toggleFavorite(product.id)}
+                isFavorite={favorites.includes(product.id)}
               />
             </li>
           );
@@ -49,3 +54,8 @@ const ProductList = () => {
 };
 
 export default ProductList;
+
+ProductList.propTypes = {
+  onClick: PropTypes.func,
+  isFavorite: PropTypes.bool,
+};
