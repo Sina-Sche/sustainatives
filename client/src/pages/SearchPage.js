@@ -1,6 +1,6 @@
 import Header from "../components/Header";
 import Input from "../components/Input";
-import CategoryOverview from "../components/CategoryOverview";
+import CategoryList from "../components/CategoryList";
 import NavBar from "../components/NavBar";
 import InfoBox from "../components/InfoBox";
 import { getProductsByTitle } from "../utils/api";
@@ -9,7 +9,6 @@ import { Link } from "react-router-dom";
 import useAsync from "../hooks/useAsync";
 
 export const SearchPage = () => {
-  const [title, setTitle] = useState("");
   const [inputValue, setInputValue] = useState("");
   const { data, error, loading, fetchData } = useAsync(() =>
     getProductsByTitle(inputValue)
@@ -30,8 +29,13 @@ export const SearchPage = () => {
   return (
     <>
       <Header title={"Browse"} />
-      <Input type={"search"} onChange={handleChange} onSubmit={handleSubmit} />
-      <CategoryOverview />
+      <Input
+        type={"search"}
+        onChange={handleChange}
+        onSubmit={handleSubmit}
+        placeholder={"What are you looking for?"}
+      />
+      <CategoryList />
       {inputValue && <h2>Your search results for {inputValue}</h2>}
       {loading && <div>Loading...</div>}
       {error && <div>{error.message}</div>}

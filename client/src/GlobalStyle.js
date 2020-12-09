@@ -87,6 +87,10 @@ button{
 
 }
 
+li {
+  list-style: none;
+}
+
 `;
 
 export default GlobalStyle;
