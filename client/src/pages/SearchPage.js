@@ -44,18 +44,16 @@ export const SearchPage = () => {
         data.map((product) => {
           return (
             <>
-              <Link to={`/details/${product.id}`}>
-                <InfoBox
-                  key={product.id}
-                  id={product.id}
-                  size={"small"}
-                  src={product.image}
-                  alt={product.title}
-                  title={product.display_title}
-                  description={product.description}
-                  price={product.price}
-                />
-              </Link>
+              <InfoBox
+                key={product.id}
+                id={product.id}
+                size={"small"}
+                src={product.image}
+                alt={product.title}
+                title={product.display_title}
+                description={product.description}
+                price={product.price}
+              />
             </>
           );
         })}

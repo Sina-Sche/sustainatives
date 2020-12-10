@@ -2,6 +2,8 @@ import ProductText from "./ProductText";
 import styled from "styled-components/macro";
 import PropTypes from "prop-types";
 import Image from "../components/Image";
+import useFavorites from "../hooks/useFavorites";
+import { Link } from "react-router-dom";
 
 const InfoContainer = styled.div`
   display: flex;
@@ -15,10 +17,21 @@ const InfoContainer = styled.div`
   }
 `;
 const InfoBox = ({ src, alt, id, title, price, description, size }) => {
+  const { toggleFavorite, favorites } = useFavorites("favorites", []);
+
   return (
     <InfoContainer>
-      <Image src={src} alt={alt} size={size} id={id} />
-      <ProductText title={title} price={price} description={description} />
+      <Image
+        src={src}
+        alt={alt}
+        size={size}
+        id={id}
+        onClick={() => toggleFavorite(id)}
+        isFavorite={favorites.includes(id)}
+      />
+      <Link to={`/details/${id}`}>
+        <ProductText title={title} price={price} description={description} />
+      </Link>
     </InfoContainer>
   );
 };
