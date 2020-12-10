@@ -29,7 +29,7 @@ InfoBox.propTypes = {
   src: PropTypes.string,
   alt: PropTypes.string,
   title: PropTypes.string,
-  price: PropTypes.number,
+  price: PropTypes.string,
   description: PropTypes.string,
   size: PropTypes.string,
   id: PropTypes.number,
