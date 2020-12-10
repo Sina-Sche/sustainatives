@@ -2,25 +2,21 @@ import InfoBox from "../components/InfoBox";
 import Header from "../components/Header";
 import NavBar from "../components/NavBar";
 import useFavorites from "../hooks/useFavorites";
-import { getProductById, getProducts } from "../utils/api";
-import useAsync from "../hooks/useAsync";
+import { getProductById } from "../utils/api";
 import { useEffect, useState } from "react";
-import ProductText from "../components/ProductText";
 
 export const FavoritePage = () => {
-  const { toggleFavorite, favorites, setFavorites } = useFavorites(
-    "favorites",
-    []
-  );
+  const { favorites } = useFavorites("favorites", []);
   const [data, setData] = useState();
+
   useEffect(() => {
     getData();
   }, [favorites]);
+
   const getData = async () => {
     const promiseData = favorites.map(async (id) => getProductById(id));
     const newData = await Promise.all(promiseData);
     setData(newData);
-    console.log(data);
     return data;
   };
 
