@@ -7,9 +7,11 @@ import { getProductsByTitle } from "../utils/api";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import useAsync from "../hooks/useAsync";
+import useActive from "../hooks/useActive";
 
 export const SearchPage = () => {
   const [inputValue, setInputValue] = useState("");
+  const { activeCategories, toggleActive } = useActive([]);
   const { data, error, loading, fetchData } = useAsync(() =>
     getProductsByTitle(inputValue)
   );
@@ -35,11 +37,13 @@ export const SearchPage = () => {
         onSubmit={handleSubmit}
         placeholder={"What are you looking for?"}
       />
-      <CategoryList />
+      <CategoryList
+        activeCategories={activeCategories}
+        toggleActive={toggleActive}
+      />
       {inputValue && <h2>Your search results for {inputValue}</h2>}
       {loading && <div>Loading...</div>}
       {error && <div>{error.message}</div>}
-
       {inputValue &&
         data.map((product) => {
           return (
