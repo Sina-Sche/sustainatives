@@ -3,7 +3,7 @@ import Input from "../components/Input";
 import CategoryList from "../components/CategoryList";
 import NavBar from "../components/NavBar";
 import InfoBox from "../components/InfoBox";
-import { getProductsByTitle } from "../utils/api";
+import { getProductsByCategory, getProductsByTitle } from "../utils/api";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import useAsync from "../hooks/useAsync";
@@ -11,17 +11,26 @@ import useActive from "../hooks/useActive";
 
 export const SearchPage = () => {
   const [inputValue, setInputValue] = useState("");
+  const [searchCategory, setSearchCategory] = useState("");
   const { activeCategories, toggleActive } = useActive([]);
   const { data, error, loading, fetchData } = useAsync(() =>
     getProductsByTitle(inputValue)
   );
-
+  useEffect(() => {
+    searchByCategory();
+  }, [activeCategories]);
+  const searchByCategory = async () => {
+    const data = await getProductsByCategory(activeCategories);
+    console.log(data);
+    return data;
+  };
   useEffect(() => {
     fetchData();
   }, [inputValue]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    searchByCategory();
   };
   const handleChange = (e) => {
     e.preventDefault();
@@ -44,7 +53,7 @@ export const SearchPage = () => {
       {inputValue && <h2>Your search results for {inputValue}</h2>}
       {loading && <div>Loading...</div>}
       {error && <div>{error.message}</div>}
-      {inputValue &&
+      {data &&
         data.map((product) => {
           return (
             <>

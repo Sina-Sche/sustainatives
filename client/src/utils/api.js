@@ -15,3 +15,9 @@ export async function getProductById(id) {
   const product = result.json();
   return product;
 }
+
+export async function getProductsByCategory(categoryName) {
+  const result = await fetch(`/api/products?categories_like=${categoryName}`);
+  const products = result.json();
+  return products;
+}
