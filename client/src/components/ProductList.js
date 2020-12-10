@@ -22,9 +22,8 @@ const ListContainer = styled.ul`
   }
 `;
 
-const ProductList = () => {
+const ProductList = ({ toggleFavorite, favorites }) => {
   const { data, loading, error, fetchData } = useAsync(() => getProducts());
-  const { toggleFavorite, favorites } = useFavorites("favorites", []);
 
   useEffect(() => {
     fetchData();
@@ -43,7 +42,9 @@ const ProductList = () => {
                 alt={product.title}
                 id={product.id}
                 size={"small"}
-                onClick={() => toggleFavorite(product.id)}
+                onClick={() => {
+                  toggleFavorite(product.id);
+                }}
                 isFavorite={favorites.includes(product.id)}
               />
             </li>
@@ -58,4 +59,6 @@ export default ProductList;
 ProductList.propTypes = {
   onClick: PropTypes.func,
   isFavorite: PropTypes.bool,
+  toggleFavorite: PropTypes.func,
+  favorites: PropTypes.array,
 };

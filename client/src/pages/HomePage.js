@@ -32,10 +32,11 @@ export const HomePage = () => {
           title={data.display_title}
           id={data.id}
           onClick={handleClick}
+          favorites={favorites}
           isFavorite={favorites.includes(data.id)}
         />
       )}
-      <ProductList />
+      <ProductList toggleFavorite={toggleFavorite} favorites={favorites} />
       <NavBar />
     </>
   );
