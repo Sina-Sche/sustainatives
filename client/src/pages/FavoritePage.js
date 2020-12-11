@@ -7,25 +7,23 @@ import { useEffect, useState } from "react";
 
 export const FavoritePage = () => {
   const { favorites } = useFavorites("favorites", []);
-  const [data, setData] = useState();
+  const [favoriteData, setFavoriteData] = useState();
 
   useEffect(() => {
+    const getData = async () => {
+      const promiseData = favorites.map(async (id) => getProductById(id));
+      const newData = await Promise.all(promiseData);
+      setFavoriteData(newData);
+    };
     getData();
   }, [favorites]);
-
-  const getData = async () => {
-    const promiseData = favorites.map(async (id) => getProductById(id));
-    const newData = await Promise.all(promiseData);
-    setData(newData);
-    return data;
-  };
 
   return (
     <>
       <Header title={"Favorites"} />
       <h2>My favorite Products</h2>
-      {data &&
-        data.map((product) => {
+      {favoriteData &&
+        favoriteData.map((product) => {
           return (
             <InfoBox
               key={product.id}
