@@ -2,7 +2,6 @@ import ProductText from "./ProductText";
 import styled from "styled-components/macro";
 import PropTypes from "prop-types";
 import Image from "../components/Image";
-import useFavorites from "../hooks/useFavorites";
 import { Link } from "react-router-dom";
 
 const InfoContainer = styled.div`
@@ -16,19 +15,16 @@ const InfoContainer = styled.div`
     width: 150px;
   }
 `;
-const InfoBox = (product, { size, id }) => {
-  const { toggleFavorite, favorites } = useFavorites("favorites", []);
-
+const InfoBox = (product, { onClick, isFavorite }) => {
   return (
     <InfoContainer>
       <Image
+        size={"small"}
+        onClick={onClick}
+        isFavorite={isFavorite}
         {...product}
-        size={size}
-        id={id}
-        onClick={() => toggleFavorite(id)}
-        isFavorite={favorites.includes(id)}
       />
-      <Link to={`/details/${id}`}>
+      <Link to={`/details/${product.id}`}>
         <ProductText {...product} />
       </Link>
     </InfoContainer>
@@ -38,11 +34,7 @@ const InfoBox = (product, { size, id }) => {
 export default InfoBox;
 
 InfoBox.propTypes = {
-  src: PropTypes.string,
-  alt: PropTypes.string,
-  title: PropTypes.string,
-  price: PropTypes.string,
-  description: PropTypes.string,
-  size: PropTypes.string,
-  id: PropTypes.number,
+  product: PropTypes.object,
+  toggleFavorite: PropTypes.func,
+  favorites: PropTypes.array,
 };

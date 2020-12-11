@@ -44,12 +44,7 @@ export const SearchPage = () => {
         data.map((product) => {
           return (
             <>
-              <InfoBox
-                key={product.id}
-                id={product.id}
-                size={"small"}
-                {...product}
-              />
+              <InfoBox key={product.id} size={"small"} {...product} />
             </>
           );
         })}

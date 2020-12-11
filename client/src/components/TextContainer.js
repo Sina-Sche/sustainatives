@@ -10,23 +10,19 @@ export const Container = styled.div`
   width: 80%;
   max-width: 700px;
   background: rgba(255, 255, 255, 0.9);
-  border: ${(props) =>
-    props.primary
-      ? "2px solid var(--secondary-color)"
-      : "1px solid var(--secondary-color)"};
+  border: 2px solid var(--secondary-color);
   border-radius: 50px;
 `;
 
-const TextContainer = ({ title, primary }) => {
+const TextContainer = ({ display_title }) => {
   return (
-    <Container primary={primary}>
-      <h3>{title}</h3>
+    <Container>
+      <h3>{display_title}</h3>
     </Container>
   );
 };
 
 export default TextContainer;
 TextContainer.propTypes = {
-  primary: PropTypes.bool,
-  title: PropTypes.string,
+  display_title: PropTypes.string,
 };

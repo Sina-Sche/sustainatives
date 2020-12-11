@@ -17,10 +17,6 @@ export const HomePage = () => {
 
   useEffect(() => fetchData(), []);
 
-  const handleClick = () => {
-    toggleFavorite(data.id);
-  };
-
   return (
     <>
       <Header title={"SustainAtives"} />
@@ -28,11 +24,8 @@ export const HomePage = () => {
       {error && <div>{error.message}</div>}
       {data && (
         <ProductPreview
-          src={data.image}
-          title={data.display_title}
-          id={data.id}
-          onClick={handleClick}
-          favorites={favorites}
+          {...data}
+          onClick={() => toggleFavorite(data.id)}
           isFavorite={favorites.includes(data.id)}
         />
       )}

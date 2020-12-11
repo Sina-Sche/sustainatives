@@ -2,7 +2,6 @@ import styled from "styled-components/macro";
 import PropTypes from "prop-types";
 import TextContainer from "./TextContainer";
 import Image from "../components/Image";
-import useFavorites from "../hooks/useFavorites";
 
 const Container = styled.div`
   display: flex;
@@ -25,19 +24,12 @@ const Container = styled.div`
   }
 `;
 
-const ProductPreview = ({ title, src, alt, size, id, onClick, isFavorite }) => {
+const ProductPreview = (data, { onClick, isFavorite }) => {
   return (
     <Container>
       <h2>Our Current Favorite</h2>
-      <Image
-        src={src}
-        alt={alt}
-        size={size}
-        onClick={onClick}
-        isFavorite={isFavorite}
-        id={id}
-      />
-      <TextContainer title={title} />
+      <Image onClick={onClick} isFavorite={isFavorite} {...data} />
+      <TextContainer {...data} />
     </Container>
   );
 };
