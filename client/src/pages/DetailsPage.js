@@ -6,11 +6,9 @@ import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import useFavorites from "../hooks/useFavorites";
 import useAsync from "../hooks/useAsync";
-import PropTypes from "prop-types";
 
 export const DetailsPage = () => {
   const { id } = useParams();
-  const { toggleFavorite, favorites } = useFavorites("favorites", []);
   const { data, error, loading, fetchData } = useAsync(() =>
     getProductById(id)
   );
@@ -18,30 +16,14 @@ export const DetailsPage = () => {
     fetchData();
   }, [id]);
 
-  const handleClick = () => {
-    toggleFavorite(data.id);
-  };
-
   return (
     <>
       <Header title={"Discover"} />
       {loading && <div>Loading...</div>}
       {error && <div>{error.message}</div>}
-      {data && (
-        <ProductDetails
-          data={data}
-          id={data.id}
-          onClick={handleClick}
-          isFavorite={favorites.includes(data.id)}
-        />
-      )}
+      {data && <ProductDetails {...data} />}
 
       <NavBar />
     </>
   );
-};
-
-DetailsPage.propTypes = {
-  onClick: PropTypes.func,
-  isFavorite: PropTypes.bool,
 };

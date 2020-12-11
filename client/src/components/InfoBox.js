@@ -34,7 +34,6 @@ const InfoBox = (product, { onClick, isFavorite }) => {
 export default InfoBox;
 
 InfoBox.propTypes = {
-  product: PropTypes.object,
   toggleFavorite: PropTypes.func,
   favorites: PropTypes.array,
 };

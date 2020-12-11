@@ -55,6 +55,7 @@ export default ProductList;
 
 ProductList.propTypes = {
   onClick: PropTypes.func,
+  isFavorite: PropTypes.bool,
   toggleFavorite: PropTypes.func,
   favorites: PropTypes.array,
 };
