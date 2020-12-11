@@ -25,7 +25,6 @@ export const FavoritePage = () => {
       <h2>My favorite Products</h2>
       {favoriteData &&
         favoriteData.map((product) => {
-          console.log(product);
           return (
             <InfoBox
               key={product.id}
