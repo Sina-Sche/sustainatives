@@ -26,10 +26,10 @@ const InfoContainer = styled.div`
   }
 `;
 
-const ProductText = ({ title, price, description }) => {
+const ProductText = ({ display_title, price, description }) => {
   return (
     <InfoContainer>
-      <h3>{title}</h3>
+      <h3>{display_title}</h3>
       <p>{description}</p>
       <h5>{price}</h5>
     </InfoContainer>
@@ -39,7 +39,7 @@ const ProductText = ({ title, price, description }) => {
 export default ProductText;
 
 ProductText.propTypes = {
-  title: PropTypes.string,
+  display_title: PropTypes.string,
   price: PropTypes.string,
   description: PropTypes.string,
 };

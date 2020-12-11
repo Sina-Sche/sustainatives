@@ -16,21 +16,20 @@ const InfoContainer = styled.div`
     width: 150px;
   }
 `;
-const InfoBox = ({ src, alt, id, title, price, description, size }) => {
+const InfoBox = (product, { size, id }) => {
   const { toggleFavorite, favorites } = useFavorites("favorites", []);
 
   return (
     <InfoContainer>
       <Image
-        src={src}
-        alt={alt}
+        {...product}
         size={size}
         id={id}
         onClick={() => toggleFavorite(id)}
         isFavorite={favorites.includes(id)}
       />
       <Link to={`/details/${id}`}>
-        <ProductText title={title} price={price} description={description} />
+        <ProductText {...product} />
       </Link>
     </InfoContainer>
   );
