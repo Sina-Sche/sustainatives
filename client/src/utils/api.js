@@ -12,7 +12,7 @@ export async function getRandomProduct() {
 }
 
 export async function getProductsByTitle(title) {
-  const result = await fetch(`/api/products?title_like=${title}`);
+  const result = await fetch(`/api/products?title=${title}`);
   const products = result.json();
   return products;
 }
