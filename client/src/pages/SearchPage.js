@@ -5,10 +5,11 @@ import NavBar from "../components/NavBar";
 import InfoBox from "../components/InfoBox";
 import { getProductsByTitle } from "../utils/api";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import useAsync from "../hooks/useAsync";
+import useFavorites from "../hooks/useFavorites";
 
 export const SearchPage = () => {
+  const { favorites, toggleFavorite } = useFavorites("favorites", []);
   const [inputValue, setInputValue] = useState("");
   const { data, error, loading, fetchData } = useAsync(() =>
     getProductsByTitle(inputValue)
@@ -44,18 +45,13 @@ export const SearchPage = () => {
         data.map((product) => {
           return (
             <>
-              <Link to={`/details/${product.id}`}>
-                <InfoBox
-                  key={product.id}
-                  id={product.id}
-                  size={"small"}
-                  src={product.image}
-                  alt={product.title}
-                  title={product.display_title}
-                  description={product.description}
-                  price={product.price}
-                />
-              </Link>
+              <InfoBox
+                key={product.id}
+                size={"small"}
+                {...product}
+                onClick={() => toggleFavorite(product.id)}
+                isFavorite={favorites.includes(product.id)}
+              />
             </>
           );
         })}

@@ -2,6 +2,7 @@ import ProductText from "./ProductText";
 import styled from "styled-components/macro";
 import PropTypes from "prop-types";
 import Image from "../components/Image";
+import { Link } from "react-router-dom";
 
 const InfoContainer = styled.div`
   display: flex;
@@ -14,11 +15,18 @@ const InfoContainer = styled.div`
     width: 150px;
   }
 `;
-const InfoBox = ({ src, alt, id, title, price, description, size }) => {
+const InfoBox = (product, { onClick, isFavorite }) => {
   return (
     <InfoContainer>
-      <Image src={src} alt={alt} size={size} id={id} />
-      <ProductText title={title} price={price} description={description} />
+      <Image
+        size={"small"}
+        onClick={onClick}
+        isFavorite={isFavorite}
+        {...product}
+      />
+      <Link to={`/details/${product.id}`}>
+        <ProductText {...product} />
+      </Link>
     </InfoContainer>
   );
 };
@@ -26,11 +34,6 @@ const InfoBox = ({ src, alt, id, title, price, description, size }) => {
 export default InfoBox;
 
 InfoBox.propTypes = {
-  src: PropTypes.string,
-  alt: PropTypes.string,
-  title: PropTypes.string,
-  price: PropTypes.number,
-  description: PropTypes.string,
-  size: PropTypes.string,
-  id: PropTypes.number,
+  toggleFavorite: PropTypes.func,
+  favorites: PropTypes.array,
 };

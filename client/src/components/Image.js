@@ -22,25 +22,27 @@ const SmallImg = styled.img`
   max-width: 500px;
   object-fit: contain;
 `;
-const Image = ({ src, alt, id, size }) => {
+const Image = ({ image, title, id, size, onClick, isFavorite }) => {
   return (
     <ImgContainer>
       <Link to={`/details/${id}`}>
         {size === "small" ? (
-          <SmallImg src={src} alt={alt} id={id} />
+          <SmallImg src={image} alt={title} id={id} />
         ) : (
-          <img src={src} alt={alt} id={id} />
+          <img src={image} alt={title} id={id} />
         )}
       </Link>
-      <FavoriteIcon />
+      <FavoriteIcon onClick={onClick} isFavorite={isFavorite} />
     </ImgContainer>
   );
 };
 export default Image;
 
 Image.propTypes = {
-  src: PropTypes.string,
-  alt: PropTypes.string,
+  image: PropTypes.string,
+  title: PropTypes.string,
   size: PropTypes.oneOf(["small", "large"]),
   id: PropTypes.number,
+  onClick: PropTypes.func,
+  isFavorite: PropTypes.bool,
 };

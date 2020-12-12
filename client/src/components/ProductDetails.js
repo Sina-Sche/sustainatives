@@ -3,6 +3,7 @@ import Image from "../components/Image";
 import PropTypes from "prop-types";
 import ProductText from "./ProductText";
 import icons from "./CategoryIcons";
+import useFavorites from "../hooks/useFavorites";
 
 const DetailsContainer = styled.div`
   width: 100%;
@@ -79,7 +80,8 @@ const IconContainer = styled.div`
   }
 `;
 
-const ProductDetails = ({ data, onClick, isFavorite }) => {
+const ProductDetails = (data) => {
+  const { favorites, toggleFavorite } = useFavorites("favorites", []);
   const productCategories = data.categories.map((category) => icons[category]);
   const productCategoryIcons = Object.entries(
     productCategories
@@ -87,18 +89,15 @@ const ProductDetails = ({ data, onClick, isFavorite }) => {
   return (
     <DetailsContainer>
       <Image
-        src={data.image}
-        alt={data.title}
-        onClick={onClick}
-        isFavorite={isFavorite}
+        {...data}
+        onClick={() => {
+          toggleFavorite(data.id);
+        }}
+        isFavorite={favorites.includes(data.id)}
       />
       <ProductDetailsContainer>
         <h6>{data.company_name}</h6>
-        <ProductText
-          title={data.display_title}
-          price={data.price}
-          description={data.description}
-        />
+        <ProductText {...data} />
         <IconContainer>{productCategoryIcons}</IconContainer>
         <a href={data.url}>
           <Button>Visit Website</Button>
@@ -112,6 +111,5 @@ export default ProductDetails;
 
 ProductDetails.propTypes = {
   onClick: PropTypes.func,
-  data: PropTypes.object,
   isFavorite: PropTypes.bool,
 };
