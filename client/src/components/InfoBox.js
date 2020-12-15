@@ -24,7 +24,7 @@ const InfoBox = (product, { onClick, isFavorite }) => {
         isFavorite={isFavorite}
         {...product}
       />
-      <Link to={`/details/${product.id}`}>
+      <Link to={`/products/${product.id}`}>
         <ProductText {...product} />
       </Link>
     </InfoContainer>
