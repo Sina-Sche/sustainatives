@@ -5,6 +5,7 @@ const {
   getProducts,
   getProductById,
   getProductsByTitle,
+  getRandomProduct,
 } = require("./lib/products");
 
 const { connect } = require("./lib/database");
@@ -20,6 +21,28 @@ app.use(
   express.static(path.join(__dirname, "client/storybook-static"))
 );
 
+app.get("/api/products/details/:id", async (request, response) => {
+  const { id } = request.params;
+  try {
+    const product = await getProductById(id);
+    response.send(product);
+  } catch (error) {
+    console.error(error);
+    response.status(500).send("An internal server error occured");
+  }
+});
+
+app.get("/api/products/browse/:title", async (request, response) => {
+  const { title } = request.params;
+  try {
+    const products = await getProductsByTitle(title);
+    response.json(products);
+  } catch (error) {
+    console.error(error);
+    response.status(500).send("An internal server error occured");
+  }
+});
+
 app.get("/api/products", async (request, response) => {
   try {
     const allProducts = await getProducts();
@@ -29,31 +52,9 @@ app.get("/api/products", async (request, response) => {
     response.status(500).send("Unexpected server error");
   }
 }),
-  app.get("/api/products/:id", async (request, response) => {
-    const { id } = request.params;
-    try {
-      const product = await getProductById(id);
-      response.send(product);
-    } catch (error) {
-      console.error(error);
-      response.status(500).send("An internal server error occured");
-    }
+  app.get("*", (request, response) => {
+    response.sendFile(path.join(__dirname, "client/public", "index.html"));
   });
-
-app.get("/api/products/:title", async (request, response) => {
-  const { title } = request.params;
-  try {
-    const products = await getProductsByTitle(title);
-    response.send(products);
-  } catch (error) {
-    console.error(error);
-    response.status(500).send("An internal server error occured");
-  }
-});
-
-app.get("*", (request, response) => {
-  response.sendFile(path.join(__dirname, "client/public", "index.html"));
-});
 
 async function run() {
   console.log("On your way to the database...");

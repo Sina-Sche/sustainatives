@@ -6,19 +6,19 @@ export async function getProducts() {
 
 export async function getRandomProduct() {
   const id = Math.floor(Math.random() * 8 + 1);
-  const result = await fetch(`/api/products/${id}`);
+  const result = await fetch(`/api/products/details/${id}`);
   const randomProduct = result.json();
   return randomProduct;
 }
 
 export async function getProductsByTitle(title) {
-  const result = await fetch(`/api/products?title=${title}`);
+  const result = await fetch(`/api/products/browse/${title}`);
   const products = result.json();
   return products;
 }
 
 export async function getProductById(id) {
-  const result = await fetch(`/api/products/${id}`);
+  const result = await fetch(`/api/products/details/${id}`);
   const product = result.json();
   return product;
 }
