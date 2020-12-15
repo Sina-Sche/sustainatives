@@ -11,20 +11,18 @@ import useFavorites from "../hooks/useFavorites";
 export const SearchPage = () => {
   const { favorites, toggleFavorite } = useFavorites("favorites", []);
   const [inputValue, setInputValue] = useState("");
-  const { data, error, loading, fetchData } = useAsync(() =>
-    getProductsByTitle(inputValue)
+  const { data, error, loading, fetchData } = useAsync(
+    getProductsByTitle,
+    inputValue
   );
-
-  useEffect(() => {
-    fetchData();
-  }, [inputValue]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    fetchData();
   };
   const handleChange = (e) => {
-    e.preventDefault();
     setInputValue(e.target.value);
+    fetchData();
   };
 
   return (
@@ -32,6 +30,7 @@ export const SearchPage = () => {
       <Header title={"Browse"} />
       <Input
         type={"search"}
+        value={inputValue}
         onChange={handleChange}
         onSubmit={handleSubmit}
         placeholder={"What are you looking for?"}
@@ -41,20 +40,19 @@ export const SearchPage = () => {
       {loading && <div>Loading...</div>}
       {error && <div>{error.message}</div>}
 
-      {inputValue &&
-        data.map((product) => {
-          return (
-            <>
-              <InfoBox
-                key={product.id}
-                size={"small"}
-                {...product}
-                onClick={() => toggleFavorite(product.id)}
-                isFavorite={favorites.includes(product.id)}
-              />
-            </>
-          );
-        })}
+      {data?.map((product) => {
+        return (
+          <>
+            <InfoBox
+              key={product.id}
+              size={"small"}
+              {...product}
+              onClick={() => toggleFavorite(product.id)}
+              isFavorite={favorites.includes(product.id)}
+            />
+          </>
+        );
+      })}
 
       <NavBar />
     </>

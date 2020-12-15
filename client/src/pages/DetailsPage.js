@@ -4,7 +4,6 @@ import ProductDetails from "../components/ProductDetails";
 import { getProductById } from "../utils/api";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
-import useFavorites from "../hooks/useFavorites";
 import useAsync from "../hooks/useAsync";
 
 export const DetailsPage = () => {
