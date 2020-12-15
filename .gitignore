@@ -105,6 +105,3 @@ dist
 
 # Database
 db.json
-
-#env
-.env
