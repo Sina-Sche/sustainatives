@@ -4,25 +4,33 @@ import CategoryList from "../components/CategoryList";
 import NavBar from "../components/NavBar";
 import InfoBox from "../components/InfoBox";
 import { getProductsByTitle } from "../utils/api";
-import { useState, useEffect } from "react";
-import useAsync from "../hooks/useAsync";
+import { useState, useEffect, useCallback } from "react";
 import useFavorites from "../hooks/useFavorites";
+import useDebounce from "../hooks/useDebounce";
+import useAsync from "../hooks/useAsync";
 
 export const SearchPage = () => {
   const { favorites, toggleFavorite } = useFavorites("favorites", []);
-  const [inputValue, setInputValue] = useState("");
-  const { data, error, loading, fetchData } = useAsync(
-    getProductsByTitle,
-    inputValue
-  );
+  const [searchTerm, setSearchTerm] = useState("");
+  const debouncedSearchTerm = useDebounce(searchTerm, 400);
+  const [data, setData] = useState(null);
+  const { loading, error } = useAsync();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    fetchData();
-  };
+  const getData = useCallback(async () => {
+    return await getProductsByTitle(debouncedSearchTerm);
+  }, [debouncedSearchTerm]);
+
+  useEffect(() => {
+    const searchData = async () => {
+      if (debouncedSearchTerm) {
+        setData(await getData());
+      }
+    };
+    searchData();
+  }, [debouncedSearchTerm, getData]);
+
   const handleChange = (e) => {
-    setInputValue(e.target.value);
-    fetchData();
+    setSearchTerm(e.target.value);
   };
 
   return (
@@ -30,16 +38,15 @@ export const SearchPage = () => {
       <Header title={"Browse"} />
       <Input
         type={"search"}
-        value={inputValue}
+        value={searchTerm}
         onChange={handleChange}
-        onSubmit={handleSubmit}
+        onSubmit={(e) => e.preventDefault()}
         placeholder={"What are you looking for?"}
       />
       <CategoryList />
-      {inputValue && <h2>Your search results for {inputValue}</h2>}
+      {searchTerm && <h2>Your search results for {searchTerm}</h2>}
       {loading && <div>Loading...</div>}
       {error && <div>{error.message}</div>}
-
       {data?.map((product) => {
         return (
           <>
