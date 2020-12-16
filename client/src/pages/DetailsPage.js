@@ -8,9 +8,8 @@ import useAsync from "../hooks/useAsync";
 
 export const DetailsPage = () => {
   const { id } = useParams();
-  const { data, error, loading, fetchData } = useAsync(() =>
-    getProductById(id)
-  );
+  const { data, error, loading, fetchData } = useAsync(getProductById, id);
+
   useEffect(() => {
     fetchData();
   }, [id]);
