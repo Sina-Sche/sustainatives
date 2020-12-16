@@ -5,7 +5,6 @@ const {
   getProducts,
   getProductById,
   getProductsByTitle,
-  getRandomProduct,
 } = require("./lib/products");
 
 const { connect } = require("./lib/database");
