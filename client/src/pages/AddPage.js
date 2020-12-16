@@ -9,17 +9,6 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  div {
-    display: flex;
-    height: 15vh;
-    width: 90vw;
-    background: white;
-    border: 1px solid var(--icon-active-color);
-    margin: 20px;
-    border-radius: 25px;
-    align-items: center;
-    justify-content: center;
-  }
   form {
     margin: 15px;
   }
@@ -46,14 +35,8 @@ export const AddPage = () => {
       <Header title={"Add a SustainAtive"} />
       <Input placeholder={"Enter Product Name"} />
       <Input placeholder={"Enter Product URL"} />
-      <div>
-        <h5>Upload a product photo here</h5>
-        <p>📷</p>
-      </div>
-      <div>
-        <h5>Add a description for your Product</h5>
-        <p>🧾</p>
-      </div>
+      <Input placeholder={"Enter Image URL"} />
+      <Input placeholder={"Add a description for your product"} />
       <Subheader>
         Choose the relevant categories for your product by clicking on them:
       </Subheader>

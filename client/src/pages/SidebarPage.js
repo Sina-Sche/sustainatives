@@ -6,7 +6,7 @@ const SidebarContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-self: flex-start;
-  margin: 10px 0px;
+  border: none;
   height: 100vh;
   width: 60%;
   background-image: var(--gradient);
@@ -16,9 +16,22 @@ const SidebarContainer = styled.div`
   z-index: 1;
 `;
 
+const Blur = styled.div`
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: var(--primary-color);
+  position: fixed;
+  backdrop-filter: blur(10px);
+  ${({ sidebar }) =>
+    !sidebar ? "opacity:0; visibility:hidden;" : "opacity:0.7;"};
+  transition: opacity 0.3s ease-in-out;
+`;
+
 const SidebarPage = ({ sidebar, toggleSidebar }) => {
   return (
     <>
+      <Blur sidebar={sidebar} />
       <SidebarContainer sidebar={sidebar} onClick={toggleSidebar}>
         <Sidebar />
       </SidebarContainer>
