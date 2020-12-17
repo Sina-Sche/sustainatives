@@ -4,7 +4,7 @@ import CategoryList from "../components/CategoryList";
 import NavBar from "../components/NavBar";
 import InfoBox from "../components/InfoBox";
 import { getProductsByTitle } from "../utils/api";
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useMemo } from "react";
 import useFavorites from "../hooks/useFavorites";
 import useDebounce from "../hooks/useDebounce";
 import useAsync from "../hooks/useAsync";
@@ -13,21 +13,16 @@ export const SearchPage = () => {
   const { favorites, toggleFavorite } = useFavorites("favorites", []);
   const [searchTerm, setSearchTerm] = useState("");
   const debouncedSearchTerm = useDebounce(searchTerm, 400);
-  const [data, setData] = useState(null);
-  const { loading, error } = useAsync();
-
-  const getData = useCallback(async () => {
-    return await getProductsByTitle(debouncedSearchTerm);
-  }, [debouncedSearchTerm]);
+  const { data, loading, error, fetchData } = useAsync(
+    getProductsByTitle,
+    debouncedSearchTerm
+  );
 
   useEffect(() => {
-    const searchData = async () => {
-      if (debouncedSearchTerm) {
-        setData(await getData());
-      }
-    };
-    searchData();
-  }, [debouncedSearchTerm, getData]);
+    if (debouncedSearchTerm) {
+      fetchData(debouncedSearchTerm);
+    }
+  }, [debouncedSearchTerm]);
 
   const handleChange = (e) => {
     setSearchTerm(e.target.value);
