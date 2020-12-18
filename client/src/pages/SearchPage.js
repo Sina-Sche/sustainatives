@@ -45,15 +45,13 @@ export const SearchPage = () => {
       {isError && <div>{error.message}</div>}
       {data?.map((product) => {
         return (
-          <>
-            <InfoBox
-              key={product.id}
-              size={"small"}
-              {...product}
-              onClick={() => toggleFavorite(product.id)}
-              isFavorite={favorites.includes(product.id)}
-            />
-          </>
+          <InfoBox
+            key={product._id}
+            size={"small"}
+            {...product}
+            onClick={() => toggleFavorite(product.id)}
+            isFavorite={favorites.includes(product.id)}
+          />
         );
       })}
 
