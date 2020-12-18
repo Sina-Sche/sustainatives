@@ -6,8 +6,6 @@ import { FavoritePage } from "./pages/FavoritePage";
 import { AddPage } from "./pages/AddPage";
 import { DetailsPage } from "./pages/DetailsPage";
 import styled from "styled-components/macro";
-import Sidebar from "./components/Sidebar";
-import SidebarPage from "./pages/SidebarPage";
 
 const AppWrapper = styled.div`
   width: 100vw;
@@ -35,9 +33,6 @@ function App() {
           </Route>
           <Route path="/products/:id">
             <DetailsPage />
-          </Route>
-          <Route path="/sidebar">
-            <SidebarPage />
           </Route>
         </Switch>
       </Router>
