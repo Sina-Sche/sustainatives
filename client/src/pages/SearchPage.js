@@ -5,24 +5,25 @@ import NavBar from "../components/NavBar";
 import InfoBox from "../components/InfoBox";
 import { getProductsByTitle } from "../utils/api";
 import { useState, useEffect } from "react";
+import { useQuery } from "react-query";
 import useFavorites from "../hooks/useFavorites";
 import useDebounce from "../hooks/useDebounce";
-import useAsync from "../hooks/useAsync";
 
 export const SearchPage = () => {
   const { favorites, toggleFavorite } = useFavorites("favorites", []);
   const [searchTerm, setSearchTerm] = useState("");
   const debouncedSearchTerm = useDebounce(searchTerm, 400);
-  const { data, loading, error, fetchData } = useAsync(
-    getProductsByTitle,
-    debouncedSearchTerm
+  const { data, isLoading, isError, error, refetch } = useQuery(
+    ["products", debouncedSearchTerm],
+    () => getProductsByTitle(debouncedSearchTerm),
+    { enabled: false }
   );
 
   useEffect(() => {
     if (debouncedSearchTerm) {
-      fetchData(debouncedSearchTerm);
+      refetch();
     }
-  }, [debouncedSearchTerm, fetchData]);
+  }, [debouncedSearchTerm, refetch]);
 
   const handleChange = (e) => {
     setSearchTerm(e.target.value);
@@ -40,8 +41,8 @@ export const SearchPage = () => {
       />
       <CategoryList />
       {searchTerm && <h2>Your search results for {searchTerm}</h2>}
-      {loading && <div>Loading...</div>}
-      {error && <div>{error.message}</div>}
+      {isLoading && <div>Loading...</div>}
+      {isError && <div>{error.message}</div>}
       {data?.map((product) => {
         return (
           <>
