@@ -5,26 +5,27 @@ import NavBar from "../components/NavBar";
 import InfoBox from "../components/InfoBox";
 import { getProductsByTitle } from "../utils/api";
 import { useState, useEffect } from "react";
-import useAsync from "../hooks/useAsync";
 import useFavorites from "../hooks/useFavorites";
+import useDebounce from "../hooks/useDebounce";
+import useAsync from "../hooks/useAsync";
 
 export const SearchPage = () => {
   const { favorites, toggleFavorite } = useFavorites("favorites", []);
-  const [inputValue, setInputValue] = useState("");
-  const { data, error, loading, fetchData } = useAsync(() =>
-    getProductsByTitle(inputValue)
+  const [searchTerm, setSearchTerm] = useState("");
+  const debouncedSearchTerm = useDebounce(searchTerm, 400);
+  const { data, loading, error, fetchData } = useAsync(
+    getProductsByTitle,
+    debouncedSearchTerm
   );
 
   useEffect(() => {
-    fetchData();
-  }, [inputValue]);
+    if (debouncedSearchTerm) {
+      fetchData(debouncedSearchTerm);
+    }
+  }, [debouncedSearchTerm, fetchData]);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  };
   const handleChange = (e) => {
-    e.preventDefault();
-    setInputValue(e.target.value);
+    setSearchTerm(e.target.value);
   };
 
   return (
@@ -32,29 +33,28 @@ export const SearchPage = () => {
       <Header title={"Browse"} />
       <Input
         type={"search"}
+        value={searchTerm}
         onChange={handleChange}
-        onSubmit={handleSubmit}
+        onSubmit={(e) => e.preventDefault()}
         placeholder={"What are you looking for?"}
       />
       <CategoryList />
-      {inputValue && <h2>Your search results for {inputValue}</h2>}
+      {searchTerm && <h2>Your search results for {searchTerm}</h2>}
       {loading && <div>Loading...</div>}
       {error && <div>{error.message}</div>}
-
-      {inputValue &&
-        data.map((product) => {
-          return (
-            <>
-              <InfoBox
-                key={product.id}
-                size={"small"}
-                {...product}
-                onClick={() => toggleFavorite(product.id)}
-                isFavorite={favorites.includes(product.id)}
-              />
-            </>
-          );
-        })}
+      {data?.map((product) => {
+        return (
+          <>
+            <InfoBox
+              key={product.id}
+              size={"small"}
+              {...product}
+              onClick={() => toggleFavorite(product.id)}
+              isFavorite={favorites.includes(product.id)}
+            />
+          </>
+        );
+      })}
 
       <NavBar />
     </>

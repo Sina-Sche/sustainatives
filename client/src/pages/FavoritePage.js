@@ -7,7 +7,6 @@ import { useEffect, useState } from "react";
 
 export const FavoritePage = () => {
   const { toggleFavorite, favorites } = useFavorites("favorites", []);
-
   const [favoriteData, setFavoriteData] = useState();
 
   useEffect(() => {
@@ -19,6 +18,7 @@ export const FavoritePage = () => {
     };
     getData();
   }, [favorites]);
+
   return (
     <>
       <Header title={"Favorites"} />

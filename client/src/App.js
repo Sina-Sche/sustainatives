@@ -33,7 +33,7 @@ function App() {
           <Route path="/favorites">
             <FavoritePage />
           </Route>
-          <Route path="/details/:id">
+          <Route path="/products/:id">
             <DetailsPage />
           </Route>
           <Route path="/sidebar">

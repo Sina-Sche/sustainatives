@@ -25,7 +25,7 @@ const SmallImg = styled.img`
 const Image = ({ image, title, id, size, onClick, isFavorite }) => {
   return (
     <ImgContainer>
-      <Link to={`/details/${id}`}>
+      <Link to={`/products/${id}`}>
         {size === "small" ? (
           <SmallImg src={image} alt={title} id={id} />
         ) : (
@@ -43,6 +43,7 @@ Image.propTypes = {
   title: PropTypes.string,
   size: PropTypes.oneOf(["small", "large"]),
   id: PropTypes.number,
+  _id: PropTypes.number,
   onClick: PropTypes.func,
   isFavorite: PropTypes.bool,
 };

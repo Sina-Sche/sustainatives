@@ -11,11 +11,9 @@ import useFavorites from "../hooks/useFavorites";
 export const HomePage = () => {
   const { toggleFavorite, favorites } = useFavorites("favorites", []);
 
-  const { data, error, loading, fetchData } = useAsync(() =>
-    getRandomProduct()
-  );
+  const { data, error, loading, fetchData } = useAsync(getRandomProduct);
 
-  useEffect(() => fetchData(), []);
+  useEffect(() => fetchData(), [fetchData]);
 
   return (
     <>
