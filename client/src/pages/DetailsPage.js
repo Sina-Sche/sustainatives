@@ -12,7 +12,7 @@ export const DetailsPage = () => {
 
   useEffect(() => {
     fetchData();
-  }, [id]);
+  }, [fetchData, id]);
 
   return (
     <>

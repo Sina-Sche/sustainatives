@@ -4,7 +4,7 @@ import CategoryList from "../components/CategoryList";
 import NavBar from "../components/NavBar";
 import InfoBox from "../components/InfoBox";
 import { getProductsByTitle } from "../utils/api";
-import { useState, useEffect, useCallback, useMemo } from "react";
+import { useState, useEffect } from "react";
 import useFavorites from "../hooks/useFavorites";
 import useDebounce from "../hooks/useDebounce";
 import useAsync from "../hooks/useAsync";
@@ -22,7 +22,7 @@ export const SearchPage = () => {
     if (debouncedSearchTerm) {
       fetchData(debouncedSearchTerm);
     }
-  }, [debouncedSearchTerm]);
+  }, [debouncedSearchTerm, fetchData]);
 
   const handleChange = (e) => {
     setSearchTerm(e.target.value);
