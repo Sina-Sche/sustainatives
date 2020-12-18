@@ -40,7 +40,7 @@ ProductPreview.propTypes = {
   title: PropTypes.string,
   src: PropTypes.string,
   alt: PropTypes.string,
-  id: PropTypes.number,
+  id: PropTypes.string,
   size: PropTypes.oneOf(["small", "large"]),
   onClick: PropTypes.func,
   isFavorite: PropTypes.bool,
