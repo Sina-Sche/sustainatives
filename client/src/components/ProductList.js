@@ -21,7 +21,13 @@ const ListContainer = styled.ul`
 `;
 
 const ProductList = ({ toggleFavorite, favorites }) => {
-  const { data, isLoading, isError, error } = useQuery("products", getProducts);
+  const { data, isLoading, isError, error } = useQuery(
+    "products",
+    getProducts,
+    {
+      refetchOnMount: false,
+    }
+  );
 
   return (
     <ListContainer>
