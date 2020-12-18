@@ -1,9 +1,8 @@
 import styled from "styled-components/macro";
 import Image from "./Image";
-import { useEffect } from "react";
-import { getProducts } from "../utils/api";
-import useAsync from "../hooks/useAsync";
 import PropTypes from "prop-types";
+import { getProducts } from "../utils/api";
+import { useQuery } from "react-query";
 
 const ListContainer = styled.ul`
   display: grid;
@@ -22,16 +21,12 @@ const ListContainer = styled.ul`
 `;
 
 const ProductList = ({ toggleFavorite, favorites }) => {
-  const { data, loading, error, fetchData } = useAsync(() => getProducts());
-
-  useEffect(() => {
-    fetchData();
-  }, []);
+  const { data, isLoading, isError, error } = useQuery("products", getProducts);
 
   return (
     <ListContainer>
-      {loading && <div>Loading...</div>}
-      {error && <div>{error.message}</div>}
+      {isLoading && <div>Loading...</div>}
+      {isError && <div>{error.message}</div>}
       {data &&
         data.map((product) => {
           return (
