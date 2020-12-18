@@ -4,17 +4,15 @@ import ProductDetails from "../components/ProductDetails";
 import { getProductById } from "../utils/api";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
-import useFavorites from "../hooks/useFavorites";
 import useAsync from "../hooks/useAsync";
 
 export const DetailsPage = () => {
   const { id } = useParams();
-  const { data, error, loading, fetchData } = useAsync(() =>
-    getProductById(id)
-  );
+  const { data, error, loading, fetchData } = useAsync(getProductById, id);
+
   useEffect(() => {
     fetchData();
-  }, [id]);
+  }, [fetchData, id]);
 
   return (
     <>
