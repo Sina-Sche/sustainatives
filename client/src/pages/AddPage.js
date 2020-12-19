@@ -4,6 +4,7 @@ import NavBar from "../components/NavBar";
 import Input from "../components/Input";
 import CategoryList from "../components/CategoryList";
 import { ReactComponent as Add } from "../assets/icons/plus.svg";
+import PageWrapper from "../components/PageWrapper";
 
 const Container = styled.div`
   display: flex;
@@ -31,20 +32,22 @@ const AddIcon = styled(Add)`
 
 export const AddPage = () => {
   return (
-    <Container>
-      <Header title={"Add a SustainAtive"} />
-      <Input placeholder={"Enter Product Name"} />
-      <Input placeholder={"Enter Product URL"} />
-      <Input placeholder={"Enter Image URL"} />
-      <Input placeholder={"Add a description for your product"} />
-      <Subheader>
-        Choose the relevant categories for your product by clicking on them:
-      </Subheader>
-      <CategoryList />
-      <button>
-        <AddIcon />
-      </button>
-      <NavBar />
-    </Container>
+    <PageWrapper>
+      <Container>
+        <Header title={"Add a SustainAtive"} />
+        <Input placeholder={"Enter Product Name"} />
+        <Input placeholder={"Enter Product URL"} />
+        <Input placeholder={"Enter Image URL"} />
+        <Input placeholder={"Add a description for your product"} />
+        <Subheader>
+          Choose the relevant categories for your product by clicking on them:
+        </Subheader>
+        <CategoryList />
+        <button>
+          <AddIcon />
+        </button>
+        <NavBar />
+      </Container>
+    </PageWrapper>
   );
 };

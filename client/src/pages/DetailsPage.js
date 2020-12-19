@@ -5,6 +5,7 @@ import { getProductById } from "../utils/api";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import useAsync from "../hooks/useAsync";
+import PageWrapper from "../components/PageWrapper";
 
 export const DetailsPage = () => {
   const { id } = useParams();
@@ -15,13 +16,12 @@ export const DetailsPage = () => {
   }, [fetchData, id]);
 
   return (
-    <>
+    <PageWrapper>
       <Header title={"Discover"} />
       {loading && <div>Loading...</div>}
       {error && <div>{error.message}</div>}
       {data && <ProductDetails {...data} />}
-
       <NavBar />
-    </>
+    </PageWrapper>
   );
 };

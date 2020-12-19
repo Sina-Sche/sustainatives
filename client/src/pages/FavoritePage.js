@@ -4,6 +4,7 @@ import NavBar from "../components/NavBar";
 import useFavorites from "../hooks/useFavorites";
 import { getProductById } from "../utils/api";
 import { useEffect, useState } from "react";
+import PageWrapper from "../components/PageWrapper";
 
 export const FavoritePage = () => {
   const { toggleFavorite, favorites } = useFavorites("favorites", []);
@@ -20,7 +21,7 @@ export const FavoritePage = () => {
   }, [favorites]);
 
   return (
-    <>
+    <PageWrapper>
       <Header title={"Favorites"} />
       <h2>My favorite Products</h2>
       {favoriteData &&
@@ -37,6 +38,6 @@ export const FavoritePage = () => {
           );
         })}
       <NavBar />
-    </>
+    </PageWrapper>
   );
 };
