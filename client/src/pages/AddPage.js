@@ -4,6 +4,7 @@ import NavBar from "../components/NavBar";
 import Input from "../components/Input";
 import CategoryList from "../components/CategoryList";
 import { ReactComponent as Add } from "../assets/icons/plus.svg";
+import useActive from "../hooks/useActive";
 
 const Container = styled.div`
   display: flex;
@@ -30,6 +31,8 @@ const AddIcon = styled(Add)`
 `;
 
 export const AddPage = () => {
+  const { activeCategories, toggleActive } = useActive([]);
+
   return (
     <Container>
       <Header title={"Add a SustainAtive"} />
@@ -40,7 +43,10 @@ export const AddPage = () => {
       <Subheader>
         Choose the relevant categories for your product by clicking on them:
       </Subheader>
-      <CategoryList />
+      <CategoryList
+        activeCategories={activeCategories}
+        toggleActive={toggleActive}
+      />
       <button>
         <AddIcon />
       </button>

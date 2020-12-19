@@ -22,9 +22,14 @@ export async function getProductById(id) {
   const product = result.json();
   return product;
 }
-
 export async function getFavorites(favorites) {
   const promiseData = favorites.map(async (id) => getProductById(id));
   const newData = await Promise.all(promiseData);
   return newData;
+}
+
+export async function getProductsByCategory(categoryName) {
+  const result = await fetch(`/api/products?categories_like=${categoryName}`);
+  const products = result.json();
+  return products;
 }
