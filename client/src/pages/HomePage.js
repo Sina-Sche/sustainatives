@@ -6,6 +6,7 @@ import PropTypes from "prop-types";
 import { getRandomProduct } from "../utils/api";
 import { useQuery } from "react-query";
 import useFavorites from "../hooks/useFavorites";
+import PageWrapper from "../components/PageWrapper";
 
 export const HomePage = () => {
   const { toggleFavorite, favorites } = useFavorites("favorites", []);
@@ -21,7 +22,7 @@ export const HomePage = () => {
   );
 
   return (
-    <>
+    <PageWrapper>
       <Header title={"SustainAtives"} />
       {isLoading && <div>Loading...</div>}
       {isError && <div>{error.message}</div>}
@@ -34,7 +35,7 @@ export const HomePage = () => {
       )}
       <ProductList toggleFavorite={toggleFavorite} favorites={favorites} />
       <NavBar />
-    </>
+    </PageWrapper>
   );
 };
 

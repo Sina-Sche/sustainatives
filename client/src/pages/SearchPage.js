@@ -8,6 +8,7 @@ import { useState, useEffect } from "react";
 import { useQuery } from "react-query";
 import useFavorites from "../hooks/useFavorites";
 import useDebounce from "../hooks/useDebounce";
+import PageWrapper from "../components/PageWrapper";
 
 export const SearchPage = () => {
   const { favorites, toggleFavorite } = useFavorites("favorites", []);
@@ -30,7 +31,7 @@ export const SearchPage = () => {
   };
 
   return (
-    <>
+    <PageWrapper>
       <Header title={"Browse"} />
       <Input
         type={"search"}
@@ -56,6 +57,6 @@ export const SearchPage = () => {
       })}
 
       <NavBar />
-    </>
+    </PageWrapper>
   );
 };

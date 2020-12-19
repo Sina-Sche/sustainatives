@@ -3,9 +3,6 @@ import MenuIcon from "../assets/icons/menu.svg";
 import styled from "styled-components/macro";
 import LeafIcon from "../assets/icons/leaf.svg";
 import { useState } from "react";
-import SidebarData from "./Sidebar";
-import { Link } from "react-router-dom";
-import Sidebar from "./Sidebar";
 import SidebarPage from "../pages/SidebarPage";
 
 const HeaderContainer = styled.header`

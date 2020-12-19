@@ -2,6 +2,7 @@ import InfoBox from "../components/InfoBox";
 import Header from "../components/Header";
 import NavBar from "../components/NavBar";
 import useFavorites from "../hooks/useFavorites";
+import PageWrapper from "../components/PageWrapper";
 import { getFavorites } from "../utils/api";
 import { useEffect } from "react";
 import { useQuery } from "react-query";
@@ -18,7 +19,7 @@ export const FavoritePage = () => {
   }, [favorites, refetch]);
 
   return (
-    <>
+    <PageWrapper>
       <Header title={"Favorites"} />
       <h2>My favorite Products</h2>
       {isLoading && <div>Loading...</div>}
@@ -37,6 +38,6 @@ export const FavoritePage = () => {
           );
         })}
       <NavBar />
-    </>
+    </PageWrapper>
   );
 };

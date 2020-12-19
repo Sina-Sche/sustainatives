@@ -7,9 +7,12 @@ import { FavoritePage } from "./pages/FavoritePage";
 import { AddPage } from "./pages/AddPage";
 import { DetailsPage } from "./pages/DetailsPage";
 import styled from "styled-components/macro";
+import { SplashPage } from "./pages/SplashPage";
+import { useEffect, useState } from "react";
 
 const AppWrapper = styled.div`
   width: 100vw;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -18,6 +21,12 @@ const AppWrapper = styled.div`
 const queryClient = new QueryClient();
 
 function App() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => setLoading(false), 4100);
+  });
+
   return (
     <QueryClientProvider client={queryClient}>
       <AppWrapper>
@@ -25,7 +34,7 @@ function App() {
           <GlobalStyle />
           <Switch>
             <Route exact path="/">
-              <HomePage />
+              {loading ? <SplashPage /> : <HomePage />}
             </Route>
             <Route path="/search">
               <SearchPage />
