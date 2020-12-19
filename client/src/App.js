@@ -31,10 +31,6 @@ function App() {
           <Route exact path="/">
             {loading ? <SplashPage /> : <HomePage />}
           </Route>
-
-          <Route path="/splash">
-            <SplashPage />
-          </Route>
           <Route path="/search">
             <SearchPage />
           </Route>
