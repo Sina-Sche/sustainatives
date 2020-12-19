@@ -42,8 +42,8 @@ Image.propTypes = {
   image: PropTypes.string,
   title: PropTypes.string,
   size: PropTypes.oneOf(["small", "large"]),
-  id: PropTypes.number,
-  _id: PropTypes.number,
+  id: PropTypes.string,
+  _id: PropTypes.string,
   onClick: PropTypes.func,
   isFavorite: PropTypes.bool,
 };
