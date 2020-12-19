@@ -3,23 +3,28 @@ import ProductPreview from "../components/ProductPreview";
 import ProductList from "../components/ProductList";
 import NavBar from "../components/NavBar";
 import PropTypes from "prop-types";
-import useAsync from "../hooks/useAsync";
-import { useEffect } from "react";
 import { getRandomProduct } from "../utils/api";
+import { useQuery } from "react-query";
 import useFavorites from "../hooks/useFavorites";
 
 export const HomePage = () => {
   const { toggleFavorite, favorites } = useFavorites("favorites", []);
 
-  const { data, error, loading, fetchData } = useAsync(getRandomProduct);
-
-  useEffect(() => fetchData(), [fetchData]);
+  const { data, isLoading, isError, error } = useQuery(
+    "product",
+    getRandomProduct,
+    {
+      refetchOnMount: false,
+      refetchOnWindowFocus: false,
+      refetchOnReconnect: false,
+    }
+  );
 
   return (
     <>
       <Header title={"SustainAtives"} />
-      {loading && <div>Loading...</div>}
-      {error && <div>{error.message}</div>}
+      {isLoading && <div>Loading...</div>}
+      {isError && <div>{error.message}</div>}
       {data && (
         <ProductPreview
           {...data}
