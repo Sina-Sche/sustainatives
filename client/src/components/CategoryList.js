@@ -1,5 +1,6 @@
 import styled from "styled-components/macro";
 import icons from "../components/CategoryIcons";
+import PropTypes from "prop-types";
 
 const ListContainer = styled.ul`
   list-style: none;
@@ -15,11 +16,15 @@ const ListContainer = styled.ul`
   }
 `;
 
-export default function CategoryList() {
-  const activeCategories = [""];
+export default function CategoryList({ toggleActive, activeCategories }) {
   const CategoryList = Object.entries(icons).map(
     ([categoryName, { icon: Icon, label }]) => (
-      <li key={categoryName}>
+      <li
+        key={categoryName}
+        onClick={() => {
+          toggleActive(categoryName);
+        }}
+      >
         <Icon active={activeCategories.includes(categoryName)} />
         <p>{label}</p>
       </li>
@@ -27,3 +32,8 @@ export default function CategoryList() {
   );
   return <ListContainer>{CategoryList}</ListContainer>;
 }
+
+CategoryList.propTypes = {
+  toggleActive: PropTypes.func,
+  activeCategories: PropTypes.array,
+};
