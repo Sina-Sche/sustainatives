@@ -5,6 +5,7 @@ const {
   getProducts,
   getProductById,
   getProductsByTitle,
+  getProductsByCategory,
 } = require("./lib/products");
 
 const { connect } = require("./lib/database");
@@ -39,6 +40,17 @@ app.get("/api/products/browse/:title", async (request, response) => {
   } catch (error) {
     console.error(error);
     response.status(500).send("An internal server error occured");
+  }
+});
+
+app.get("/api/products/filter/:categoryName", async (request, response) => {
+  const { categoryName } = request.params;
+  try {
+    const products = await getProductsByCategory(categoryName);
+    response.json(products);
+  } catch (error) {
+    console.error(error);
+    response.status(500).send("An error occured");
   }
 });
 

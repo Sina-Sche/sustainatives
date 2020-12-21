@@ -29,7 +29,7 @@ export async function getFavorites(favorites) {
 }
 
 export async function getProductsByCategory(categoryName) {
-  const result = await fetch(`/api/products?categories_like=${categoryName}`);
+  const result = await fetch(`/api/products/filter/${categoryName}`);
   const products = result.json();
   return products;
 }
