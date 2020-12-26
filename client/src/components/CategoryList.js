@@ -5,6 +5,7 @@ import PropTypes from "prop-types";
 const ListContainer = styled.ul`
   list-style: none;
   display: grid;
+  margin: 20px 10px 0px;
   gap: 20px;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;

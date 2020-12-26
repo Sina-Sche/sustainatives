@@ -24,6 +24,13 @@ const InfoContainer = styled.div`
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
+  div {
+    display: flex;
+    justify-content: flex-end;
+  }
+  :first-child {
+    text-align: left;
+  }
 `;
 
 const ProductText = ({ display_title, price, description }) => {
@@ -31,7 +38,10 @@ const ProductText = ({ display_title, price, description }) => {
     <InfoContainer>
       <h3>{display_title}</h3>
       <p>{description}</p>
-      <h5>{price}</h5>
+      <div>
+        <h5>Waterdrop</h5>
+        <h5>{price}</h5>
+      </div>
     </InfoContainer>
   );
 };

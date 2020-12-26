@@ -8,7 +8,7 @@ const InfoContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-left: 10px;
+  padding-left: 20px;
   box-shadow: 0px 2px 2px -2px var(--icon-inactive-color);
   img {
     height: 150px;

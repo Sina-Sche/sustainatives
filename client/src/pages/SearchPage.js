@@ -4,7 +4,7 @@ import CategoryList from "../components/CategoryList";
 import NavBar from "../components/NavBar";
 import InfoBox from "../components/InfoBox";
 import { getProductsByCategory, getProductsByTitle } from "../utils/api";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useQuery } from "react-query";
 import useFavorites from "../hooks/useFavorites";
 import useDebounce from "../hooks/useDebounce";
@@ -47,16 +47,7 @@ export const SearchPage = () => {
     { enabled: false }
   );
 
-  useEffect(() => {
-    if (debouncedSearchTerm && activeCategories) {
-      filterByCategory();
-    }
-    if (debouncedSearchTerm) {
-      refetch();
-    }
-  }, [debouncedSearchTerm, refetch, activeCategories]);
-
-  const filterByCategory = async () => {
+  const filterByCategory = useCallback(async () => {
     if (activeCategories && data) {
       const product = data
         ?.filter((product) => {
@@ -75,7 +66,16 @@ export const SearchPage = () => {
       };
       filterAll();
     }
-  };
+  }, [activeCategories, data]);
+
+  useEffect(() => {
+    if (debouncedSearchTerm && activeCategories) {
+      filterByCategory();
+    }
+    if (debouncedSearchTerm) {
+      refetch();
+    }
+  }, [debouncedSearchTerm, refetch, activeCategories, filterByCategory]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
