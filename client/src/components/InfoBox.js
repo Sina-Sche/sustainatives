@@ -8,11 +8,12 @@ const InfoContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-left: 10px;
+  width: 95%;
+  margin: auto;
   box-shadow: 0px 2px 2px -2px var(--icon-inactive-color);
   img {
-    height: 150px;
-    width: 150px;
+    height: 130px;
+    width: 130px;
   }
 `;
 const InfoBox = (product, { onClick, isFavorite }) => {
