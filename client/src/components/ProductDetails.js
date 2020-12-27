@@ -36,13 +36,7 @@ const DetailsContainer = styled.div`
   img {
     border: 1px solid var(--icon-active-color);
   }
-  h6 {
-    color: var(--primary-color);
-    text-align: left;
-    margin-left: 10px;
-    margin-top: 10px;
-    margin-bottom: 0;
-  }
+
   a {
     align-self: flex-end;
     width: 40%;
@@ -96,7 +90,6 @@ const ProductDetails = (data) => {
         isFavorite={favorites.includes(data.id)}
       />
       <ProductDetailsContainer>
-        <h6>{data.company_name}</h6>
         <ProductText {...data} />
         <IconContainer>{productCategoryIcons}</IconContainer>
         <a href={data.url}>

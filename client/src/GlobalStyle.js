@@ -33,7 +33,7 @@ html, body {
   color: var(--info-text-color);
 }
 
-h1, h2, h3, h5, h6{
+h1, h2, h3, h4, h5, h6{
     font-family: 'LaurenPremier';
     font-size: 1.7rem;
     color: var(--secondary-color);

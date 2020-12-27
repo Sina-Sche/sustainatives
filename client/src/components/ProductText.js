@@ -10,7 +10,15 @@ const InfoContainer = styled.div`
   overflow: auto;
   h3 {
     align-self: flex-start;
+    margin: 0;
     padding: 0;
+  }
+  h6 {
+    text-align: left;
+    margin-bottom: 0;
+    align-self: flex-start;
+    padding: 0;
+    padding-top: 5px;
   }
   h5 {
     align-self: flex-end;
@@ -20,7 +28,7 @@ const InfoContainer = styled.div`
   p {
     color: var(--info-text-color);
     display: -webkit-box;
-    -webkit-line-clamp: 4;
+    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
@@ -33,13 +41,13 @@ const InfoContainer = styled.div`
   }
 `;
 
-const ProductText = ({ display_title, price, description }) => {
+const ProductText = ({ display_title, price, description, company_name }) => {
   return (
     <InfoContainer>
+      <h6>{company_name}</h6>
       <h3>{display_title}</h3>
       <p>{description}</p>
       <div>
-        <h5>Waterdrop</h5>
         <h5>{price}</h5>
       </div>
     </InfoContainer>
@@ -52,4 +60,5 @@ ProductText.propTypes = {
   display_title: PropTypes.string,
   price: PropTypes.string,
   description: PropTypes.string,
+  company_name: PropTypes.string,
 };
