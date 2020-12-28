@@ -1,9 +1,10 @@
 import PropTypes from "prop-types";
 import MenuIcon from "../assets/icons/menu.svg";
 import styled from "styled-components/macro";
-import LeafIcon from "../assets/icons/leaf.svg";
+import { ReactComponent as Leaf } from "../assets/icons/leaf.svg";
 import { useState } from "react";
 import SidebarPage from "../pages/SidebarPage";
+import { Link } from "react-router-dom";
 
 const HeaderContainer = styled.header`
   position: fixed;
@@ -19,6 +20,10 @@ const HeaderContainer = styled.header`
   img {
     height: 40px;
   }
+  svg {
+    height: 40px;
+    fill: var(--secondary-color);
+  }
 `;
 const Header = ({ title }) => {
   const [sidebar, setSidebar] = useState(false);
@@ -32,7 +37,9 @@ const Header = ({ title }) => {
           <img src={MenuIcon} alt="Menu" />
         </button>
         <h1>{title}</h1>
-        <img src={LeafIcon} alt="Leaf" />
+        <Link to={"/about"}>
+          <Leaf />
+        </Link>
       </HeaderContainer>
       <SidebarPage onClick={toggleSidebar} sidebar={sidebar} />
     </>

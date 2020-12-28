@@ -9,6 +9,7 @@ import { DetailsPage } from "./pages/DetailsPage";
 import styled from "styled-components/macro";
 import { SplashPage } from "./pages/SplashPage";
 import { useEffect, useState } from "react";
+import { AboutPage } from "./pages/AboutPage";
 
 const AppWrapper = styled.div`
   width: 100vw;
@@ -47,6 +48,9 @@ function App() {
             </Route>
             <Route path="/products/:id">
               <DetailsPage />
+            </Route>
+            <Route path="/about">
+              <AboutPage />
             </Route>
           </Switch>
         </Router>
