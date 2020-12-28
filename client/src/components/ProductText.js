@@ -5,8 +5,7 @@ const InfoContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin: 16px 16px;
-  width: 200px;
-  height: 150px;
+  width: 95%;
   overflow: auto;
   h3 {
     align-self: flex-start;
