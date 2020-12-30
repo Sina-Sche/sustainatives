@@ -1,49 +1,75 @@
 import Header from "../components/Header";
 import NavBar from "../components/NavBar";
 import PageWrapper from "../components/PageWrapper";
-import MottoImg from "../assets/images/reduce.jpg";
 import { useState } from "react";
 import CategoryList from "../components/CategoryList";
 import useActive from "../hooks/useActive";
+import styled from "styled-components/macro";
+import FAQComponent from "../components/FAQComponent";
+import CompanyCard from "../components/CompanyCard";
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  span {
+    margin: 15px;
+  }
+  button {
+    color: var(--secondary-color);
+  }
+`;
 
 export const AboutPage = () => {
-  const [visible, setVisible] = useState(false);
   const { activeCategories, toggleActive } = useActive();
+  const [visibleFAQ, setVisibleFAQ] = useState(false);
+  const [visibleCat, setVisibleCat] = useState(false);
+  const [visibleCom, setVisibleCom] = useState(false);
 
-  const handleClick = () => {
-    setVisible(!visible);
+  const handleFAQClick = () => {
+    setVisibleFAQ(!visibleFAQ);
+  };
+  const handleCatClick = () => {
+    setVisibleCat(!visibleCat);
+  };
+  const handleComClick = () => {
+    setVisibleCom(!visibleCom);
   };
   return (
     <PageWrapper>
       <Header title={"About"} />
-      <h2>What is a SustainAtive?</h2>
-      <span>
-        Here at SustainAtives, we think that using sustainable alternatives for
-        everyday products, is something everyone can do. Next time, you need
-        anything, why not quickly check here if there is a sustainable
-        alternative for what you are about to buy anyways. You will be surprised
-        how many options there are!
-      </span>
-      <h3>FAQ</h3>
-      <h6>What qualifies as a SustainAtive? </h6>
-      <img src={MottoImg} alt="Reduce,Reuse" height="150px" />
-      <button onClick={handleClick}>▶</button>
-      {visible && (
+      <Container>
+        <h2>What is a SustainAtive?</h2>
         <span>
-          In order for products to be qualified as SustainAtives we run them
-          across a set of rules and conditions. Their reusability, impact on
-          environment, where and how they are produced along with many other
-          facts are being checked in order to guarantee that the products
-          offered on this platform truly have a good impact all around. The
-          companies offering these products made the protection of the
-          environment, along with other great causes their top priority.
+          In short: A product that is <i>sustainable</i>, made from{" "}
+          <i>recycled materials</i> and produced by a company that has a{" "}
+          <i>positive impact on the environment.</i>
         </span>
-      )}
-      <CategoryList
-        activeCategories={activeCategories}
-        toggleActive={toggleActive}
-      />
 
+        <button onClick={handleCatClick}>
+          <h3>Product Categories ▶</h3>
+        </button>
+        {visibleCat && (
+          <CategoryList
+            activeCategories={activeCategories}
+            toggleActive={toggleActive}
+            onClick={() => {
+              alert("Click");
+            }}
+          />
+        )}
+        <button onClick={handleComClick}>
+          <h3>Supported Companies ▶</h3>
+        </button>
+        {visibleCom && (
+          <>
+            <CompanyCard />
+          </>
+        )}
+        <button onClick={handleFAQClick}>
+          <h3>FAQ ▶</h3>
+        </button>
+        {visibleFAQ && <FAQComponent />}
+      </Container>
       <NavBar />
     </PageWrapper>
   );

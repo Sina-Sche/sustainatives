@@ -24,6 +24,7 @@ const GlobalStyle = createGlobalStyle`
     --info-text-color:#565959;
     --font-size: 16px;
     --gradient: linear-gradient(120deg, #4d868c, #027368);     
+    --swiper-pagination-color: #027368
 }
 html, body { 
   font-size: 1rem;

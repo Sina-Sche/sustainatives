@@ -9,9 +9,9 @@ import { Link } from "react-router-dom";
 const HeaderContainer = styled.header`
   position: fixed;
   top: 0;
-  z-index: 1;
   height: 62px;
   width: 100%;
+  z-index: 1;
   background: var(--primary-color);
   border-bottom: 1px solid var(--icon-active-color);
   display: flex;
