@@ -2,6 +2,7 @@ import { ReactComponent as Home } from "../assets/icons/home.svg";
 import { ReactComponent as Search } from "../assets/icons/search.svg";
 import { ReactComponent as Plus } from "../assets/icons/plus.svg";
 import { ReactComponent as Heart } from "../assets/icons/heart.svg";
+import { ReactComponent as Leaf } from "../assets/icons/leaf.svg";
 import { Link } from "react-router-dom";
 import styled, { css } from "styled-components/macro";
 
@@ -20,6 +21,9 @@ const PlusIcon = styled(Plus)`
   ${NavIcon}
 `;
 const HeartIcon = styled(Heart)`
+  ${NavIcon}
+`;
+const LeafIcon = styled(Leaf)`
   ${NavIcon}
 `;
 
@@ -59,6 +63,10 @@ const Sidebar = () => {
       <Link to={"/favorites"}>
         <HeartIcon />
         <span>Favorites</span>
+      </Link>
+      <Link to={"/about"}>
+        <LeafIcon />
+        <span>About</span>
       </Link>
     </SidebarContainer>
   );
