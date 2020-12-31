@@ -12,7 +12,7 @@ export const FavoritePage = () => {
   const { toggleFavorite, favorites } = useFavorites("favorites", []);
   const { data, error, isError, isLoading, refetch } = useQuery(
     ["products", favorites],
-    () => getFavorites(favorites),
+    async () => await getFavorites(favorites),
     { keepPreviousData: true }
   );
 
