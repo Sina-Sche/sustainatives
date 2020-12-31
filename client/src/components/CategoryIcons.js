@@ -15,7 +15,7 @@ const createCategoryIcon = (Icon) => styled(Icon)`
     props.active ? "var(--icon-active-color)" : "var(--icon-inactive-color)"};
   + p {
     text-align: center;
-    font-size: 1rem;
+    font-size: 0.8rem;
     margin: 2px;
     color: ${(props) =>
       props.active ? "var(--icon-active-color)" : "var(--icon-inactive-color)"};

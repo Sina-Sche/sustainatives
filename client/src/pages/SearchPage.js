@@ -14,7 +14,7 @@ import { FilterButton } from "../components/Buttons";
 
 export const SearchPage = () => {
   const { favorites, toggleFavorite } = useFavorites("favorites", []);
-  const { activeCategories, toggleActive } = useActive([]);
+  const { activeCategories, setActiveCategories, toggleActive } = useActive([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [visible, setVisible] = useState(false);
   const [filterData, setFilterData] = useState("");
@@ -56,7 +56,6 @@ export const SearchPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    filterByCategory();
   };
   const handleChange = (e) => {
     setSearchTerm(e.target.value);
@@ -64,6 +63,15 @@ export const SearchPage = () => {
 
   const handleShow = () => {
     setVisible(!visible);
+  };
+
+  const handleFilterClick = () => {
+    filterByCategory();
+  };
+  const handleRemoveClick = () => {
+    setActiveCategories([]);
+    setSearchTerm("");
+    setFilterData("");
   };
 
   return (
@@ -79,18 +87,43 @@ export const SearchPage = () => {
       <FilterButton onClick={handleShow} />
 
       {visible && (
-        <CategoryList
-          visible={visible}
-          activeCategories={activeCategories}
-          toggleActive={toggleActive}
-        />
+        <>
+          <CategoryList
+            visible={visible}
+            activeCategories={activeCategories}
+            toggleActive={toggleActive}
+            onClick={handleFilterClick}
+          />
+          <button onClick={handleFilterClick}>Apply Filter</button>
+          <button onClick={handleRemoveClick}>Remove Filter</button>
+        </>
       )}
 
-      {searchTerm && <h2>Your search results for {searchTerm}</h2>}
+      {searchTerm && <h6>Your search results for {searchTerm}</h6>}
       {isLoading && <div>Loading...</div>}
       {isError && <div>{error.message}</div>}
-      {filterData.length > 0
-        ? filterData.map((product) => {
+      {activeCategories.length > 0 ? (
+        <>
+          <h6>Products related to {activeCategories}</h6>
+          {filterData.length > 0 ? (
+            filterData.map((product) => {
+              return (
+                <InfoBox
+                  key={product._id}
+                  size={"small"}
+                  {...product}
+                  onClick={() => toggleFavorite(product.id)}
+                  isFavorite={favorites.includes(product.id)}
+                />
+              );
+            })
+          ) : (
+            <div>We could not find any products related to this category</div>
+          )}
+        </>
+      ) : data ? (
+        data.length > 0 ? (
+          data.map((product) => {
             return (
               <InfoBox
                 key={product._id}
@@ -101,17 +134,12 @@ export const SearchPage = () => {
               />
             );
           })
-        : data?.map((product) => {
-            return (
-              <InfoBox
-                key={product._id}
-                size={"small"}
-                {...product}
-                onClick={() => toggleFavorite(product.id)}
-                isFavorite={favorites.includes(product.id)}
-              />
-            );
-          })}
+        ) : (
+          <div>Nothing found for your search</div>
+        )
+      ) : (
+        <div>Please type or filter</div>
+      )}
       <NavBar />
     </PageWrapper>
   );
