@@ -46,7 +46,11 @@ const Header = ({ title }) => {
           <Leaf />
         </Link>
       </HeaderContainer>
-      <SidebarPage onClick={toggleSidebar} sidebar={sidebar} />
+      <SidebarPage
+        onClick={toggleSidebar}
+        sidebar={sidebar}
+        setSidebar={setSidebar}
+      />
     </>
   );
 };

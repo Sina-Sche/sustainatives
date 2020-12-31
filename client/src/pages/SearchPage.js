@@ -89,33 +89,29 @@ export const SearchPage = () => {
       {searchTerm && <h2>Your search results for {searchTerm}</h2>}
       {isLoading && <div>Loading...</div>}
       {isError && <div>{error.message}</div>}
-      {filterData.length > 0 ? (
-        filterData.map((product) => {
-          return (
-            <InfoBox
-              key={product._id}
-              size={"small"}
-              {...product}
-              onClick={() => toggleFavorite(product.id)}
-              isFavorite={favorites.includes(product.id)}
-            />
-          );
-        })
-      ) : data ? (
-        data?.map((product) => {
-          return (
-            <InfoBox
-              key={product._id}
-              size={"small"}
-              {...product}
-              onClick={() => toggleFavorite(product.id)}
-              isFavorite={favorites.includes(product.id)}
-            />
-          );
-        })
-      ) : (
-        <p> Search for products by typing or by clicking a category </p>
-      )}
+      {filterData.length > 0
+        ? filterData.map((product) => {
+            return (
+              <InfoBox
+                key={product._id}
+                size={"small"}
+                {...product}
+                onClick={() => toggleFavorite(product.id)}
+                isFavorite={favorites.includes(product.id)}
+              />
+            );
+          })
+        : data?.map((product) => {
+            return (
+              <InfoBox
+                key={product._id}
+                size={"small"}
+                {...product}
+                onClick={() => toggleFavorite(product.id)}
+                isFavorite={favorites.includes(product.id)}
+              />
+            );
+          })}
       <NavBar />
     </PageWrapper>
   );
