@@ -20,6 +20,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.0",
     "styled-components": "^5.2.1",
+    "sweetalert2": "^10.12.6",
     "swiper": "^6.4.5",
     "web-vitals": "^0.2.4"
   },
