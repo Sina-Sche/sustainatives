@@ -3,40 +3,56 @@ import Input from "../components/Input";
 import CategoryList from "../components/CategoryList";
 import NavBar from "../components/NavBar";
 import InfoBox from "../components/InfoBox";
-import { getProductsByTitle } from "../utils/api";
-import { useState, useEffect } from "react";
+import { getProductsByCategory, getProductsByTitle } from "../utils/api";
+import { useState, useEffect, useCallback } from "react";
 import { useQuery } from "react-query";
 import useFavorites from "../hooks/useFavorites";
 import useDebounce from "../hooks/useDebounce";
 import PageWrapper from "../components/PageWrapper";
 import useActive from "../hooks/useActive";
 import { FilterButton } from "../components/Buttons";
-import useFilter from "../hooks/useFilter";
 
 export const SearchPage = () => {
   const { favorites, toggleFavorite } = useFavorites("favorites", []);
   const { activeCategories, toggleActive } = useActive([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [visible, setVisible] = useState(false);
-  const { filteredResults, setFilteredResults, filterByCategory } = useFilter(
-    []
-  );
+  const [filterData, setFilterData] = useState("");
   const debouncedSearchTerm = useDebounce(searchTerm, 400);
   const { data, isLoading, isError, error, refetch } = useQuery(
     ["products", debouncedSearchTerm],
     () => getProductsByTitle(debouncedSearchTerm),
-    { enabled: false }
+    { enabled: false, keepPreviousData: true }
   );
+  const filterByCategory = useCallback(async () => {
+    if (activeCategories && data) {
+      const product = data
+        ?.filter((product) => {
+          return product.categories.includes(activeCategories.toString());
+        })
+        .map((product) => {
+          return product;
+        });
+      setFilterData(product);
+      return product;
+    } else {
+      const filterAll = async () => {
+        const filterAllData = await getProductsByCategory(activeCategories);
+        setFilterData(filterAllData);
+        return filterData;
+      };
+      filterAll();
+    }
+  }, [activeCategories, data]);
 
   useEffect(() => {
     if (debouncedSearchTerm && activeCategories) {
-      filterByCategory(activeCategories);
-      setFilteredResults(filteredResults);
+      filterByCategory();
     }
     if (debouncedSearchTerm) {
       refetch();
     }
-  }, []);
+  }, [debouncedSearchTerm, activeCategories, refetch, filterByCategory]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -73,8 +89,8 @@ export const SearchPage = () => {
       {searchTerm && <h2>Your search results for {searchTerm}</h2>}
       {isLoading && <div>Loading...</div>}
       {isError && <div>{error.message}</div>}
-      {filteredResults &&
-        filteredResults.map((product) => {
+      {filterData.length > 0 ? (
+        filterData.map((product) => {
           return (
             <InfoBox
               key={product._id}
@@ -84,8 +100,8 @@ export const SearchPage = () => {
               isFavorite={favorites.includes(product.id)}
             />
           );
-        })}
-      {data &&
+        })
+      ) : data ? (
         data?.map((product) => {
           return (
             <InfoBox
@@ -96,7 +112,10 @@ export const SearchPage = () => {
               isFavorite={favorites.includes(product.id)}
             />
           );
-        })}
+        })
+      ) : (
+        <p> Search for products by typing or by clicking a category </p>
+      )}
       <NavBar />
     </PageWrapper>
   );
