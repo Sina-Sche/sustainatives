@@ -3,6 +3,7 @@ import Header from "../components/Header";
 import NavBar from "../components/NavBar";
 import useFavorites from "../hooks/useFavorites";
 import PageWrapper from "../components/PageWrapper";
+import NoFavorites from "../components/NoFavorites";
 import { getFavorites } from "../utils/api";
 import { useEffect } from "react";
 import { useQuery } from "react-query";
@@ -21,22 +22,28 @@ export const FavoritePage = () => {
   return (
     <PageWrapper>
       <Header title={"Favorites"} />
-      <h2>My favorite Products</h2>
+
       {isLoading && <div>Loading...</div>}
       {isError && <div>{error.message}</div>}
-      {data &&
-        data.map((product) => {
-          return (
-            <InfoBox
-              key={product.id}
-              id={product.id}
-              size={"small"}
-              {...product}
-              onClick={() => toggleFavorite(product.id)}
-              isFavorite={favorites.includes(product.id)}
-            />
-          );
-        })}
+      {favorites.length === 0 ? (
+        <NoFavorites />
+      ) : (
+        <>
+          <h2>My favorite Products</h2>
+          {data?.map((product) => {
+            return (
+              <InfoBox
+                key={product.id}
+                id={product.id}
+                size={"small"}
+                {...product}
+                onClick={() => toggleFavorite(product.id)}
+                isFavorite={favorites.includes(product.id)}
+              />
+            );
+          })}
+        </>
+      )}
       <NavBar />
     </PageWrapper>
   );
