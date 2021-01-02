@@ -26,7 +26,7 @@ export default function CategoryList({ toggleActive, activeCategories }) {
           toggleActive(categoryName);
         }}
       >
-        <Icon active={activeCategories.includes(categoryName)} />
+        <Icon $active={activeCategories.includes(categoryName)} />
         <p>{label}</p>
       </li>
     )

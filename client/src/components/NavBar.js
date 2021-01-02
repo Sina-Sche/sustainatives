@@ -22,7 +22,7 @@ const Icon = css`
   width: 40px;
   margin: 5px;
   fill: ${(props) =>
-    props.active ? `var(--icon-active-color)` : `var(--icon-inactive-color)`};
+    props.$active ? `var(--icon-active-color)` : `var(--icon-inactive-color)`};
 `;
 
 const HomeIcon = styled(Home)`
@@ -44,16 +44,16 @@ const NavBar = () => {
   return (
     <Footer>
       <Link to={"/"}>
-        <HomeIcon active={location.pathname === "/"} />
+        <HomeIcon $active={location.pathname === "/"} />
       </Link>
       <Link to={"/search"}>
-        <SearchIcon active={location.pathname === "/search"} />
+        <SearchIcon $active={location.pathname === "/search"} />
       </Link>
       <Link to={"/add"}>
-        <AddIcon active={location.pathname === "/add"} />
+        <AddIcon $active={location.pathname === "/add"} />
       </Link>
       <Link to={"/favorites"}>
-        <HeartIcon active={location.pathname === "/favorites"} />
+        <HeartIcon $active={location.pathname === "/favorites"} />
       </Link>
     </Footer>
   );

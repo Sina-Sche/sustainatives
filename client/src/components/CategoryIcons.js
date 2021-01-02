@@ -12,14 +12,16 @@ const createCategoryIcon = (Icon) => styled(Icon)`
   width: 50px;
   height: 50px;
   fill: ${(props) =>
-    props.active ? "var(--icon-active-color)" : "var(--icon-inactive-color)"};
+    props.$active ? "var(--icon-active-color)" : "var(--icon-inactive-color)"};
   + p {
     text-align: center;
     font-size: 0.8rem;
     margin: 2px;
     color: ${(props) =>
-      props.active ? "var(--icon-active-color)" : "var(--icon-inactive-color)"};
-    font-weight: ${(props) => (props.active ? "bold" : "none")};
+      props.$active
+        ? "var(--icon-active-color)"
+        : "var(--icon-inactive-color)"};
+    font-weight: ${(props) => (props.$active ? "bold" : "none")};
   }
 `;
 
