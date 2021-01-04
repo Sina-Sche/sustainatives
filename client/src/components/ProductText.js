@@ -1,10 +1,11 @@
 import styled from "styled-components/macro";
 import PropTypes from "prop-types";
+import icons from "./CategoryIcons";
 
 const InfoContainer = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 16px 16px;
+  margin: 10px 10px;
   width: 95%;
   overflow: auto;
   h3 {
@@ -14,15 +15,15 @@ const InfoContainer = styled.div`
   }
   h6 {
     text-align: left;
-    margin-bottom: 0;
+    margin: 0px;
     align-self: flex-start;
-    padding: 0;
-    padding-top: 5px;
+    padding: 20px 0px 0px;
   }
   h5 {
-    align-self: flex-end;
     margin-right: 15px;
     padding-top: 5px;
+    justify-self: flex-end;
+    align-self: flex-end;
   }
   p {
     color: var(--info-text-color);
@@ -33,22 +34,39 @@ const InfoContainer = styled.div`
   }
   div {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
   }
   :first-child {
     text-align: left;
   }
+  svg {
+    height: 20px;
+    width: 20px;
+    fill: var(--secondary-color);
+    margin: 5px 15px 0px 0px;
+    padding: 0px;
+  }
 `;
 
-const ProductText = ({ display_title, price, description, company_name }) => {
+const ProductText = ({
+  display_title,
+  price,
+  description,
+  company_name,
+  categories,
+  preview,
+}) => {
+  const productCategories = categories?.map((category) => icons[category]);
+  const productCategoryIcons = Object.entries(
+    productCategories
+  ).map(([categoryName, { icon: Icon }]) => <Icon key={categoryName} />);
   return (
     <InfoContainer>
       <h6>{company_name}</h6>
       <h3>{display_title}</h3>
       <p>{description}</p>
-      <div>
-        <h5>{price}</h5>
-      </div>
+      {preview && <div>{productCategoryIcons}</div>}
+      <h5>{price}</h5>
     </InfoContainer>
   );
 };
@@ -60,4 +78,6 @@ ProductText.propTypes = {
   price: PropTypes.string,
   description: PropTypes.string,
   company_name: PropTypes.string,
+  categories: PropTypes.array,
+  preview: PropTypes.bool,
 };
