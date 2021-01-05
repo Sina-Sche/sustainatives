@@ -8,12 +8,13 @@ const Button = styled.button`
   border: 1px solid var(--secondary-color);
   border-radius: 50px;
   background: var(--secondary-color);
-  width: 60%;
+  width: ${(props) => (props.size === "small" ? "30%" : "60%")};
   display: flex;
   padding: 10px;
   margin: 20px auto auto auto;
   line-height: 1;
   justify-content: center;
+  color: var(--primary-color);
   h3 {
     font-size: 1rem;
     color: var(--primary-color);
@@ -47,13 +48,26 @@ export const FilterButton = ({ onClick }) => {
   );
 };
 
+export const SmallButton = ({ title, onClick }) => {
+  return (
+    <Button size={"small"} onClick={onClick}>
+      {title}
+    </Button>
+  );
+};
+
 SearchButton.propTypes = {
-  title: PropTypes.string,
+  title: PropTypes.string.isRequired,
   onClick: PropTypes.func,
   Icon: PropTypes.string,
   search: PropTypes.bool,
 };
 
 FilterButton.propTypes = {
+  onClick: PropTypes.func,
+};
+
+SmallButton.propTypes = {
+  title: PropTypes.string.isRequired,
   onClick: PropTypes.func,
 };

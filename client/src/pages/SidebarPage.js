@@ -28,10 +28,10 @@ const Blur = styled.div`
   transition: opacity 0.3s ease-in-out;
 `;
 
-const SidebarPage = ({ sidebar, toggleSidebar }) => {
+const SidebarPage = ({ sidebar, toggleSidebar, setSidebar }) => {
   return (
     <>
-      <Blur sidebar={sidebar} />
+      <Blur sidebar={sidebar} onClick={() => setSidebar(!sidebar)} />
       <SidebarContainer sidebar={sidebar} onClick={toggleSidebar}>
         <Sidebar />
       </SidebarContainer>
@@ -44,4 +44,5 @@ export default SidebarPage;
 SidebarPage.propTypes = {
   sidebar: PropTypes.bool,
   toggleSidebar: PropTypes.func,
+  setSidebar: PropTypes.func,
 };

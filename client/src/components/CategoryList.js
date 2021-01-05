@@ -6,7 +6,6 @@ const ListContainer = styled.ul`
   list-style: none;
   display: grid;
   margin: 20px 10px 0px;
-  gap: 20px;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   justify-content: center;
@@ -14,6 +13,9 @@ const ListContainer = styled.ul`
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+  svg {
+    height: 30px;
   }
 `;
 
@@ -26,7 +28,7 @@ export default function CategoryList({ toggleActive, activeCategories }) {
           toggleActive(categoryName);
         }}
       >
-        <Icon active={activeCategories.includes(categoryName)} />
+        <Icon $active={activeCategories.includes(categoryName)} />
         <p>{label}</p>
       </li>
     )

@@ -14,15 +14,20 @@ const HeaderContainer = styled.header`
   z-index: 1;
   background: var(--primary-color);
   border-bottom: 1px solid var(--icon-active-color);
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  line-height: 1;
   align-items: center;
-  justify-content: space-around;
   img {
     height: 40px;
   }
   svg {
     height: 40px;
     fill: var(--secondary-color);
+  }
+  a {
+    margin-right: 10px;
+    text-align: right;
   }
 `;
 const Header = ({ title }) => {
@@ -41,7 +46,11 @@ const Header = ({ title }) => {
           <Leaf />
         </Link>
       </HeaderContainer>
-      <SidebarPage onClick={toggleSidebar} sidebar={sidebar} />
+      <SidebarPage
+        onClick={toggleSidebar}
+        sidebar={sidebar}
+        setSidebar={setSidebar}
+      />
     </>
   );
 };

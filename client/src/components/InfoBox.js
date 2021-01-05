@@ -8,7 +8,7 @@ const InfoContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 95%;
+  max-width: 95%;
   margin: auto;
   box-shadow: 0px 2px 2px -2px var(--icon-inactive-color);
   img {
@@ -26,7 +26,7 @@ const InfoBox = (product, { onClick, isFavorite }) => {
         {...product}
       />
       <Link to={`/products/${product.id}`}>
-        <ProductText {...product} />
+        <ProductText {...product} preview={true} />
       </Link>
     </InfoContainer>
   );

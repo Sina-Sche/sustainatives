@@ -11,7 +11,7 @@ const useActive = () => {
         (existingCategory) => existingCategory !== categoryName
       );
     } else {
-      newActiveCategories = [...activeCategories, categoryName];
+      newActiveCategories = [categoryName];
     }
 
     setActiveCategories(newActiveCategories);
