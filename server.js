@@ -69,7 +69,9 @@ app.post("/api/suggestions", async (request, response) => {
   const product = request.body;
   try {
     await postProductSuggestion(product);
-    response.send("Success");
+    response
+      .status(200)
+      .json("You successfully added a product suggestion! Thanks!");
   } catch (error) {
     console.error(error);
     response.status(500).send("Internal server error occured");
