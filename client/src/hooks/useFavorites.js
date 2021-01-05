@@ -19,7 +19,6 @@ const useFavorites = () => {
     const confirmDelete = async (favorite) => {
       const product = await getProductById(favorite);
       const productName = product.display_title;
-      console.log(productName);
       const result = await Swal.fire({
         title: `Remove ${productName} from your Favorites?`,
         background: "var(--primary-color)",
