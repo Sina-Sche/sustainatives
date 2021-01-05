@@ -3,6 +3,8 @@ import { ReactComponent as Add } from "../assets/icons/plus.svg";
 import PropTypes from "prop-types";
 import { useForm } from "react-hook-form";
 import { postProductSuggestion } from "../utils/api";
+import { useState } from "react";
+import { useHistory } from "react";
 
 const AddIcon = styled(Add)`
   height: 50px;
@@ -50,13 +52,15 @@ const Input = styled.input`
 
 const SuggestionForm = () => {
   const { register, handleSubmit, errors } = useForm();
+  const [message, setMessage] = useState("");
   const onSubmit = async (product) => {
     const result = await postProductSuggestion(product);
-    return result;
+    setMessage(result);
   };
   return (
     <>
       <Container>
+        {message && <div>{message}</div>}
         <h4>
           Do you know a product that qualifies as a SustainAtive that you could
           not find in our app?

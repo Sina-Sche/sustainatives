@@ -2,6 +2,7 @@ import styled from "styled-components/macro";
 import SwiperCore, { Navigation, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import MottoImg from "../assets/images/reduce.jpg";
+import Thanks from "../assets/images/thanks.png";
 import "swiper/swiper-bundle.css";
 
 const Img = styled.img`
@@ -44,7 +45,7 @@ const FAQComponent = () => {
       >
         <SwiperSlide key={1}>
           <Card>
-            <h6>What qualifies as a SustainAtive? </h6>
+            <h6>1. What qualifies as a SustainAtive? </h6>
             <Img src={MottoImg} alt="Reduce,Reuse" />
             <span>
               In order for products to be qualified as SustainAtives we run them
@@ -60,17 +61,33 @@ const FAQComponent = () => {
 
         <SwiperSlide key={2}>
           <Card>
-            <h6>What qualifies as a SustainAtive? </h6>
-            <Img src={MottoImg} alt="Reduce,Reuse" />
+            <h6>2. How can I add a SustainAtive </h6>
+            <Img src={Thanks} alt="Thanks for support" />
             <span>
-              In order for products to be qualified as SustainAtives we run
-              themacross a set of rules and conditions. Their reusability,
-              impact on environment, where and how they are produced along with
-              many other factsare being checked in order to guarantee that the
-              products offered onthis platform truly have a good impact all
-              around. The companiesoffering these products made the protection
-              of the environment, along with other great causes their top
-              priority.
+              To add a product to our collection of SustainAtives, you will
+              first have to send in a suggestion. You can do this, right above
+              the FAQs here on the About Page. The team will then review the
+              product and see if it definitely qualifies as a SustainAtive. If
+              so, we will fill in all the details and add the product to our
+              collection. Before you add a SustainAtive, please make sure that
+              the product is not yet available on here, by searching for it on
+              our Search Page.
+            </span>
+          </Card>
+        </SwiperSlide>
+        <SwiperSlide key={3}>
+          <Card>
+            <h6>2. How can I add a SustainAtive </h6>
+            <Img src={Thanks} alt="Thanks for support" />
+            <span>
+              To add a product to our collection of SustainAtives, you will
+              first have to send in a suggestion. You can do this, right above
+              the FAQs here on the About Page. The team will then review the
+              product and see if it definitely qualifies as a SustainAtive. If
+              so, we will fill in all the details and add the product to our
+              collection. Before you add a SustainAtive, please make sure that
+              the product is not yet available on here, by searching for it on
+              our Search Page.
             </span>
           </Card>
         </SwiperSlide>
