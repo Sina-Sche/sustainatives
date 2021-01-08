@@ -10,6 +10,7 @@ const {
 } = require("./lib/products");
 
 const { connect } = require("./lib/database");
+const { getAllProjects } = require("./lib/projects");
 const app = express();
 app.use(express.json());
 const port = process.env.PORT || 3600;
@@ -62,6 +63,16 @@ app.get("/api/products", async (request, response) => {
   } catch (error) {
     console.error(error);
     response.status(500).send("Unexpected server error");
+  }
+});
+
+app.get("/api/projects", async (request, response) => {
+  try {
+    const allProjects = await getAllProjects();
+    response.json(allProjects);
+  } catch (error) {
+    console.error(error);
+    response.status(500).send("Unexpected server error occured.");
   }
 });
 
