@@ -1,12 +1,8 @@
 import Header from "../components/Header";
 import NavBar from "../components/NavBar";
 import PageWrapper from "../components/PageWrapper";
-import { useState } from "react";
-import CategoryList from "../components/CategoryList";
 import useActive from "../hooks/useActive";
 import styled from "styled-components/macro";
-import FAQComponent from "../components/FAQComponent";
-import CompanyCard from "../components/CompanyCard";
 import ToggleVisibility from "../components/ToggleVisibility";
 
 const Container = styled.div`
