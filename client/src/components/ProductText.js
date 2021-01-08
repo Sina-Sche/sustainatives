@@ -56,7 +56,7 @@ const ProductText = ({
   categories,
   preview,
 }) => {
-  const productCategories = categories?.map((category) => icons[category]);
+  const productCategories = categories.map((category) => icons[category]);
   const productCategoryIcons = Object.entries(
     productCategories
   ).map(([categoryName, { icon: Icon }]) => <Icon key={categoryName} />);

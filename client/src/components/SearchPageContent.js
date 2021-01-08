@@ -9,6 +9,7 @@ import useDebounce from "../hooks/useDebounce";
 import useActive from "../hooks/useActive";
 import { FilterButton, SmallButton } from "../components/Buttons";
 import styled from "styled-components/macro";
+import icons from "./CategoryIcons";
 
 const ButtonContainer = styled.div`
   display: flex;
@@ -103,7 +104,9 @@ export const SearchPageContent = () => {
       {isError && <div>{error.message}</div>}
       {activeCategories.length > 0 ? (
         <>
-          <h6>Products related to the category: {activeCategories}</h6>
+          <h6>
+            Products related to the category: {icons[activeCategories].label}
+          </h6>
           {filterData.length > 0 ? (
             <>
               <SmallButton

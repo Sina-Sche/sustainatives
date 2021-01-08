@@ -6,6 +6,8 @@ import { ReactComponent as House } from "../assets/icons/household.svg";
 import { ReactComponent as Ocean } from "../assets/icons/ocean.svg";
 import { ReactComponent as Reuse } from "../assets/icons/reuse.svg";
 import { ReactComponent as Tree } from "../assets/icons/tree.svg";
+import Placeholder from "../assets/images/reduce.jpg";
+
 import styled from "styled-components/macro";
 
 const createCategoryIcon = (Icon) => styled(Icon)`
@@ -26,13 +28,20 @@ const createCategoryIcon = (Icon) => styled(Icon)`
 `;
 
 const icons = {
-  bamboo: { icon: createCategoryIcon(Bamboo), label: "Bamboo" },
-  travel: { icon: createCategoryIcon(Travel), label: "To go" },
+  bamboo: {
+    icon: createCategoryIcon(Bamboo),
+    label: "Bamboo",
+    description:
+      "There are several reasons, why products made out of bamboo count as sustainable:t is antibacterial, hypo-allergic, protective. Keeps gems and bacteria away. Also bamboo fiber protects against UV.One of the fastest growing plants. Matured without the help of insects or fertilizers. No chemicals attached! Another quality of bamboo products is that they are lasting! You will be enjoying them for long.",
+    img: Placeholder,
+    alt: "Bamboo",
+  },
+  travel: { icon: createCategoryIcon(Travel), label: "To go", alt: "Travel" },
   bathroom: { icon: createCategoryIcon(Bathroom), label: "Bathroom" },
   gifts: { icon: createCategoryIcon(Gifts), label: "Gifts" },
-  house: { icon: createCategoryIcon(House), label: "Household" },
+  household: { icon: createCategoryIcon(House), label: "Household" },
   ocean: { icon: createCategoryIcon(Ocean), label: "Save our oceans" },
-  reuse: { icon: createCategoryIcon(Reuse), label: "Reusable" },
+  reuse: { icon: createCategoryIcon(Reuse), label: "Reuse(d)" },
   tree: { icon: createCategoryIcon(Tree), label: "Plant a tree" },
 };
 

@@ -6,6 +6,7 @@ const {
   getProductById,
   getProductsByTitle,
   getProductsByCategory,
+  postProductSuggestion,
 } = require("./lib/products");
 
 const { connect } = require("./lib/database");
@@ -62,10 +63,23 @@ app.get("/api/products", async (request, response) => {
     console.error(error);
     response.status(500).send("Unexpected server error");
   }
-}),
-  app.get("*", (request, response) => {
-    response.sendFile(path.join(__dirname, "client/public", "index.html"));
-  });
+});
+
+app.post("/api/suggestions", async (request, response) => {
+  const product = request.body;
+  try {
+    await postProductSuggestion(product);
+    response
+      .status(200)
+      .json("You successfully added a product suggestion! Thanks!");
+  } catch (error) {
+    console.error(error);
+    response.status(500).send("Internal server error occured");
+  }
+});
+app.get("*", (request, response) => {
+  response.sendFile(path.join(__dirname, "client/public", "index.html"));
+});
 
 async function run() {
   console.log("On your way to the database...");

@@ -33,3 +33,17 @@ export async function getProductsByCategory(categoryName) {
   const products = result.json();
   return products;
 }
+
+export async function postProductSuggestion(product) {
+  try {
+    const response = await fetch(`/api/suggestions`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(product),
+    });
+    return await response.text();
+  } catch (error) {
+    console.error(error);
+    return error;
+  }
+}
