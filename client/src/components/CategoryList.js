@@ -19,13 +19,18 @@ const ListContainer = styled.ul`
   }
 `;
 
-export default function CategoryList({ toggleActive, activeCategories }) {
+export default function CategoryList({
+  toggleActive,
+  activeCategories,
+  onClick,
+}) {
   const CategoryList = Object.entries(icons).map(
     ([categoryName, { icon: Icon, label }]) => (
       <li
         key={categoryName}
         onClick={() => {
           toggleActive(categoryName);
+          onClick();
         }}
       >
         <Icon $active={activeCategories.includes(categoryName)} />
@@ -39,4 +44,5 @@ export default function CategoryList({ toggleActive, activeCategories }) {
 CategoryList.propTypes = {
   toggleActive: PropTypes.func,
   activeCategories: PropTypes.array,
+  onClick: PropTypes.func,
 };
