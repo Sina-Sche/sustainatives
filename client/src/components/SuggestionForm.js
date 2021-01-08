@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { useForm } from "react-hook-form";
 import { postProductSuggestion } from "../utils/api";
 import { useState } from "react";
-import { useHistory } from "react";
+import Swal from "sweetalert2";
 
 const AddIcon = styled(Add)`
   height: 50px;
@@ -26,6 +26,9 @@ const Container = styled.div`
   border-radius: 50px;
   border: 1px solid var(--secondary-color);
   padding: 10px;
+  h2 {
+    font-size: 0.8rem;
+  }
   h4 {
     font-size: 1.2rem;
   }
@@ -51,16 +54,22 @@ const Input = styled.input`
 `;
 
 const SuggestionForm = () => {
-  const { register, handleSubmit, errors } = useForm();
+  const { register, handleSubmit, errors, reset } = useForm();
   const [message, setMessage] = useState("");
+
   const onSubmit = async (product) => {
     const result = await postProductSuggestion(product);
     setMessage(result);
+    await Swal.fire({
+      title: message,
+      confirmButtonColor: "var(--secondary-color)",
+      width: "75%",
+    });
+    reset();
   };
   return (
     <>
       <Container>
-        {message && <div>{message}</div>}
         <h4>
           Do you know a product that qualifies as a SustainAtive that you could
           not find in our app?
