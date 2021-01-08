@@ -39,9 +39,9 @@ const icons = {
   travel: { icon: createCategoryIcon(Travel), label: "To go", alt: "Travel" },
   bathroom: { icon: createCategoryIcon(Bathroom), label: "Bathroom" },
   gifts: { icon: createCategoryIcon(Gifts), label: "Gifts" },
-  house: { icon: createCategoryIcon(House), label: "Household" },
+  household: { icon: createCategoryIcon(House), label: "Household" },
   ocean: { icon: createCategoryIcon(Ocean), label: "Save our oceans" },
-  reuse: { icon: createCategoryIcon(Reuse), label: "Reusable" },
+  reuse: { icon: createCategoryIcon(Reuse), label: "Reuse(d)" },
   tree: { icon: createCategoryIcon(Tree), label: "Plant a tree" },
 };
 
