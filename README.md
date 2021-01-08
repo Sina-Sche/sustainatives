@@ -1,7 +1,7 @@
 # SustainAtives
 
-SustainAtives - an app to find Sustainable Alternatives for everyday products
-Small actions can go a long way - so why not check if there is a sustainable alternative for the product you are about to buy and make a positive impact with your next purchase.
+SustainAtives - an app to find Sustainable Alternatives for everyday products.  
+Small actions can go a long way - so why not check if there is a sustainable alternative for the product you are about to buy and make a positive impact with your next purchase.  
 That is the idea of my App "SustainAtives" - where you can browse through sustainable products, search for specific items or filter by different categories. You will find the most important product details within the app, you can mark your favorites, to save them for later or visit the website of the product for your purchase or more information.
 
 ## Technologies:
