@@ -9,6 +9,7 @@ const Container = styled.div`
   justify-content: flex-end;
   position: relative;
   width: 100%;
+  padding-bottom: 15px;
   background-image: var(--gradient);
 
   > :last-child {
@@ -21,6 +22,7 @@ const Container = styled.div`
   }
   h2 {
     color: var(--primary-color);
+    margin-top: 0;
   }
 `;
 

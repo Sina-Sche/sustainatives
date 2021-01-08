@@ -50,6 +50,7 @@ const ProductDetailsContainer = styled.div`
   border-top-right-radius: 50px;
   border-bottom-left-radius: 50px;
   max-width: 800px;
+  margin: 10px;
 `;
 
 const Button = styled.button`
