@@ -1,6 +1,6 @@
 import { ReactComponent as Home } from "../assets/icons/home.svg";
 import { ReactComponent as Search } from "../assets/icons/search.svg";
-import { ReactComponent as Plus } from "../assets/icons/plus.svg";
+import { ReactComponent as Projects } from "../assets/icons/projects.svg";
 import { ReactComponent as Heart } from "../assets/icons/heart.svg";
 import { ReactComponent as Leaf } from "../assets/icons/leaf.svg";
 import { Link } from "react-router-dom";
@@ -17,7 +17,7 @@ const HomeIcon = styled(Home)`
 const SearchIcon = styled(Search)`
   ${NavIcon}
 `;
-const PlusIcon = styled(Plus)`
+const ProjectsIcon = styled(Projects)`
   ${NavIcon}
 `;
 const HeartIcon = styled(Heart)`
@@ -56,9 +56,9 @@ const Sidebar = () => {
         <SearchIcon />
         <span>Search</span>
       </Link>
-      <Link to={"/add"}>
-        <PlusIcon />
-        <span>Add a SustainAtive</span>
+      <Link to={"/projects"}>
+        <ProjectsIcon />
+        <span>Projects</span>
       </Link>
       <Link to={"/favorites"}>
         <HeartIcon />
