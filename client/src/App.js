@@ -10,6 +10,7 @@ import { SplashPage } from "./pages/SplashPage";
 import { useEffect, useState } from "react";
 import { AboutPage } from "./pages/AboutPage";
 import ProjectsPage from "./pages/ProjectsPage";
+import ScrollToTop from "./components/ScrollToTop";
 
 const AppWrapper = styled.div`
   width: 100vw;
@@ -32,6 +33,7 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <AppWrapper>
         <Router>
+          <ScrollToTop />
           <GlobalStyle />
           <Switch>
             <Route exact path="/">
