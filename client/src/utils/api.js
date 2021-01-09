@@ -34,6 +34,12 @@ export async function getProductsByCategory(categoryName) {
   return products;
 }
 
+export async function getProductsByCompanyName(companyName) {
+  const result = await fetch(`/api/products/more/${companyName}`);
+  const products = result.json();
+  return products;
+}
+
 export async function postProductSuggestion(product) {
   try {
     const response = await fetch(`/api/suggestions`, {

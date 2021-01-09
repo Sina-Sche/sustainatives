@@ -7,10 +7,12 @@ const {
   getProductsByTitle,
   getProductsByCategory,
   postProductSuggestion,
+  getProductsByCompanyName,
 } = require("./lib/products");
 
 const { connect } = require("./lib/database");
 const { getAllProjects } = require("./lib/projects");
+
 const app = express();
 app.use(express.json());
 const port = process.env.PORT || 3600;
@@ -53,6 +55,17 @@ app.get("/api/products/filter/:categoryName", async (request, response) => {
   } catch (error) {
     console.error(error);
     response.status(500).send("An error occured");
+  }
+});
+
+app.get("/api/products/more/:companyName", async (request, response) => {
+  const { companyName } = request.params;
+  try {
+    const products = await getProductsByCompanyName(companyName);
+    response.json(products);
+  } catch (error) {
+    console.error(error);
+    response.status(500).send("An internal error occured");
   }
 });
 
