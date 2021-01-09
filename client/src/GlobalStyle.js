@@ -68,6 +68,7 @@ a{
   text-decoration: none;
 }
 p{
+  color: var(--info-text-color);
   letter-spacing: 1;
   font-size: 1rem;
 }
