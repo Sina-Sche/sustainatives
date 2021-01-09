@@ -5,7 +5,7 @@ import { ReactComponent as FavIcon } from "../assets/icons/favorite.svg";
 
 const Button = styled.button`
   height: auto;
-  width: 20%;
+  width: 22%;
   position: absolute;
   right: 7%;
   top: 7%;

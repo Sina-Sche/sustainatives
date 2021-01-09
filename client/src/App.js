@@ -4,12 +4,12 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import { HomePage } from "./pages/HomePage";
 import { SearchPage } from "./pages/SearchPage";
 import { FavoritePage } from "./pages/FavoritePage";
-import { AddPage } from "./pages/AddPage";
 import { DetailsPage } from "./pages/DetailsPage";
 import styled from "styled-components/macro";
 import { SplashPage } from "./pages/SplashPage";
 import { useEffect, useState } from "react";
 import { AboutPage } from "./pages/AboutPage";
+import ProjectsPage from "./pages/ProjectsPage";
 
 const AppWrapper = styled.div`
   width: 100vw;
@@ -40,8 +40,8 @@ function App() {
             <Route path="/search">
               <SearchPage />
             </Route>
-            <Route path="/add">
-              <AddPage />
+            <Route path="/projects">
+              <ProjectsPage />
             </Route>
             <Route path="/favorites">
               <FavoritePage />

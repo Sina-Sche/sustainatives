@@ -9,9 +9,9 @@ const InfoContainer = styled.div`
   width: 95%;
   overflow: auto;
   h3 {
-    align-self: flex-start;
     margin: 0;
     padding: 0;
+    text-align: left;
   }
   h6 {
     text-align: left;
@@ -34,14 +34,14 @@ const InfoContainer = styled.div`
   }
   div {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
   }
   :first-child {
     text-align: left;
   }
   svg {
-    height: 20px;
-    width: 20px;
+    height: 25px;
+    width: 25px;
     fill: var(--secondary-color);
     margin: 5px 15px 0px 0px;
     padding: 0px;

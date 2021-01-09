@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { ReactComponent as Home } from "../assets/icons/home.svg";
 import { ReactComponent as Search } from "../assets/icons/search.svg";
-import { ReactComponent as Add } from "../assets/icons/plus.svg";
+import { ReactComponent as Projects } from "../assets/icons/projects.svg";
 import { ReactComponent as Heart } from "../assets/icons/heart.svg";
 import styled, { css } from "styled-components/macro";
 
@@ -31,7 +31,7 @@ const HomeIcon = styled(Home)`
 const SearchIcon = styled(Search)`
   ${Icon}
 `;
-const AddIcon = styled(Add)`
+const ProjectsIcon = styled(Projects)`
   ${Icon}
 `;
 const HeartIcon = styled(Heart)`
@@ -49,8 +49,8 @@ const NavBar = () => {
       <Link to={"/search"}>
         <SearchIcon $active={location.pathname === "/search"} />
       </Link>
-      <Link to={"/add"}>
-        <AddIcon $active={location.pathname === "/add"} />
+      <Link to={"/projects"}>
+        <ProjectsIcon $active={location.pathname === "/projects"} />
       </Link>
       <Link to={"/favorites"}>
         <HeartIcon $active={location.pathname === "/favorites"} />

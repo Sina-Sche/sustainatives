@@ -47,3 +47,9 @@ export async function postProductSuggestion(product) {
     return error;
   }
 }
+
+export async function getAllProjects() {
+  const result = await fetch(`api/projects`);
+  const products = result.json();
+  return products;
+}
