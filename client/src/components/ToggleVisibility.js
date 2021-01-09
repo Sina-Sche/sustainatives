@@ -4,7 +4,7 @@ import styled from "styled-components/macro";
 import CategoryList from "./CategoryList";
 import FAQComponent from "./FAQComponent";
 import SuggestionForm from "./SuggestionForm";
-import CategoryCard from "./ CategoryCard";
+import CategoryCard from "./CategoryCard";
 
 const Button = styled.button`
   border: 1px solid var(--secondary-color);
