@@ -5,6 +5,9 @@ import ProductText from "./ProductText";
 import icons from "./CategoryIcons";
 import useFavorites from "../hooks/useFavorites";
 import { ReactComponent as Visit } from "../assets/icons/go.svg";
+import { useEffect, useState } from "react";
+import { getProductsByCompanyName } from "../utils/api";
+import { Link } from "react-router-dom";
 
 const DetailsContainer = styled.div`
   width: 100%;
@@ -13,7 +16,6 @@ const DetailsContainer = styled.div`
   flex-direction: column;
   padding-top: 10px;
   align-items: center;
-  color: var(--primary-color);
   div {
     margin-top: 10px;
     min-width: 350px;
@@ -28,8 +30,8 @@ const DetailsContainer = styled.div`
   }
   p {
     color: var(--primary-color);
-    -webkit-line-clamp: 8;
-    margin: 0 5px 0;
+    -webkit-line-clamp: 15;
+    margin: 5px 5px 0;
   }
   img {
     border: 1px solid var(--secondary-color);
@@ -51,6 +53,13 @@ const ProductDetailsContainer = styled.div`
   border-bottom-left-radius: 50px;
   max-width: 800px;
   margin: 10px;
+  h4 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin: 15px;
+    padding: 0;
+    text-align: left;
+  }
 `;
 
 const Button = styled.button`
@@ -87,8 +96,36 @@ const IconContainer = styled.div`
   }
 `;
 
+const ImageContainer = styled.div`
+  display: flex;
+  max-width: 90vw;
+  flex-direction: row;
+  overflow: scroll;
+  a {
+    margin: 0 10px 0;
+  }
+  img {
+    background: var(--primary-color);
+    height: 150px;
+    border: none;
+    border-radius: 25px;
+  }
+`;
 const ProductDetails = (data) => {
+  const [otherProducts, setOtherProducts] = useState([]);
   const { favorites, toggleFavorite } = useFavorites("favorites", []);
+
+  useEffect(() => {
+    const getOtherProducts = async () => {
+      const otherProducts = await getProductsByCompanyName(data.company_name);
+      const filteredProducts = otherProducts.filter(
+        (product) => product.id !== data.id
+      );
+      setOtherProducts(filteredProducts);
+    };
+    getOtherProducts();
+  }, [data.company_name, data.id]);
+
   const productCategories = data.categories.map((category) => icons[category]);
   const productCategoryIcons = Object.entries(productCategories).map(
     ([categoryName, { icon: Icon, label }]) => (
@@ -110,6 +147,24 @@ const ProductDetails = (data) => {
       <ProductDetailsContainer>
         <ProductText {...data} />
         <IconContainer>{productCategoryIcons}</IconContainer>
+        {otherProducts.length > 0 && (
+          <>
+            <h4>More products by {data.company_name}</h4>
+            <ImageContainer>
+              {otherProducts.map((product) => (
+                <>
+                  <Link to={`/products/${product.id}`}>
+                    <img
+                      key={product._id}
+                      src={product.image}
+                      alt={product.display_title}
+                    />
+                  </Link>
+                </>
+              ))}
+            </ImageContainer>
+          </>
+        )}
         <a href={data.url}>
           <Button>
             <Visit />

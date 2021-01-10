@@ -7,7 +7,6 @@ import ProjectsCard from "../components/ProjectsCard";
 
 const ProjectsPage = () => {
   const { data } = useQuery(["projects"], async () => await getAllProjects());
-  console.log(data);
   return (
     <PageWrapper>
       <Header title={"Projects"} />
