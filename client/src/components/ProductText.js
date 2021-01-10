@@ -1,4 +1,3 @@
-import styled from "styled-components/macro";
 import PropTypes from "prop-types";
 import icons from "./CategoryIcons";
 import InfoContainer from "./ProductInfoContainer";

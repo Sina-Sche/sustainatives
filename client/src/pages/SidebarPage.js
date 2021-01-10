@@ -8,7 +8,7 @@ const SidebarContainer = styled.div`
   align-self: flex-start;
   border: none;
   height: 100vh;
-  width: 60%;
+  width: 50%;
   background-image: var(--gradient);
   position: fixed;
   left: ${(props) => (props.sidebar ? "0" : "-100%")};

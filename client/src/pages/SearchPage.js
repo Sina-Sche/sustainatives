@@ -6,7 +6,7 @@ import SearchPageContent from "../components/SearchPageContent";
 export const SearchPage = () => {
   return (
     <PageWrapper>
-      <Header title={"Browse"} />
+      <Header title={"Search"} />
       <SearchPageContent />
       <NavBar />
     </PageWrapper>
