@@ -49,7 +49,7 @@ export async function getProductsByCompanyName(companyName) {
 
 export async function postProductSuggestion(product) {
   try {
-    const response = await fetch(`/api/suggestions`, {
+    const response = await fetch(`/api/products/suggestions`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(product),
