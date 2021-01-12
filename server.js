@@ -3,6 +3,7 @@ const express = require("express");
 const path = require("path");
 const {
   getProducts,
+  getAllProducts,
   getProductById,
   getProductsByTitle,
   getProductsByCategory,
@@ -71,7 +72,17 @@ app.get("/api/products/more/:companyName", async (request, response) => {
 
 app.get("/api/products", async (request, response) => {
   try {
-    const allProducts = await getProducts();
+    const products = await getProducts();
+    response.json(products);
+  } catch (error) {
+    console.error(error);
+    response.status(500).send("Unexpected server error");
+  }
+});
+
+app.get("/api/products/all", async (request, response) => {
+  try {
+    const allProducts = await getAllProducts();
     response.json(allProducts);
   } catch (error) {
     console.error(error);
