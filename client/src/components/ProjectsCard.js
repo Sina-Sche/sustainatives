@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import styled from "styled-components/macro";
 import icons from "./CategoryIcons";
 import PropTypes from "prop-types";

@@ -1,11 +1,18 @@
 export async function getProducts() {
-  const result = await fetch("/api/products?_limit=8");
+  const result = await fetch("/api/products");
+  const products = result.json();
+  return products;
+}
+
+export async function getAllProducts() {
+  const result = await fetch("/api/products/all");
   const products = result.json();
   return products;
 }
 
 export async function getRandomProduct() {
-  const id = Math.floor(Math.random() * 8 + 1);
+  const numberOfProducts = await getAllProducts();
+  const id = Math.floor(Math.random() * numberOfProducts + 1);
   const result = await fetch(`/api/products/details/${id}`);
   const randomProduct = result.json();
   return randomProduct;
@@ -42,7 +49,7 @@ export async function getProductsByCompanyName(companyName) {
 
 export async function postProductSuggestion(product) {
   try {
-    const response = await fetch(`/api/suggestions`, {
+    const response = await fetch(`/api/products/suggestions`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(product),
