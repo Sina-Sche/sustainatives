@@ -23,9 +23,6 @@ export const AboutPage = () => {
     <PageWrapper>
       <Header title={"About"} />
       <Container>
-        <p>
-          👷🏽‍♀️👷🏽‍♂️👷🏽‍♀️<i>This site is still under construction </i>🏗🏗🏗
-        </p>
         <h2>What is a SustainAtive?</h2>
         <span>
           In short: A product that is <i>sustainable</i>, made from{" "}
