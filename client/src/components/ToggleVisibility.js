@@ -19,7 +19,7 @@ const Button = styled.button`
 
 const ToggleVisibility = ({ title, type, activeCategories, toggleActive }) => {
   const [visible, setVisible] = useState(false);
-  const [categoryCard, setCategoryCard] = useState(false);
+  const [categoryCard, setCategoryCard] = useState(true);
 
   const handleClick = () => {
     setVisible(!visible);
@@ -44,7 +44,7 @@ const ToggleVisibility = ({ title, type, activeCategories, toggleActive }) => {
           <CategoryList
             activeCategories={activeCategories}
             toggleActive={toggleActive}
-            onClick={handlePopupClick}
+            onClick={() => handlePopupClick}
           />
           {categoryCard && <CategoryCard activeCategories={activeCategories} />}
         </>

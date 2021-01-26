@@ -9,8 +9,13 @@ const Card = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  h6 {
+  margin: 20px;
+  h3 {
     color: var(--primary-color);
+  }
+  img {
+    height: auto;
+    border-radius: 10px;
   }
   span {
     color: var(--primary-color);
@@ -21,16 +26,18 @@ const Card = styled.div`
 const CategoryCard = ({ activeCategories }) => {
   const currentCategory = icons[activeCategories];
   return (
-    <Card>
-      <h6>{currentCategory?.label}</h6>
-      <img
-        src={currentCategory?.img}
-        alt={currentCategory?.alt}
-        height="150px"
-        width="150px"
-      />
-      <span>{currentCategory?.description}</span>
-    </Card>
+    activeCategories.length > 0 && (
+      <Card>
+        <h3>{currentCategory?.label}</h3>
+        <img
+          src={currentCategory?.img}
+          alt={currentCategory?.alt}
+          height="150px"
+          width="150px"
+        />
+        <span>{currentCategory?.description}</span>
+      </Card>
+    )
   );
 };
 
