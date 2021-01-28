@@ -14,6 +14,13 @@ const Container = styled.div`
   button {
     color: var(--secondary-color);
   }
+  @media only screen and (min-width: 945px) {
+    padding-left: 25%;
+    align-items: center;
+    button {
+      width: 35vw;
+    }
+  }
 `;
 
 export const AboutPage = () => {

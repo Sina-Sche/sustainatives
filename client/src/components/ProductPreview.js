@@ -20,9 +20,20 @@ const Container = styled.div`
     width: 100%;
     background: var(--primary-color);
   }
+
   h2 {
     color: var(--primary-color);
     margin-top: 0;
+  }
+  @media only screen and (min-width: 945px) {
+    padding-left: 25%;
+    svg {
+      height: 50px;
+    }
+    > :last-child {
+      max-width: 400px;
+      position: absolute;
+    }
   }
 `;
 

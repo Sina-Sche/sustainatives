@@ -25,6 +25,8 @@ const GlobalStyle = createGlobalStyle`
     --font-size: 16px;
     --gradient: linear-gradient(120deg, #4d868c, #027368);     
     --swiper-pagination-color: #027368
+
+
 }
 html, body { 
   font-size: 1rem;
@@ -32,6 +34,8 @@ html, body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: var(--info-text-color);
+  width: 100vw;
+  margin: auto;
 }
 
 h1, h2, h3, h4, h5, h6{

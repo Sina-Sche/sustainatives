@@ -15,6 +15,9 @@ const InfoContainer = styled.div`
     height: 130px;
     width: 130px;
   }
+  @media only screen and (min-width: 945px) {
+    padding: 0 10% 0 20%;
+  }
 `;
 const InfoBox = (product, { onClick, isFavorite }) => {
   return (

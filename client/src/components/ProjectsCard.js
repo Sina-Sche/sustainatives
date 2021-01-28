@@ -6,15 +6,20 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   margin: 20px auto;
-  width: 90%;
+  width: auto;
   justify-content: center;
   align-items: center;
   border: 1px solid var(--secondary-color);
   border-radius: 50px;
+  @media only screen and (min-width: 1235px) {
+    margin: 20px;
+    width: 350px;
+  }
+
   img {
     width: 280px;
     border-radius: 50px;
-    padding-top: 20px;
+    padding: 20px;
     margin: auto;
   }
   h3,

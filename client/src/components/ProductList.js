@@ -18,6 +18,9 @@ const ListContainer = styled.ul`
     min-width: 175px;
     min-height: 175px;
   }
+  @media only screen and (min-width: 945px) {
+    padding-left: 25%;
+  }
 `;
 
 const ProductList = ({ toggleFavorite, favorites }) => {
