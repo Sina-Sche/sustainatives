@@ -10,6 +10,9 @@ const InputContainer = styled.form`
   border-radius: 50px;
   display: flex;
   align-items: center;
+  @media only screen and (min-width: 945px) {
+    max-width: 80%;
+  }
   button {
     border: none;
     background: none;

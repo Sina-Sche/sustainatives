@@ -29,6 +29,11 @@ const HeaderContainer = styled.header`
     margin-right: 10px;
     text-align: right;
   }
+  @media only screen and (min-width: 945px) {
+    button {
+      visibility: hidden;
+    }
+  }
 `;
 const Header = ({ title }) => {
   const [sidebar, setSidebar] = useState(false);

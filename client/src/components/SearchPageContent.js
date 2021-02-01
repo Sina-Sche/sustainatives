@@ -16,6 +16,12 @@ const ButtonContainer = styled.div`
   margin-bottom: 10px;
 `;
 
+const Container = styled.div`
+  @media only screen and (min-width: 945px) {
+    padding-left: 25%;
+  }
+`;
+
 export const SearchPageContent = () => {
   const { favorites, toggleFavorite } = useFavorites("favorites", []);
   const { activeCategories, setActiveCategories, toggleActive } = useActive([]);
@@ -81,32 +87,35 @@ export const SearchPageContent = () => {
   };
   return (
     <>
-      <Input
-        type={"search"}
-        value={searchTerm}
-        onChange={handleChange}
-        onSubmit={handleSubmit}
-        placeholder={"What are you looking for?"}
-      />
-      <FilterButton onClick={handleShow} />
-      {visible && (
-        <>
-          <CategoryList
-            visible={visible}
-            activeCategories={activeCategories}
-            toggleActive={toggleActive}
-            onClick={handleFilterClick}
-          />
-        </>
-      )}
-      {searchTerm && <h6>Your search results for {searchTerm}</h6>}
-      {isLoading && <div>Loading...</div>}
-      {isError && <div>{error.message}</div>}
+      <Container>
+        <Input
+          type={"search"}
+          value={searchTerm}
+          onChange={handleChange}
+          onSubmit={handleSubmit}
+          placeholder={"What are you looking for?"}
+        />
+        <FilterButton onClick={handleShow} />
+        {visible && (
+          <>
+            <CategoryList
+              visible={visible}
+              activeCategories={activeCategories}
+              toggleActive={toggleActive}
+              onClick={handleFilterClick}
+            />
+          </>
+        )}
+        {searchTerm && <h6>Your search results for {searchTerm}</h6>}
+        {isLoading && <div>Loading...</div>}
+        {isError && <div>{error.message}</div>}
+      </Container>
       {activeCategories.length > 0 ? (
         <>
           <h6>
             Products related to the category: {icons[activeCategories].label}
           </h6>
+
           {filterData.length > 0 ? (
             <>
               <SmallButton

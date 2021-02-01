@@ -14,6 +14,12 @@ const SidebarContainer = styled.div`
   left: ${(props) => (props.sidebar ? "0" : "-100%")};
   transition: ${(props) => (props.sidebar ? "350ms" : "850ms")};
   z-index: 1;
+  @media only screen and (min-width: 945px) {
+    left: 0;
+    width: 20%;
+    z-index: 1;
+    border-right: 1px solid white;
+  }
 `;
 
 const Blur = styled.div`
@@ -26,6 +32,14 @@ const Blur = styled.div`
   ${({ sidebar }) =>
     !sidebar ? "opacity:0; visibility:hidden;" : "opacity:0.7;"};
   transition: opacity 0.3s ease-in-out;
+  @media only screen and (min-width: 945px) {
+    left: 0;
+    width: 20%;
+    backdrop-filter: none;
+    transition: none;
+    z-index: 1;
+    height: 100vh;
+  }
 `;
 
 const SidebarPage = ({ sidebar, toggleSidebar, setSidebar }) => {
